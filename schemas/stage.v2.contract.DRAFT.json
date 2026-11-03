@@ -1,0 +1,22 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "$id":"https://rafael-brothers.local/schema/stage-v2-DRAFT",
+ "title":"DESIGN ONLY: general production Stage v2 contract",
+ "$comment":"NOT loaded by StageV1 or Game. Mutation proof in M469 covers only optional StageV1 camera.bounds. Prototype has a separate executable schema.",
+ "type":"object","additionalProperties":false,
+ "required":["schemaVersion","stageId","world","terrain","spawn","exit","assets","backgrounds"],
+ "properties":{
+  "schemaVersion":{"const":"2.0.0-DRAFT"},"stageId":{"type":"string","minLength":1},
+  "world":{"$ref":"#/$defs/rect"},
+  "terrain":{"type":"object","required":["surfaces","pits"],"additionalProperties":false,"properties":{
+   "surfaces":{"type":"array","items":{"type":"object","required":["id","bounds","profileId"],"additionalProperties":false,"properties":{"id":{"type":"string"},"bounds":{"$ref":"#/$defs/rect"},"profileId":{"type":"string"}}}},
+   "pits":{"type":"array","items":{"type":"object","required":["id","startX","endX"],"additionalProperties":false,"properties":{"id":{"type":"string"},"startX":{"type":"number"},"endX":{"type":"number"}}}}
+  }},
+  "spawn":{"type":"object","required":["position","checkpointId","facing"],"additionalProperties":false,"properties":{"position":{"$ref":"#/$defs/point"},"checkpointId":{"type":"string"},"facing":{"enum":["left","right"]}}},
+  "exit":{"type":"object","required":["id","bounds","destinationStageId","requiredProgressIds"],"additionalProperties":false,"properties":{"id":{"type":"string"},"bounds":{"$ref":"#/$defs/rect"},"destinationStageId":{"type":"string"},"requiredProgressIds":{"type":"array","items":{"type":"string"},"uniqueItems":true}}},
+  "camera":{"type":"object","required":["bounds"],"additionalProperties":false,"properties":{"bounds":{"$ref":"#/$defs/rect"},"zoom":{"type":"number","exclusiveMinimum":0},"followPolicyId":{"type":"string"}}},
+  "assets":{"type":"array","items":{"type":"object","required":["id","path","type","owner"],"additionalProperties":false,"properties":{"id":{"type":"string"},"path":{"type":"string"},"type":{"enum":["image","atlas","audio"]},"owner":{"enum":["core","stage"]}}}},
+  "backgrounds":{"type":"array","items":{"type":"object","required":["id","assetId","depth","parallaxX","parallaxY"],"additionalProperties":false,"properties":{"id":{"type":"string"},"assetId":{"type":"string"},"depth":{"type":"number"},"parallaxX":{"type":"number"},"parallaxY":{"type":"number"}}}}
+ },
+ "$defs":{"point":{"type":"object","required":["x","y"],"additionalProperties":false,"properties":{"x":{"type":"number"},"y":{"type":"number"}}},"rect":{"type":"object","required":["x","y","width","height"],"additionalProperties":false,"properties":{"x":{"type":"number"},"y":{"type":"number"},"width":{"type":"number","exclusiveMinimum":0},"height":{"type":"number","exclusiveMinimum":0}}}}
+}

@@ -1,0 +1,1 @@
+const cp=require('child_process'),fs=require('fs');for(const name of ['gameplay','hazards','lifecycle']){const log=fs.openSync('evidence/m475-compat-'+name+'.log','w');const r=cp.spawnSync(process.execPath,['tests/m475-compat-'+name+'.cjs'],{stdio:['ignore',log,log],env:process.env});fs.closeSync(log);console.log(name,r.status);if(r.status!==0)process.exit(1)}

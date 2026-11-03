@@ -1,0 +1,9 @@
+const fs=require('fs'),path=require('path');const {boot,press,R}=require('./m476-harness.cjs');const checks=[];const check=(name,passed,details={})=>{checks.push({name,passed:!!passed,...details});console.log(passed?'PASS':'FAIL',name,details)};
+(async()=>{const {browser,page:p,errors}=await boot();try{
+ const art=await p.evaluate(()=>[...document.querySelectorAll('button')].find(v=>v.textContent.includes('Art:')).id);
+ await p.evaluate(id=>document.getElementById(id).click(),art);await p.waitForTimeout(150);let v=await p.evaluate(()=>({art:__RBArtEnabled,alpha:__game.scene.getScene('Game').backdrop.conceptArt.alpha,par:__RBForestParallax.snapshot()}));check('Art OFF hides original concept and all depth layers',!v.art&&v.alpha===0&&Object.values(v.par.sprites).every(s=>s.alpha===0),v);
+ await p.evaluate(()=>document.getElementById('rb-m46-parallax-toggle').click());await p.waitForTimeout(80);check('Depth toggle cannot unhide Art OFF concept',await p.evaluate(()=>__game.scene.getScene('Game').backdrop.conceptArt.alpha===0));
+ await p.evaluate(id=>document.getElementById(id).click(),art);await p.waitForTimeout(100);check('Art ON with Depth OFF restores original .88 opacity',await p.evaluate(()=>Math.abs(__game.scene.getScene('Game').backdrop.conceptArt.alpha-.88)<1e-9));
+ await p.evaluate(()=>document.getElementById('rb-m46-parallax-toggle').click());await p.waitForTimeout(80);check('Art ON Depth ON restores .69 composite opacity',await p.evaluate(()=>Math.abs(__game.scene.getScene('Game').backdrop.conceptArt.alpha-.69)<1e-9));check('no JS errors',!errors.length,{errors});
+ }finally{await browser.close();fs.writeFileSync(path.join(R,'evidence/m476-art-toggle.json'),JSON.stringify({identity:require('../scripts/m476-runtime-identity.cjs')(),checks},null,2));}process.exitCode=checks.every(v=>v.passed)?0:1;
+})().catch(e=>{console.error(e);process.exitCode=1});

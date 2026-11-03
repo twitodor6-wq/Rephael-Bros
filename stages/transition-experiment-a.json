@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "stageId": "transition-a",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "width": 640,
+    "height": 360
+  },
+  "spawn": {
+    "x": 64,
+    "y": 280
+  },
+  "exit": {
+    "x": 576,
+    "y": 280
+  },
+  "camera": {
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 360
+    }
+  },
+  "assets": [
+    "experiment-tile"
+  ],
+  "objects": [
+    {
+      "id": "platform-a",
+      "prefab": "experiment-platform",
+      "asset": "experiment-tile",
+      "x": 320,
+      "y": 320
+    }
+  ]
+}

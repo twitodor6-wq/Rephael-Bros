@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "M470 World Fixture — Stage v1 compatible terrain subdomain, isolated only",
+  "description": "Derived from Stage v1, with no production prefabs/modules; runtime consumed only by mountRBWorldFixture, not Stage01.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "stageId",
+    "title",
+    "world",
+    "objects",
+    "modules",
+    "camera"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "stageId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "world": {
+      "type": "object",
+      "required": [
+        "width",
+        "height",
+        "terrain",
+        "spawn",
+        "finish"
+      ],
+      "properties": {
+        "width": {
+          "type": "number",
+          "minimum": 100
+        },
+        "height": {
+          "type": "number",
+          "minimum": 100
+        },
+        "camera": {
+          "type": "object"
+        },
+        "spawn": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "finish": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "checkpoints": {
+          "type": "array"
+        },
+        "terrain": {
+          "type": "object",
+          "required": [
+            "surfaces",
+            "pits"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "surfaces": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "x",
+                  "y",
+                  "w",
+                  "h"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]+$"
+                  },
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  },
+                  "w": {
+                    "type": "number"
+                  },
+                  "h": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "pits": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "start",
+                  "end"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]+$"
+                  },
+                  "start": {
+                    "type": "number"
+                  },
+                  "end": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "objects": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "modules": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "backgrounds": {
+      "type": "object",
+      "properties": {
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "assetId"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "assetId": {
+                "type": "string"
+              },
+              "parallax": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "depth": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "atmosphere": {
+      "type": "object"
+    },
+    "challenges": {
+      "type": "array"
+    },
+    "triggers": {
+      "type": "array"
+    },
+    "animations": {
+      "type": "array"
+    },
+    "audio": {
+      "type": "array"
+    },
+    "difficulty": {
+      "type": "object"
+    },
+    "stageModules": {
+      "type": "object"
+    },
+    "camera": {
+      "type": "object",
+      "required": [
+        "bounds"
+      ],
+      "properties": {
+        "bounds": {
+          "type": "object",
+          "required": [
+            "x",
+            "y",
+            "width",
+            "height"
+          ],
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": 0
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "position": {
+      "type": "object",
+      "required": [
+        "x",
+        "y"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "size": {
+      "type": "object",
+      "required": [
+        "w",
+        "h"
+      ],
+      "properties": {
+        "w": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "h": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0.0",
+  "stageId": "fixture-sandbox",
+  "title": "Isolated terrain pit and exit fixture",
+  "world": {
+    "width": 900,
+    "height": 600,
+    "spawn": {
+      "x": 120,
+      "y": 440
+    },
+    "finish": {
+      "x": 770,
+      "y": 440
+    },
+    "terrain": {
+      "surfaces": [
+        {
+          "id": "ground-a",
+          "x": 0,
+          "y": 480,
+          "w": 310,
+          "h": 40
+        },
+        {
+          "id": "ground-b",
+          "x": 480,
+          "y": 480,
+          "w": 420,
+          "h": 40
+        }
+      ],
+      "pits": [
+        {
+          "id": "pit-a",
+          "start": 310,
+          "end": 480
+        }
+      ]
+    }
+  },
+  "camera": {
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 900,
+      "height": 600
+    }
+  },
+  "objects": [],
+  "modules": []
+}

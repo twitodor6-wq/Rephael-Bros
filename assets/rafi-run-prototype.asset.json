@@ -1,0 +1,194 @@
+{
+  "schema": "rafael-visual-sprites/v1",
+  "id": "rafi-run-prototype",
+  "version": "0.1.0",
+  "status": "prototype",
+  "characterId": "rafi",
+  "state": "run",
+  "enabledByDefault": true,
+  "assetPath": "assets/characters/rafi_run_12frames_4x3_PROTOTYPE.png",
+  "sha256": "bb937be331a50a2f11617f0f88fee065a93d74f6d192da6e83d885540edb8424",
+  "textureKey": "rb_rafi_run_prototype_v01",
+  "animationKey": "rb_rafi_run_prototype_v01_loop",
+  "width": 1280,
+  "height": 960,
+  "frameWidth": 320,
+  "frameHeight": 320,
+  "columns": 4,
+  "rows": 3,
+  "frames": 12,
+  "fps": 13.333333333333334,
+  "loop": true,
+  "render": {
+    "scale": 0.23,
+    "minSpeed": 18,
+    "maxGroundVerticalSpeed": 50,
+    "pivots": [
+      {
+        "x": 160,
+        "y": 312
+      },
+      {
+        "x": 160,
+        "y": 312
+      },
+      {
+        "x": 160,
+        "y": 289
+      },
+      {
+        "x": 160,
+        "y": 307
+      },
+      {
+        "x": 160,
+        "y": 311
+      },
+      {
+        "x": 160,
+        "y": 312
+      },
+      {
+        "x": 160,
+        "y": 312
+      },
+      {
+        "x": 160,
+        "y": 311
+      },
+      {
+        "x": 160,
+        "y": 294
+      },
+      {
+        "x": 160,
+        "y": 304
+      },
+      {
+        "x": 160,
+        "y": 312
+      },
+      {
+        "x": 160,
+        "y": 312
+      }
+    ]
+  },
+  "bounds": [
+    {
+      "frame": 0,
+      "xMin": 93,
+      "xMax": 249,
+      "yMin": 20,
+      "yMax": 311,
+      "width": 157,
+      "height": 292
+    },
+    {
+      "frame": 1,
+      "xMin": 70,
+      "xMax": 247,
+      "yMin": 14,
+      "yMax": 311,
+      "width": 178,
+      "height": 298
+    },
+    {
+      "frame": 2,
+      "xMin": 45,
+      "xMax": 272,
+      "yMin": 7,
+      "yMax": 288,
+      "width": 228,
+      "height": 282
+    },
+    {
+      "frame": 3,
+      "xMin": 43,
+      "xMax": 275,
+      "yMin": 12,
+      "yMax": 306,
+      "width": 233,
+      "height": 295
+    },
+    {
+      "frame": 4,
+      "xMin": 60,
+      "xMax": 243,
+      "yMin": 21,
+      "yMax": 310,
+      "width": 184,
+      "height": 290
+    },
+    {
+      "frame": 5,
+      "xMin": 95,
+      "xMax": 235,
+      "yMin": 27,
+      "yMax": 311,
+      "width": 141,
+      "height": 285
+    },
+    {
+      "frame": 6,
+      "xMin": 75,
+      "xMax": 231,
+      "yMin": 19,
+      "yMax": 311,
+      "width": 157,
+      "height": 293
+    },
+    {
+      "frame": 7,
+      "xMin": 60,
+      "xMax": 235,
+      "yMin": 15,
+      "yMax": 310,
+      "width": 176,
+      "height": 296
+    },
+    {
+      "frame": 8,
+      "xMin": 50,
+      "xMax": 262,
+      "yMin": 9,
+      "yMax": 293,
+      "width": 213,
+      "height": 285
+    },
+    {
+      "frame": 9,
+      "xMin": 52,
+      "xMax": 273,
+      "yMin": 13,
+      "yMax": 303,
+      "width": 222,
+      "height": 291
+    },
+    {
+      "frame": 10,
+      "xMin": 79,
+      "xMax": 239,
+      "yMin": 28,
+      "yMax": 311,
+      "width": 161,
+      "height": 284
+    },
+    {
+      "frame": 11,
+      "xMin": 120,
+      "xMax": 244,
+      "yMin": 29,
+      "yMax": 311,
+      "width": 125,
+      "height": 283
+    }
+  ],
+  "origin": "Supplied heuristic alpha extracted from lossy H264; no image edits in this POC",
+  "restrictions": [
+    "RUN only",
+    "Not production ready",
+    "Idle/jump/fall/tool/tape/Shaul use original view",
+    "No physics or hitbox changes"
+  ]
+}

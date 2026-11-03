@@ -1,0 +1,5 @@
+import {readFileSync,writeFileSync} from 'node:fs';import {spawnSync} from 'node:child_process';import {createHash} from 'node:crypto';
+const p='stages/s01.stage.json',original=readFileSync(p),s=JSON.parse(original);let result;
+try{s.objects.find(o=>o.id==='stable-root-extension').position.x=1275;writeFileSync(p,JSON.stringify(s,null,2)+'\n');const r=spawnSync(process.execPath,['build-m473.mjs'],{encoding:'utf8'});result={rejected:r.status!==0&&String(r.stderr).includes('Rope crossing QA gate: FAIL'),exit:r.status,output:r.stderr};if(!result.rejected)throw Error('unsafe anchor was not blocked');}
+finally{writeFileSync(p,original);}
+const r=spawnSync(process.execPath,['build-m473.mjs'],{encoding:'utf8'});if(r.status!==0)throw Error(r.stderr);result.restored=true;result.stageSha256=createHash('sha256').update(original).digest('hex');writeFileSync('evidence/m473-negative-build.json',JSON.stringify(result,null,2)+'\n');console.log('Unsafe x1275 rejected; x1230 restored byte-for-byte; rebuild PASS');

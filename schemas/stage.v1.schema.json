@@ -1,0 +1,909 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Rafael Brothers Stage Schema v1.0.0 \u2014 M4.7.3 additive",
+  "description": "Six executable prefab families. Additive Challenge and ropeCrossings declarations. Cross-object safety and reference checks in src/stage-loader.mjs; historical Stage v1 remains supported.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "stageId",
+    "title",
+    "world",
+    "objects",
+    "modules"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "stageId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "world": {
+      "type": "object",
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "number",
+          "minimum": 100
+        },
+        "height": {
+          "type": "number",
+          "minimum": 100
+        },
+        "camera": {
+          "type": "object"
+        },
+        "spawn": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "finish": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "checkpoints": {
+          "type": "array"
+        },
+        "terrain": {
+          "type": "object",
+          "required": [
+            "surfaces",
+            "pits"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "surfaces": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "x",
+                  "y",
+                  "w",
+                  "h"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]+$"
+                  },
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  },
+                  "w": {
+                    "type": "number"
+                  },
+                  "h": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "pits": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "start",
+                  "end"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]+$"
+                  },
+                  "start": {
+                    "type": "number"
+                  },
+                  "end": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "forestExtension": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "joinX",
+            "surfaces"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]+$"
+            },
+            "joinX": {
+              "type": "number",
+              "minimum": 0
+            },
+            "surfaces": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 8,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "x",
+                  "y",
+                  "w",
+                  "h"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]+$"
+                  },
+                  "x": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "w": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "prefab",
+          "position",
+          "properties"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]+$"
+          },
+          "prefab": {
+            "enum": [
+              "environmental-anchor",
+              "root-bridge",
+              "rotten-root",
+              "falling-bridge-tree",
+              "exit-grove",
+              "collapsing-platform"
+            ]
+          },
+          "position": {
+            "type": "object",
+            "required": [
+              "x",
+              "y"
+            ],
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          },
+          "properties": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "environmental-anchor"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "required": [
+                    "label",
+                    "kind",
+                    "strength",
+                    "group",
+                    "enabledFlag",
+                    "collapseOutcome"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "root-bridge"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "required": [
+                    "size",
+                    "brokenLeft",
+                    "brokenRight",
+                    "pit"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "rotten-root"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "required": [
+                    "size",
+                    "anchorId",
+                    "standingWarnMs",
+                    "tapeWarnMs",
+                    "warningMs",
+                    "tensionRatio",
+                    "fallY",
+                    "safeFloorW",
+                    "cameraShake"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "falling-bridge-tree"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "required": [
+                    "anchor",
+                    "stubOffset",
+                    "stubSize",
+                    "bridgeOffset",
+                    "bridgeSize",
+                    "pitSource",
+                    "warningMs",
+                    "standMs",
+                    "pullMs",
+                    "pullRatio"
+                  ],
+                  "properties": {
+                    "motion": {
+                      "type": "object",
+                      "required": [
+                        "breakMs",
+                        "fallMs",
+                        "settleMs",
+                        "hookDistance",
+                        "minRemainingGap"
+                      ],
+                      "properties": {
+                        "breakMs": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "fallMs": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "settleMs": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "hookDistance": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "minRemainingGap": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "hammer": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "enabled"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "exit-grove"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "required": [
+                    "endOffsetX",
+                    "minFootOffsetY",
+                    "requiresRottenLedge"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "collapsing-platform"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "type": "object",
+                  "required": [
+                    "size",
+                    "variant",
+                    "trigger",
+                    "standingMs",
+                    "warningMs",
+                    "outcome",
+                    "anchorRefs"
+                  ],
+                  "properties": {
+                    "size": {
+                      "$ref": "#/$defs/size"
+                    },
+                    "variant": {
+                      "enum": [
+                        "stable-log",
+                        "rotten-log",
+                        "crumbling-bridge"
+                      ]
+                    },
+                    "trigger": {
+                      "const": "stand"
+                    },
+                    "standingMs": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "warningMs": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "outcome": {
+                      "const": "remove"
+                    },
+                    "anchorRefs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "category",
+          "label",
+          "element",
+          "flag",
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "element": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "flag": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "state": {
+            "enum": [
+              "active",
+              "built-in",
+              "planned"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "defaultOn": {
+            "type": "boolean"
+          },
+          "spec": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "backgrounds": {
+      "type": "object",
+      "properties": {
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "assetId"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "assetId": {
+                "type": "string"
+              },
+              "parallax": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "depth": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "motionSource": {
+          "const": "camera"
+        },
+        "smoothing": {
+          "const": "none"
+        },
+        "webResponse": {
+          "type": "object",
+          "required": [
+            "anchor",
+            "maxDeflection",
+            "responseHz"
+          ],
+          "properties": {
+            "anchor": {
+              "$ref": "#/$defs/position"
+            },
+            "maxDeflection": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "responseHz": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 30
+            },
+            "role": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "atmosphere": {
+      "type": "object"
+    },
+    "challenges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/challenge"
+      }
+    },
+    "triggers": {
+      "type": "array"
+    },
+    "animations": {
+      "type": "array"
+    },
+    "audio": {
+      "type": "array"
+    },
+    "difficulty": {
+      "type": "object"
+    },
+    "stageModules": {
+      "type": "object"
+    },
+    "camera": {
+      "type": "object",
+      "required": [
+        "bounds"
+      ],
+      "properties": {
+        "bounds": {
+          "type": "object",
+          "required": [
+            "x",
+            "y",
+            "width",
+            "height"
+          ],
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": 0
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ropeCrossings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "leftSurfaceId",
+          "rightSurfaceId",
+          "anchorId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "const": "tape-crossing"
+          },
+          "leftSurfaceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rightSurfaceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "anchorId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "guidance": {
+      "type": "object",
+      "required": [
+        "name",
+        "hints",
+        "areas"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "hints": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "x",
+              "text"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "x": {
+                "type": "number",
+                "minimum": 0
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              }
+            }
+          }
+        },
+        "areas": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "x",
+              "name",
+              "subtitle"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 50
+              },
+              "subtitle": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "position": {
+      "type": "object",
+      "required": [
+        "x",
+        "y"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "size": {
+      "type": "object",
+      "required": [
+        "w",
+        "h"
+      ],
+      "properties": {
+        "w": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "h": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "challenge": {
+      "type": "object",
+      "required": [
+        "challengeId",
+        "schemaVersion",
+        "learningRole",
+        "difficulty",
+        "instances",
+        "requiredSkills",
+        "entry",
+        "exit",
+        "solutions",
+        "recovery",
+        "warningTiming",
+        "dynamicStateAssumptions",
+        "qaEvidence"
+      ],
+      "properties": {
+        "challengeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaVersion": {
+          "const": "1.0.0"
+        },
+        "learningRole": {
+          "enum": [
+            "teach",
+            "practice",
+            "combine",
+            "mastery"
+          ]
+        },
+        "difficulty": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "instances": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "requiredSkills": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "entry": {
+          "$ref": "#/$defs/position"
+        },
+        "exit": {
+          "$ref": "#/$defs/position"
+        },
+        "solutions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "recovery": {
+          "type": "object"
+        },
+        "warningTiming": {
+          "type": "object"
+        },
+        "dynamicStateAssumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qaEvidence": {
+          "type": "object"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

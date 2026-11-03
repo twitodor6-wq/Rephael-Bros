@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {validateRopeCrossingSafety as validate} from '../src/validation/rope-crossing-safety.mjs';
+const fixture=()=>JSON.parse(readFileSync('stages/fixtures/m472-a.json'));
+test('one-way top does not block upward reel but identical full solid still blocks',()=>{const s=fixture();const c=s.crossings[0],bank=s.surfaces.find(b=>b.id===c.leftSurfaceId),right=s.surfaces.find(b=>b.id===c.rightSurfaceId);s.surfaces.push({id:'oneway-deck',x:bank.x+bank.w,y:bank.y,w:right.x-bank.x-bank.w,h:14,role:'obstacle',enabled:true,collisionPolicy:'one-way-top'});assert.equal(validate(s).status,'PASS');delete s.surfaces.at(-1).collisionPolicy;assert.equal(validate(s).status,'FAIL')});

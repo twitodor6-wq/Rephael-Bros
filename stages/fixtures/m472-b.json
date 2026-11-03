@@ -1,0 +1,54 @@
+{
+  "schema": "rafael-crossing-fixture/v1",
+  "world": {
+    "width": 900,
+    "height": 660
+  },
+  "surfaces": [
+    {
+      "id": "bank-a",
+      "x": 10,
+      "y": 470,
+      "w": 400,
+      "h": 190
+    },
+    {
+      "id": "bank-b",
+      "x": 510,
+      "y": 470,
+      "w": 390,
+      "h": 190
+    }
+  ],
+  "anchors": [
+    {
+      "id": "hook",
+      "x": 460,
+      "y": 215,
+      "active": true
+    }
+  ],
+  "profiles": [
+    {
+      "id": "rafi",
+      "width": 28,
+      "height": 64
+    },
+    {
+      "id": "shaul",
+      "width": 28,
+      "height": 74
+    }
+  ],
+  "tape": {
+    "maxLength": 425
+  },
+  "crossings": [
+    {
+      "id": "next-stage-crossing",
+      "leftSurfaceId": "bank-a",
+      "rightSurfaceId": "bank-b",
+      "anchorId": "hook"
+    }
+  ]
+}

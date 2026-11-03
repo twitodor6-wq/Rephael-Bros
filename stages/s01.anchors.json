@@ -1,0 +1,120 @@
+{
+  "schema": "rafael-stage-anchors/v1",
+  "stage": "s01",
+  "world": {
+    "width": 3020,
+    "height": 660,
+    "forestExtension": {
+      "id": "root-trail-extension",
+      "joinX": 976,
+      "surfaces": [
+        {
+          "id": "east-bank-root-path",
+          "x": 976,
+          "y": 490,
+          "w": 214,
+          "h": 170
+        },
+        {
+          "id": "last-root-clearing",
+          "x": 1270,
+          "y": 490,
+          "w": 590,
+          "h": 170
+        },
+        {
+          "id": "learning-recovery",
+          "x": 1860,
+          "y": 630,
+          "w": 480,
+          "h": 30
+        },
+        {
+          "id": "combine-entry-bank",
+          "x": 2340,
+          "y": 490,
+          "w": 110,
+          "h": 170
+        },
+        {
+          "id": "combine-exit-bank",
+          "x": 2790,
+          "y": 490,
+          "w": 210,
+          "h": 170
+        }
+      ]
+    }
+  },
+  "anchors": [
+    {
+      "label": "Living tree · first clearing",
+      "kind": "tree",
+      "strength": "stable",
+      "group": "tree",
+      "enabledFlag": null,
+      "collapseOutcome": "none",
+      "mountY": -16,
+      "id": "stable-tree-start",
+      "x": 105,
+      "y": 250
+    },
+    {
+      "label": "Living bridge · far-bank root shelf",
+      "kind": "bridge",
+      "strength": "stable",
+      "group": "bridge",
+      "enabledFlag": "__RBRootBridgesEnabled",
+      "collapseOutcome": "none",
+      "id": "stable-root-bridge",
+      "x": 790,
+      "y": 350
+    },
+    {
+      "label": "Hollow tree · fragile hook",
+      "kind": "tree",
+      "strength": "fragile",
+      "group": "tree",
+      "enabledFlag": "__RBRottenRootEnabled",
+      "collapseOutcome": "fallen-log",
+      "id": "rotten-root",
+      "x": 920,
+      "y": 330
+    },
+    {
+      "label": "Rotten fallen branch · partial pit bridge",
+      "kind": "tree",
+      "strength": "fragile",
+      "group": "tree",
+      "enabledFlag": "__RBFallingBridgeEnabled",
+      "collapseOutcome": "bridge-fragment",
+      "id": "fallen-bridge-tree",
+      "x": 350,
+      "y": 416
+    },
+    {
+      "label": "Living root · extension gap",
+      "kind": "tree",
+      "strength": "stable",
+      "group": "tree",
+      "enabledFlag": null,
+      "collapseOutcome": "none",
+      "mountY": -16,
+      "id": "stable-root-extension",
+      "x": 1230,
+      "y": 260
+    },
+    {
+      "label": "Living root · crumbling bridge rescue",
+      "kind": "tree",
+      "strength": "stable",
+      "group": "tree",
+      "enabledFlag": null,
+      "collapseOutcome": "none",
+      "mountY": -16,
+      "id": "combine-rescue-anchor",
+      "x": 2620,
+      "y": 240
+    }
+  ]
+}

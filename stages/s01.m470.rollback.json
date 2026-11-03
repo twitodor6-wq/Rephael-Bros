@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "1.0.0",
+  "stageId": "s01",
+  "title": "Stage 01 · Forest / Spider Swamp",
+  "world": {
+    "width": 976,
+    "height": 660
+  },
+  "objects": [
+    {
+      "id": "stable-tree-start",
+      "prefab": "environmental-anchor",
+      "position": {
+        "x": 105,
+        "y": 250
+      },
+      "properties": {
+        "label": "Living tree · first clearing",
+        "kind": "tree",
+        "strength": "stable",
+        "group": "tree",
+        "enabledFlag": null,
+        "collapseOutcome": "none"
+      }
+    },
+    {
+      "id": "stable-root-bridge",
+      "prefab": "environmental-anchor",
+      "position": {
+        "x": 790,
+        "y": 350
+      },
+      "properties": {
+        "label": "Living bridge · far-bank root shelf",
+        "kind": "bridge",
+        "strength": "stable",
+        "group": "bridge",
+        "enabledFlag": "__RBRootBridgesEnabled",
+        "collapseOutcome": "none"
+      }
+    },
+    {
+      "id": "rotten-root",
+      "prefab": "environmental-anchor",
+      "position": {
+        "x": 920,
+        "y": 330
+      },
+      "properties": {
+        "label": "Hollow tree · fragile hook",
+        "kind": "tree",
+        "strength": "fragile",
+        "group": "tree",
+        "enabledFlag": "__RBRottenRootEnabled",
+        "collapseOutcome": "fallen-log"
+      }
+    },
+    {
+      "id": "fallen-bridge-tree",
+      "prefab": "falling-bridge-tree",
+      "position": {
+        "x": 205,
+        "y": 185
+      },
+      "properties": {
+        "anchor": {
+          "label": "Rotten fallen branch · partial pit bridge",
+          "kind": "tree",
+          "strength": "fragile",
+          "group": "tree",
+          "enabledFlag": "__RBFallingBridgeEnabled",
+          "collapseOutcome": "bridge-fragment"
+        },
+        "stubOffset": {
+          "x": 101,
+          "y": 300
+        },
+        "stubSize": {
+          "w": 48,
+          "h": 5
+        },
+        "bridgeOffset": {
+          "x": 141,
+          "y": 274
+        },
+        "bridgeSize": {
+          "w": 166,
+          "h": 13
+        },
+        "pitSource": "living-root-shelf",
+        "warningMs": 1700,
+        "standMs": 580,
+        "pullMs": 260,
+        "pullRatio": 0.986
+      }
+    },
+    {
+      "id": "living-root-shelf",
+      "prefab": "root-bridge",
+      "position": {
+        "x": 718,
+        "y": 399
+      },
+      "properties": {
+        "size": {
+          "w": 169,
+          "h": 15
+        },
+        "brokenLeft": {
+          "x": 355,
+          "y": 501,
+          "w": 125
+        },
+        "brokenRight": {
+          "x": 583,
+          "y": 501,
+          "w": 137
+        },
+        "pit": {
+          "start": 370,
+          "end": 706
+        }
+      }
+    },
+    {
+      "id": "rotten-root-ledge",
+      "prefab": "rotten-root",
+      "position": {
+        "x": 858,
+        "y": 378
+      },
+      "properties": {
+        "size": {
+          "w": 88,
+          "h": 12
+        },
+        "anchorId": "rotten-root",
+        "standingWarnMs": 650,
+        "tapeWarnMs": 260,
+        "warningMs": 1800,
+        "tensionRatio": 0.985,
+        "fallY": 484,
+        "safeFloorW": 120,
+        "maxAudioVoices": 4,
+        "cameraShake": 120
+      }
+    },
+    {
+      "id": "forest-exit-grove",
+      "prefab": "exit-grove",
+      "position": {
+        "x": 916,
+        "y": 455
+      },
+      "properties": {
+        "endOffsetX": 30,
+        "minFootOffsetY": -15,
+        "requiresRottenLedge": "rotten-root-ledge"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "id": "swamp-art",
+      "category": "art",
+      "label": "Spider Swamp artwork",
+      "element": "rb-m42-art-toggle",
+      "flag": "__RBArtEnabled",
+      "state": "active"
+    },
+    {
+      "id": "parallax",
+      "category": "art",
+      "label": "Parallax depth",
+      "element": "rb-m46-parallax-toggle",
+      "flag": "__RBForestParallaxEnabled",
+      "state": "active"
+    },
+    {
+      "id": "ambience",
+      "category": "art",
+      "label": "Forest atmosphere",
+      "element": "rb-m46-ambience-toggle",
+      "flag": "__RBForestAmbienceEnabled",
+      "state": "active"
+    },
+    {
+      "id": "web-response",
+      "category": "art",
+      "label": "Web sway (localized and subtle)",
+      "element": "rb-m464-web-response-toggle",
+      "flag": "__RBWebResponseEnabled",
+      "state": "active"
+    },
+    {
+      "id": "stage-dressing",
+      "category": "art",
+      "label": "Organic platforms & exit",
+      "element": "rb-m461-dressing-toggle",
+      "flag": "__RBStageDressingEnabled",
+      "state": "active"
+    },
+    {
+      "id": "bridges",
+      "category": "terrain",
+      "label": "Root bridges",
+      "element": "rb-m46-bridges-toggle",
+      "flag": "__RBRootBridgesEnabled",
+      "state": "active"
+    },
+    {
+      "id": "sticky-web",
+      "category": "hazards",
+      "label": "Sticky web",
+      "element": "rb-m44-web-toggle",
+      "flag": "__RBStickyWebEnabled",
+      "state": "active"
+    },
+    {
+      "id": "egg-sac",
+      "category": "hazards",
+      "label": "Spiderling egg sac",
+      "element": "rb-m45-egg-toggle",
+      "flag": "__RBEggSacEnabled",
+      "state": "active"
+    },
+    {
+      "id": "ceiling-spider",
+      "category": "hazards",
+      "label": "Ceiling spider",
+      "element": null,
+      "flag": null,
+      "state": "built-in",
+      "reason": "Still active in game; no existing toggle to preserve"
+    },
+    {
+      "id": "rotten-root",
+      "category": "hazards",
+      "label": "Rotten root / hollow tree",
+      "element": "rb-m462-rotten-toggle",
+      "flag": "__RBRottenRootEnabled",
+      "state": "active",
+      "spec": "docs/ROTTEN_TREE_CHALLENGE_DESIGN.md",
+      "reason": "Prototype hazard live in M4.6.2 with one environmental anchor and warning/collapse cycle"
+    },
+    {
+      "id": "falling-bridge-tree",
+      "category": "hazards",
+      "label": "Rotten branch → partial bridge",
+      "element": "rb-m463-falling-toggle",
+      "flag": "__RBFallingBridgeEnabled",
+      "state": "active",
+      "defaultOn": true,
+      "reason": "Enabled by default: visible, reachable encounter before the main pit"
+    }
+  ],
+  "backgrounds": {
+    "layers": [
+      {
+        "id": "far",
+        "assetId": "s01/bg_far.png",
+        "parallax": "legacy"
+      },
+      {
+        "id": "mid",
+        "assetId": "s01/bg_mid.png",
+        "parallax": "legacy"
+      },
+      {
+        "id": "near",
+        "assetId": "s01/bg_near.png",
+        "parallax": "legacy"
+      }
+    ]
+  },
+  "atmosphere": {
+    "implementation": "legacy-forest-ambience"
+  },
+  "challenges": [],
+  "triggers": [],
+  "animations": [],
+  "audio": [],
+  "difficulty": {
+    "status": "legacy-unprofiled"
+  },
+  "stageModules": {
+    "title": "Stage 01 · Modules",
+    "description": "Visuals, world geometry and stage encounters are independent switches."
+  }
+}

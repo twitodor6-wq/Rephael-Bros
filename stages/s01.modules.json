@@ -1,0 +1,119 @@
+{
+  "schema": "rafael-stage-modules/v1",
+  "stage": "s01",
+  "title": "Stage 01 · Modules",
+  "description": "Visuals, world geometry and stage encounters are independent switches.",
+  "modules": [
+    {
+      "id": "swamp-art",
+      "category": "art",
+      "label": "Spider Swamp artwork",
+      "element": "rb-m42-art-toggle",
+      "flag": "__RBArtEnabled",
+      "state": "active"
+    },
+    {
+      "id": "parallax",
+      "category": "art",
+      "label": "Parallax depth",
+      "element": "rb-m46-parallax-toggle",
+      "flag": "__RBForestParallaxEnabled",
+      "state": "active"
+    },
+    {
+      "id": "ambience",
+      "category": "art",
+      "label": "Forest atmosphere",
+      "element": "rb-m46-ambience-toggle",
+      "flag": "__RBForestAmbienceEnabled",
+      "state": "active"
+    },
+    {
+      "id": "web-response",
+      "category": "art",
+      "label": "Web sway (localized and subtle)",
+      "element": "rb-m464-web-response-toggle",
+      "flag": "__RBWebResponseEnabled",
+      "state": "active"
+    },
+    {
+      "id": "stage-dressing",
+      "category": "art",
+      "label": "Organic platforms & exit",
+      "element": "rb-m461-dressing-toggle",
+      "flag": "__RBStageDressingEnabled",
+      "state": "active"
+    },
+    {
+      "id": "bridges",
+      "category": "terrain",
+      "label": "Root bridges",
+      "element": "rb-m46-bridges-toggle",
+      "flag": "__RBRootBridgesEnabled",
+      "state": "active"
+    },
+    {
+      "id": "sticky-web",
+      "category": "hazards",
+      "label": "Sticky web",
+      "element": "rb-m44-web-toggle",
+      "flag": "__RBStickyWebEnabled",
+      "state": "active"
+    },
+    {
+      "id": "egg-sac",
+      "category": "hazards",
+      "label": "Spiderling egg sac",
+      "element": "rb-m45-egg-toggle",
+      "flag": "__RBEggSacEnabled",
+      "state": "active"
+    },
+    {
+      "id": "ceiling-spider",
+      "category": "hazards",
+      "label": "Ceiling spider",
+      "element": "rb-m473-spider-toggle",
+      "flag": "__RBCeilingSpiderEnabled",
+      "state": "active",
+      "reason": "Existing spider runtime safely gated; visuals and AI/contact/hammer off"
+    },
+    {
+      "id": "rotten-root",
+      "category": "hazards",
+      "label": "Legacy hollow ledge · parked (optional)",
+      "element": "rb-m462-rotten-toggle",
+      "flag": "__RBRottenRootEnabled",
+      "state": "active",
+      "spec": "docs/ROTTEN_TREE_CHALLENGE_DESIGN.md",
+      "reason": "Default OFF pending meaningful safe layout; no finish dependency on active state",
+      "defaultOn": false
+    },
+    {
+      "id": "falling-bridge-tree",
+      "category": "hazards",
+      "label": "Rotten branch → partial bridge",
+      "element": "rb-m463-falling-toggle",
+      "flag": "__RBFallingBridgeEnabled",
+      "state": "active",
+      "defaultOn": true,
+      "reason": "Enabled by default: visible, reachable encounter before the main pit"
+    },
+    {
+      "id": "collapsing-platforms",
+      "category": "hazards",
+      "label": "Rotten logs & crumbling bridge",
+      "element": "rb-m473-collapse-toggle",
+      "flag": "__RBCollapsingPlatformsEnabled",
+      "state": "active",
+      "defaultOn": true
+    },
+    {
+      "id": "rafi-run-prototype",
+      "category": "art",
+      "label": "Rafi RUN · PROTOTYPE (visual only)",
+      "element": "rb-m477-rafi-run-toggle",
+      "flag": "__RBRafiRunPrototypeEnabled",
+      "state": "active"
+    }
+  ]
+}

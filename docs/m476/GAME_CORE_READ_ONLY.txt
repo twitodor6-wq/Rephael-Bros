@@ -1,0 +1,229 @@
+class ie extends ft.Scene {
+    constructor() {
+        super("Game"), this.respawnPoint = {
+            x: 0,
+            y: 0
+        }, this.elapsed = 0, this.finished = !1, this.seeds = 0
+    }
+    create() {
+        const Y = Nt;
+        this.elapsed = 0, this.finished = !1, this.seeds = 0, this.respawnPoint = {
+            ...Y.spawn
+        }, this.registry.set("seeds", 0), this.registry.set("seedsTotal", Y.seeds.length), this.registry.set("active", "rafi"), this.registry.set("won", !1), this.registry.set("time", 0), this.registry.set("levelName", Y.name), this.physics.world.setBounds(0, 0, Y.width, Y.height + 400), this.physics.world.setBoundsCollision(!0, !0, !0, !1), this.backdrop = new Vt(this);
+        const b = p => this.game.events.emit("hud:toast", p);
+        this.world = new qt(this, Y, {
+            toast: b,
+            banner: (p, S) => this.game.events.emit("hud:banner", p, S),
+            checkpoint: (p, S, t) => {
+                this.respawnPoint = {
+                    x: S,
+                    y: t
+                }
+            },
+            takeAmmo: () => this.tools.refill(),
+            seed: () => {
+                this.seeds++, this.registry.set("seeds", this.seeds), b("Glow-seed found! (" + this.seeds + "/" + Y.seeds.length + ")")
+            },
+            win: () => this.finish()
+        }), this.player = new jt(this, Y.spawn.x, Y.spawn.y), this.tools = new _t(this, this.player, this.world, b), this.registry.set("gear", []), this.registry.set("tapeState", null), this.pickups = new te(this, b), this.tape = new NinjaTape(this, this.player, Nt.anchors, b, p => this.world.canOccupy(p), (p, S) => this.world.tapeVisible(p, S)), this.physics.add.collider(this.player, this.world.solids), this.physics.add.collider(this.player, this.world.barrierGroup);
+        const Z = this.cameras.main;
+        Z.setBounds(0, 0, Y.width, Y.height), Z.startFollow(this.player, !0, .09, .09, 0, 40), Z.setDeadzone(80, 60), Z.fadeIn(500, 0, 0, 0);
+        const K = this.input.keyboard;
+        K.addCapture("SPACE,TAB,UP,DOWN,LEFT,RIGHT,E");
+        const J = ft.Input.Keyboard.KeyCodes;
+        this.keys = {
+            tab: K.addKey(J.TAB),
+            j: K.addKey(J.J),
+            k: K.addKey(J.K),
+            e: K.addKey(J.E),
+            w: K.addKey(J.W),
+            up: K.addKey(J.UP),
+            down: K.addKey(J.DOWN),
+            space: K.addKey(J.SPACE),
+            left: K.addKey(J.LEFT),
+            right: K.addKey(J.RIGHT),
+            a: K.addKey(J.A),
+            d: K.addKey(J.D)
+        }, this.scene.launch("UI"), this.events.on("character", p => this.registry.set("active", p))
+    }
+    finish() {
+        this.finished = !0, this.registry.set("won", !0), this.registry.set("time", this.elapsed), this.player.body2.setVelocity(0, 0), this.physics.pause(), this.cameras.main.flash(500, 111, 240, 216)
+    }
+    update(Y, b) {
+        const Z = Math.min(b, 50) / 1e3;
+        if (this.backdrop.update(this.cameras.main), this.finished) return;
+        this.elapsed += Z, this.registry.set("time", this.elapsed);
+        const K = ft.Input.Keyboard.JustDown;
+        K(this.keys.tab) && this.player.switchCharacter(p => this.world.canOccupy(p)), this.pickups.update(this.player);
+        const J = this.player.body2;
+        (J.blocked.down || J.touching.down) && this.tape.grounded(), K(this.keys.j) && this.pickups.has("hammer") && this.tools.hammer(), K(this.keys.k) && this.pickups.has("drill") && this.tools.drill(), K(this.keys.up) && this.pickups.has("tape") && this.world.tapeSwitch(J.center.x, J.center.y, 250), K(this.keys.e) && (this.tape.attached ? this.tape.release() : this.pickups.has("tape") ? this.tape.toggle() : this.game.events.emit("hud:toast", "Find the tape measure first")), this.player.tethered = this.tape.attached, this.player.update(this.elapsed, b), this.tape.update(Z, (this.keys.down.isDown ? 1 : 0) - (this.keys.up.isDown ? 1 : 0), (this.keys.right.isDown || this.keys.d.isDown ? 1 : 0) - (this.keys.left.isDown || this.keys.a.isDown ? 1 : 0), this.pickups.has("tape")), this.world.update(this.player, Z, this.elapsed), this.tools.update(Z), this.player.y > Nt.height + Ht.killMargin && (this.tape.reset(), this.player.respawn(this.respawnPoint.x, this.respawnPoint.y), this.cameras.main.flash(250, 6, 22, 26)), this.registry.set("tapeState", this.pickups.has("tape") ? this.tape.snapshot() : null)
+    }
+}
+const Et = 'Georgia, "Times New Roman", serif';
+class se extends ft.Scene {
+    constructor() {
+        super("UI"), this.pips = [], this.paused = !1, this.lastActive = "", this.winShown = !1
+    }
+    create() {
+        this.paused = !1, this.winShown = !1, this.lastActive = "", this.pips = [];
+        const Y = (J, p, S, t = 20, d = "#ffffff") => this.add.text(J, p, S, {
+            fontFamily: Et,
+            fontSize: t + "px",
+            color: d,
+            stroke: "#000",
+            strokeThickness: 4
+        });
+        this.add.rectangle(16, 16, 290, 112, 0, .5).setOrigin(0).setStrokeStyle(2, 16766090, .6), this.portrait = this.add.image(54, 112, "rafi").setOrigin(.5, 1).setScale(.8), this.nameText = Y(100, 24, "Rafi", 26), this.gearText = Y(100, 56, "J:--  E:--  K:--", 12, "#ffd48a"), this.add.rectangle(16, 138, 290, 70, 0, .55).setOrigin(0).setStrokeStyle(1, 7336152, .4), this.tapeText = this.add.text(28, 150, "Find the tape measure", {
+            fontFamily: Et,
+            fontSize: "14px",
+            color: "#e8dcc0",
+            lineSpacing: 6,
+            wordWrap: {
+                width: 266
+            }
+        }), this.seedText = Y(100, 100, "", 16, "#6ff0d8"), this.timeText = Y(vt - 16, 16, "0:00", 22).setOrigin(1, 0), this.help = this.add.text(16, Tt - 16, "A/D move   Space jump   J hammer / cut web   K drill   E tape hook/release · ↑/↓ reel   Tab switch   Esc pause   R restart   F3 telemetry · use Swing Lab", {
+            fontFamily: Et,
+            fontSize: "15px",
+            color: "#e8dcc0",
+            stroke: "#000",
+            strokeThickness: 3
+        }).setOrigin(0, 1).setAlpha(.8), this.toastText = this.add.text(vt / 2, Tt - 80, "", {
+            fontFamily: Et,
+            fontSize: "26px",
+            color: "#fff7dd",
+            stroke: "#1a0e05",
+            strokeThickness: 6,
+            align: "center"
+        }).setOrigin(.5).setAlpha(0), this.bannerA = this.add.text(vt / 2, 150, "", {
+            fontFamily: Et,
+            fontSize: "54px",
+            color: "#ffd48a",
+            stroke: "#2a1608",
+            strokeThickness: 8
+        }).setOrigin(.5).setAlpha(0), this.bannerB = this.add.text(vt / 2, 100, "", {
+            fontFamily: Et,
+            fontSize: "22px",
+            color: "#6ff0d8",
+            stroke: "#000",
+            strokeThickness: 4
+        }).setOrigin(.5).setAlpha(0), this.pauseGroup = this.add.container(0, 0, [this.add.rectangle(0, 0, vt, Tt, 0, .6).setOrigin(0), this.add.text(vt / 2, Tt / 2 - 20, "PAUSED", {
+            fontFamily: Et,
+            fontSize: "72px",
+            color: "#ffd48a",
+            stroke: "#000",
+            strokeThickness: 8
+        }).setOrigin(.5), this.add.text(vt / 2, Tt / 2 + 50, "Esc to resume   •   R to restart", {
+            fontFamily: Et,
+            fontSize: "26px",
+            color: "#fff"
+        }).setOrigin(.5)]).setVisible(!1).setDepth(100), this.winStats = this.add.text(vt / 2, Tt / 2 + 20, "", {
+            fontFamily: Et,
+            fontSize: "28px",
+            color: "#fff",
+            align: "center",
+            lineSpacing: 10
+        }).setOrigin(.5), this.winGroup = this.add.container(0, 0, [this.add.rectangle(0, 0, vt, Tt, 135186, .78).setOrigin(0), this.add.text(vt / 2, Tt / 2 - 150, "Level Complete!", {
+            fontFamily: Et,
+            fontSize: "80px",
+            color: "#ffd48a",
+            stroke: "#2a1608",
+            strokeThickness: 10
+        }).setOrigin(.5), this.add.text(vt / 2, Tt / 2 - 80, "First Steps into Root World", {
+            fontFamily: Et,
+            fontSize: "30px",
+            color: "#6ff0d8",
+            fontStyle: "italic"
+        }).setOrigin(.5), this.winStats, this.add.text(vt / 2, Tt / 2 + 150, "Enter — play again      M — main menu", {
+            fontFamily: Et,
+            fontSize: "26px",
+            color: "#fff"
+        }).setOrigin(.5)]).setVisible(!1).setDepth(100);
+        const b = this.input.keyboard;
+        b.on("keydown-ESC", () => this.togglePause()), b.on("keydown-R", () => this.restart()), b.on("keydown-H", () => this.help.setVisible(!this.help.visible)), b.on("keydown-ENTER", () => {
+            this.winShown && this.restart()
+        }), b.on("keydown-M", () => {
+            (this.winShown || this.paused) && (this.setPaused(!1), this.scene.stop("Game"), this.scene.start("Menu"))
+        });
+        const Z = J => this.showToast(J),
+            K = (J, p) => this.showBanner(J, p);
+        this.game.events.on("hud:toast", Z), this.game.events.on("hud:banner", K), this.events.once("shutdown", () => {
+            this.game.events.off("hud:toast", Z), this.game.events.off("hud:banner", K)
+        })
+    }
+    setPaused(Y) {
+        this.paused = Y, this.pauseGroup.setVisible(Y), Y ? this.scene.pause("Game") : this.scene.resume("Game")
+    }
+    togglePause() {
+        this.winShown || this.setPaused(!this.paused)
+    }
+    restart() {
+        this.paused && this.setPaused(!1), this.winShown = !1, this.winGroup.setVisible(!1), this.scene.get("Game").scene.restart()
+    }
+    showToast(Y) {
+        this.toastText.setText(Y).setAlpha(1), this.tweens.killTweensOf(this.toastText), this.tweens.add({
+            targets: this.toastText,
+            alpha: 0,
+            delay: 3200,
+            duration: 600
+        })
+    }
+    showBanner(Y, b) {
+        this.bannerA.setText(Y).setAlpha(0), this.bannerB.setText(b).setAlpha(0), this.tweens.killTweensOf([this.bannerA, this.bannerB]), this.tweens.add({
+            targets: [this.bannerA, this.bannerB],
+            alpha: 1,
+            duration: 500,
+            hold: 1800,
+            yoyo: !0
+        })
+    }
+    update() {
+        const Y = this.registry,
+            Z = Y.get("active") ?? "rafi";
+        if (Z !== this.lastActive) {
+            this.lastActive = Z;
+            const t = Rt[Z];
+            this.nameText.setText(t.displayName + "  " + t.hebrewName).setColor("#" + t.color.toString(16).padStart(6, "0")), this.portrait.setTexture(Z)
+        }
+        const K = Y.get("gear") ?? [];
+        this.gearText.setText([
+            ["hammer", "J", "Hammer"],
+            ["tape", "E", "Tape"],
+            ["drill", "K", "Drill"]
+        ].map(([t, d, c]) => d + ":" + (K.includes(t) ? c : "--")).join("  "));
+        const J = Y.get("tapeState");
+        this.tapeText.setText(J ? J.attached ? `Length: ${J.extension}% · Hooks ${J.remaining}/2
+E: release · Up/Down: reel` : J.remaining === 0 ? "Hooks 0/2 · Land to reset hooks" : J.ready ? `Hooks ${J.remaining}/2 · E: hook
+Marked root is ready` : `No clear root · Hooks ${J.remaining}/2
+Move toward a hanging root` : `Find the tape measure
+Collect tools along the path`);
+        const p = Y.get("ammo") ?? 0;
+        this.pips.forEach((t, d) => t.setFillStyle(d < p ? 16765514 : 3815994)), this.seedText.setText("Glow-seeds " + (Y.get("seeds") ?? 0) + "/" + (Y.get("seedsTotal") ?? 0));
+        const S = Math.floor(Y.get("time") ?? 0);
+        this.timeText.setText(Math.floor(S / 60) + ":" + String(S % 60).padStart(2, "0")), Y.get("won") && !this.winShown && (this.winShown = !0, this.winStats.setText("Time  " + this.timeText.text + `
+Glow-seeds  ` + Y.get("seeds") + " / " + Y.get("seedsTotal")), this.winGroup.setVisible(!0))
+    }
+}
+const ne = new URLSearchParams(location.search).has("debug"),
+    re = new ft.Game({
+        type: ft.AUTO,
+        parent: "game",
+        width: vt,
+        height: Tt,
+        backgroundColor: "#06161a",
+        scale: {
+            mode: ft.Scale.FIT,
+            autoCenter: ft.Scale.CENTER_BOTH
+        },
+        physics: {
+            default: "arcade",
+            arcade: {
+                gravity: {
+                    x: 0,
+                    y: At.gravity
+                },
+                debug: ne
+            }
+        },
+        scene: [Qt, $t, ie, se]
+    });
+window.__game = re;
