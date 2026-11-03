@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="440" viewBox="0 0 1220 440" role="img" aria-label="M471 before and after Stage01 side scrolling map">
+<rect width="100%" height="100%" fill="#101b1b"/>
+<style>text{font-family:Arial,sans-serif;fill:#e5eddb;font-size:13px}.title{font-size:19px;font-weight:bold}.small{font-size:11px;fill:#bed0b7}.pit{fill:#080d10;stroke:#476050;stroke-dasharray:6,4}.ground{fill:#37563f;stroke:#91aa67;stroke-width:2}.old{fill:#5d754d}.hook{fill:#eec76e}.gate{fill:#adddb5}</style>
+<text x="36" y="47" class="title">M470 — BEFORE · 976 × 660</text>
+<line x1="36.0" y1="187" x2="655.8" y2="187" stroke="#475d4c" stroke-dasharray="3 5"/>
+<rect class="ground" x="80.5" y="155" width="190.5" height="31" rx="2"/>
+<text x="83.5" y="171" class="small">original</text>
+<rect class="ground" x="484.3" y="155" width="171.4" height="31" rx="2"/>
+<text x="487.3" y="171" class="small">original</text>
+<circle class="hook" cx="102.7" cy="96" r="6"/>
+<text x="89.7" y="86" class="small">tree-start</text>
+<circle class="hook" cx="166.2" cy="96" r="6"/>
+<text x="153.2" y="86" class="small">fallen-bridge-tree</text>
+<circle class="hook" cx="537.7" cy="96" r="6"/>
+<text x="524.7" y="86" class="small">root-bridge</text>
+<circle class="hook" cx="620.2" cy="96" r="6"/>
+<text x="607.2" y="86" class="small">rotten</text>
+<rect x="255.7" y="138" width="105.4" height="8" rx="3" fill="#c5a169"/>
+<circle class="gate" cx="617.7" cy="154" r="11" fill-opacity="0.35" stroke="#c3eebf" stroke-width="2"/>
+<text x="602.7" y="135" class="small">exit</text>
+<text x="271.0" y="202" class="small">main pit</text>
+<text x="484.3" y="202" class="small">far bank</text>
+<line x1="36.0" y1="211" x2="655.76" y2="211" stroke="#608a70" opacity=".3"/>
+<text x="36" y="254" class="title">M471 — AFTER · 1800 × 660</text>
+<line x1="36.0" y1="394" x2="1179.0" y2="394" stroke="#475d4c" stroke-dasharray="3 5"/>
+<rect class="ground" x="80.5" y="362" width="190.5" height="31" rx="2"/>
+<text x="83.5" y="378" class="small">original</text>
+<rect class="ground" x="484.3" y="362" width="171.4" height="31" rx="2"/>
+<text x="487.3" y="378" class="small">original</text>
+<rect class="ground" x="655.8" y="362" width="135.9" height="31" rx="2"/>
+<text x="658.8" y="378" class="small">east bank root pat</text>
+<rect class="ground" x="842.5" y="362" width="323.9" height="31" rx="2"/>
+<text x="845.5" y="378" class="small">last root clearing</text>
+<circle class="hook" cx="102.7" cy="303" r="6"/>
+<text x="89.7" y="293" class="small">tree-start</text>
+<circle class="hook" cx="226.5" cy="303" r="6"/>
+<text x="213.5" y="293" class="small">fallen-bridge-tree</text>
+<circle class="hook" cx="537.7" cy="303" r="6"/>
+<text x="524.7" y="293" class="small">root-bridge</text>
+<circle class="hook" cx="620.2" cy="303" r="6"/>
+<text x="607.2" y="293" class="small">rotten</text>
+<circle class="hook" cx="845.6" cy="303" r="6"/>
+<text x="832.6" y="293" class="small">root-extension</text>
+<rect x="271.0" y="345" width="105.4" height="8" rx="3" fill="#c5a169"/>
+<circle class="gate" cx="1121.8" cy="361" r="11" fill-opacity="0.35" stroke="#c3eebf" stroke-width="2"/>
+<text x="1106.8" y="342" class="small">exit</text>
+<text x="271.0" y="409" class="small">main pit</text>
+<text x="484.3" y="409" class="small">far bank</text>
+<text x="791.6" y="409" class="small">80px jump</text>
+<line x1="36.0" y1="418" x2="1179.0" y2="418" stroke="#608a70" opacity=".3"/>
+<text class="small" x="36" y="434">Schematic only · All positions are generated from Stage JSON · Original legacy floor x70–370 and x706–976 remains unchanged</text>
+</svg>

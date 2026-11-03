@@ -1,0 +1,42 @@
+{
+  "version": "M4.6.9",
+  "date": "2026-10-28",
+  "baselineArchive": "archive/M468_Source_QA_immutable.zip",
+  "baselineSha256": "82dd5ff9d2eb858fdb9f955f8e56823e35280d24cc4ff2c01cc8ab32bc4fe586",
+  "releaseHashes": {
+    "src/bridge-polish.mjs": "9daebd6d06e6e9140b2c7f9bf7159170ec2607fa5bc90feaec34a139caa83b55",
+    "src/environmental-anchors.mjs": "81c43543a9b10668f35a258cbb56f6611bfdfc8983c06eb255aee066f6270b0a",
+    "src/exit-grove.mjs": "d9ed88baec7a1946fa80e1358dde480e70e9852e598f4c40d8d735e5eb7e03f1",
+    "src/falling-bridge-tree.mjs": "1dd7399b6cb2e5d0eb260082c2200a941f140923996ea5b62d619bda645d7c7d",
+    "src/managed-actor.mjs": "bcd0d018db50821f04e080acdf77bef6dc80ad86f7bdd1b49c29bfa57346b96b",
+    "src/rotten-root.mjs": "b0fb98c80f90cb267e45986723ec76e68bec90984690607259a6eef2f49d9ddd",
+    "src/scene-composer.mjs": "69c7679a25d20db45b92d4b4b931b4456eca36a7e0a5bc2b59d8729006d074b8",
+    "src/stage-dressing.mjs": "3ddb563a71431f408829452ac27eb8ced5858b129a7b222bf93105efb37c9e45",
+    "src/stage-loader.mjs": "cbf6a5f1913ab50c8474872349f223a058c36a08d0e0ab345bf921dca34a16b0",
+    "src/stage-modules.mjs": "1fb4e80b24a2a8ca13e2fde3f1c82a6f82ea5dffad9100b67c9938b81a6b45f5",
+    "src/transition-controller.mjs": "0efd393a562dc8512bb3ca2316bfb4d243757dcd22b7780274de5c0a0e92d8d2",
+    "src/web-response.mjs": "2b2f82a682bb89c6be57e9d4bd50e363e680f81b21039acf40b8038515422f39",
+    "stages/s01.anchors.json": "5a53a418b465ae2c7bd2caa43a00e8288b6871b6ecd25604dc9769e5bfe04711",
+    "stages/s01.modules.json": "cf4c376816d15bcf28ffcf52499417ef884ba91f67ac2d8d42c21058bc1bf012",
+    "stages/s01.stage.json": "f51fbb0a323a64e7967faf0d7f434f6b5c4f3cbaf477975e92429b71e3bce5d4",
+    "stages/transition-experiment-a.json": "51e602b88be061086f33a780ef777aab4a2e256cc99e7713e22441da92c206d1",
+    "stages/transition-experiment-b.json": "063aa6f232eac93fdb795292aa510a4997e3661a1d2ac84907891de85dbbcb5b",
+    "schemas/stage.v1.schema.json": "a009034b363f570ac74655ec9678e01ee9fb9afe8506c569d96c122122245891",
+    "schemas/stage.v2.contract.DRAFT.json": "af7c43523fbaa6cfcc7bd6d2cb67e5884c2ab91629cbed99d1a52eb53a6ad511",
+    "schemas/transition-experiment.v1.schema.json": "ee0398d5dc03345d1fc81d9151b17e98e2828f9e58811fadbfc9b1b2e33b0dd8",
+    "build-m469.mjs": "dd4d209ee406d5f98b7f476c59ce348aea095e13d99765a07ccbdefe73880bc0",
+    "dist/Rafael_Brothers_M469_MANAGED_ANCHORS.html": "f80899318dbd94f21a4c3cc041a0fd3a5b24bcb170ecc140d5cbb7bf8e82667f"
+  },
+  "checks": {
+    "nodePass": 78,
+    "browserPositivePass": 118,
+    "drawnRopePass": 2,
+    "drawnRopeTotal": 3,
+    "baselineDrawnRopePass": 2,
+    "baselineDrawnRopeTotal": 3
+  },
+  "productionStageTransition": false,
+  "stageV2DraftExecutable": false,
+  "ropePhysicsChanged": false,
+  "stage01JSONChanged": false
+}

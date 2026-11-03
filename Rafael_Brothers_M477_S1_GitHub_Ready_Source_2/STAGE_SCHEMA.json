@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Reference facade only. Canonical editable schema: schemas/stage.v1.schema.json; do not duplicate definitions.",
+  "$ref": "./schemas/stage.v1.schema.json"
+}

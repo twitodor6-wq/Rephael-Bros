@@ -1,0 +1,8 @@
+# M4.6.7 — Known Issues / Deferred
+
+1. **Partial legacy modernization:** Seven sidecars now use one active scene composer, but each still contains its historical dormant `create` fallback path and has its own actor teardown implementation. The core game is still assembled over an older HTML baseline. This is intentional for rollback, not a finished modern module tree.
+2. **One stage only:** Validated Stage JSON represents specific Stage 01 prefabs, not arbitrary multi-stage JSON authoring. Some legacy decorations, environmental world geometry, spiders and UI still have hardcoded positions.
+3. **Lifecycle remaining:** The composer centrally clears *StageV1 metadata* after actors shut down, but full centralized ownership of their colliders/timers/listeners is deferred. Panel-level DOM listeners persist across game restarts by design. Scene switching between two different fully-authored levels is not verified.
+4. **Browser and QA coverage:** Actual headless Chromium runtime was tested. Native Safari/iPhone, direct `file://` or localhost navigation in this environment, long-duration stress, screenshot parity and independent full human playthrough were not verified. Automated rope tests use controlled fixtures.
+5. **Forge:** Installed M2 Forge remains separate and is not upgraded. M3 source-adapter work is not integrated with this stage schema; simulated completion is not browser-game proof.
+6. **Telemetry clarification:** The M4.1.3 historical log contained legitimate fall/death gameplay when tape detached near the pit. User confirmed this was not a defect. No gameplay fix or new bug allegation is implied by that log.

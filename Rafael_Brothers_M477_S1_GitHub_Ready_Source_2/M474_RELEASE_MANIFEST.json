@@ -1,0 +1,101 @@
+{
+  "milestone": "M4.7.4",
+  "title": "Encounter Layout, Falling-Tree Visual Identity & Tool Integration",
+  "date": "2026-11-01",
+  "status": "TARGETED_AUTOMATED_QA_PASS_SECOND_LEGACY_LEDGE_PARKED",
+  "baseline": "M4.7.3 supplied archive",
+  "sourceArchiveSha256": "42aeb16642ee58e53816b6eb46f0b6f5f2cfdaa485a685e4abbf3e30a6ca5d52",
+  "sourceFingerprint": "457fbd9c265661ea731f7984525fb234732a567dbd03f1888a66dd0de7163811",
+  "qa": {
+    "node": {
+      "passed": 122,
+      "total": 122
+    },
+    "chromium": {
+      "passed": 145,
+      "total": 145
+    },
+    "galleryUi": {
+      "passed": 9,
+      "total": 9
+    },
+    "rollbackNode": {
+      "passed": 114,
+      "total": 114
+    },
+    "humanFullStage": "NOT TESTED",
+    "Safari": "NOT TESTED"
+  },
+  "scope": {
+    "firstPitRealRoutes": 6,
+    "easternContinuousRoutes": 6,
+    "easternRescues": 6,
+    "originalGapsPreserved": true,
+    "stableHooksPreserved": [
+      [
+        514,
+        290
+      ],
+      [
+        1230,
+        260
+      ]
+    ],
+    "secondLegacyRootDefault": "OFF, optional capability retained",
+    "newDrillTarget": false
+  },
+  "corePreservation": {
+    "baseline/M46_RELEASE.html": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31",
+    "src/managed-actor.mjs": "6f4097abd596c45845f998193aa33cc4c9d54ad53674fe9db759185d2e845908",
+    "src/collapsing-platform.mjs": "f3cbd992eb7f77974698f8e4999848883b0adf50b8690b2e199a6825c030d300",
+    "src/validation/rope-crossing-safety.mjs": "8285910817de9890c835547ff0e7392b4bb174fd2c77b15100a94fb0d292c6f7"
+  },
+  "hashes": {
+    "M474_ARCHITECTURE_DELTA.md": "59b821c19438f56404c2f480f15bc5a8161bf17d181faa3075b7ef4a8fa9ae68",
+    "M474_ENCOUNTER_DESIGN.md": "9237292e4cf6514f9040880a73e859a58434c9f1fa54f6eba14d3800d6e112e1",
+    "M474_HANDOFF.md": "40334b5a366db993e759bc020d95526e44330a82ac677185248aa86eb0504315",
+    "M474_KNOWN_ISSUES.md": "12d66b1b6abe8feff9c41796f0bd9476ba092a0a480635e17c9e6dd148889c14",
+    "M474_QA_REPORT.md": "cafe22c3d96a24e1d3589fd913e1e985611178ecca05188a604f502c90b55ec4",
+    "M474_REVIEW_NOTES.md": "be50c6aad37c021048c4b8ce8a8276a0c89aefbf8294adbf07c5ea2a29b9a0f9",
+    "M474_VISUAL_COMPARISON.html": "97e80abe58eedd020c34d4559b4b5f904a69c76c1683f6c0347e754a303a4db7",
+    "README_START_HERE_M474.md": "a9b5ca553ece56fbbc6e588b19fa8ae44da28c1f1688c7eb30fb4347ba06e97f",
+    "build-m474.mjs": "abd41233f8b064abffa22fc727cd49fe73c6f5fe2cb31a009b05421436bfd68d",
+    "dist/Rafael_Brothers_M474_ENCOUNTER_LAYOUT.html": "a73cd0304d20385430ad2ac7712bbd912f53b81f040615749ffbd84beb277dd5",
+    "dist/m474-build-manifest.json": "7f5c7b1d8a5efe89fcfe1379553b12c035fcb16e9ca027f8472ffca95be3e006",
+    "dist/m474-normal-jump-audit.json": "1462cd5e050fe419120e948c8fd0c97b1f1a9733620fb2cc0b5f2d7fbe04a2d7",
+    "evidence/M473_BEFORE_COLLAPSED.png": "590e5b478d4daa3e4d5d0c6ed19e05a9600befc3176fe143399b640b5e7d1b81",
+    "evidence/M473_BEFORE_IDLE.png": "aa4c496b789df041923188ce589aec6a32557fba7af040e6a660ac742414e1e8",
+    "evidence/M473_BEFORE_WARNING.png": "5424f9a470c9ca44c7b3a67f70de35cf3feb743cc08973c83a73e5aed493da66",
+    "evidence/M474_AFTER_BREAKING.png": "5faaf08443c2af21df4555d7b0b2a9d00d5ae8fad113485f1efb7499a0fadd35",
+    "evidence/M474_AFTER_COLLAPSED.png": "0e47e8563a794e52749b20ec4851b77a3fd2cb584e5339dba48c63cfebedd3bd",
+    "evidence/M474_AFTER_FALLING.png": "24fdc28fb54beedebe6cff7e3503ed64319d1a05ba6a06681ae1a79f34bbf5a3",
+    "evidence/M474_AFTER_IDLE.png": "170113a267d08cd15ce9f86a247cc23f5a6396505e28b35dab4c5bd8125e8489",
+    "evidence/M474_AFTER_SETTLING.png": "07012fdd433e75350e6c7709980b4d7b9e8eba379c99c6ac9ad542e515bfd4ab",
+    "evidence/M474_AFTER_WARNING.png": "817c86a089ee3fb8cb669c00c25157e2626ade8e530cdc887c617ff61e8ad691",
+    "evidence/M474_TELEMETRY_EXPORT.json": "8e374bb082903873216f8c65fb574eee6ae828772e1ef926c49a111cbf32258a",
+    "evidence/m474-compat-gameplay.json": "e68c545fbf28fdbc80acc616b57599f42f1a8724c4624f4d24d1101b0eff94af",
+    "evidence/m474-compat-hazards.json": "17b52cfee70f9884ab5ec4cb3416756a6d4faa542033dba5f63bd927544dc9d1",
+    "evidence/m474-compat-lifecycle.json": "71085bdaf3c0d3128ec2a96992dbf487914d595115fb23640a76c1512392099c",
+    "evidence/m474-compat-rope-crossing-browser.json": "4f70f159308c2ce91f948b80c3a1dcd693fa6dcc4790647b545c59ac102655a2",
+    "evidence/m474-encounters.json": "9b7f23d4f30b9be64ffc251cd40e41752310e3a9d55369bbdaa6005d5b8d9c4c",
+    "evidence/m474-export.json": "710a46de480a001020aa84848cc7844fa39f4346e3bab178fdf3460afe6ba0fa",
+    "evidence/m474-fragile.json": "902a02175b97ce557561c00335b406d28e38e8ab8d16f91e2b6462de706ebda7",
+    "evidence/m474-gallery-check.json": "6854fe8722d096825f9d865305a9dde03fec43281ecc3a9d298c5a92a80d5221",
+    "evidence/m474-negative-build.json": "253b0b470b40cef47d99a14a1717ac6ce0d28c2389ee47ca3dbfce9172855af9",
+    "evidence/m474-node-run.log": "2a2d38dff0d4bb3b3ccf4525bc01410df7e07465372e2b6a11ee5d78f41f86bb",
+    "evidence/m474-rollback-gate.log": "a0c2a6c6a4b074d3c14dacd8b181fada61b3e66c5be9ea473bf3d84c2b34d00f",
+    "evidence/m474-rollback-node.log": "a618fdf7d6140a4431f6eb28c51b9af5dac0826220af4c4a5b27d691cf14c74e",
+    "evidence/m474-visual.json": "6ecf56e8d18c875a1ad6131f1f4de8653dad39cb8e4c8f35082f49c9b4f94fb8",
+    "package.json": "5e3c23d53210f39010373bedfc63dd3460abbf57cfe4f4bc8e002ec748263747",
+    "rollback/M473_RESTORE_BYTES.zip": "95656653d0873bcf7a1acb8b28c064a3627a3b466fc19e473c2bd3562a7cd143",
+    "rollback/M473_SOURCE_INVENTORY.json": "751a59ecf41fd69429fddd5ab5b6d2d287b6650cb517a9af77ce39873ec0d3ef",
+    "schemas/stage.v1.schema.json": "a23201219b50a233cc27fcd968cc59f61b663f0a30dda4c8f89e7b5b3322ccf5",
+    "scripts/rollback-to-m473.py": "768d7d9830e0ede89024c3b638b2d9e261daa9ff79cb8acb7db47da32672a29c",
+    "stages/s01.stage.json": "ac37157dfc3a284f80e7293f5deeaca7a1ec8fe9f6ec16e46fbc800decf91d2e",
+    "tests/m474-harness.cjs": "a073a39cd5ebe93c2e945a999aa421dd9daaa99dda1561158fe7249773d41b32"
+  },
+  "rollback": {
+    "method": "Reconstruct original948-file tree into new destination; hash every file; original M473 gate and Node suite verified",
+    "command": "python3 scripts/rollback-to-m473.py /new/destination"
+  }
+}

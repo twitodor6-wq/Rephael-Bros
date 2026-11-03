@@ -1,0 +1,60 @@
+{
+  "milestone": "M4.7.3",
+  "title": "Gameplay Challenge Pass",
+  "date": "2026-10-30",
+  "status": "TARGETED_CHROMIUM_QA_PASS_NOT_HUMAN_FULL_STAGE_CERTIFIED",
+  "sourceBaseline": "M4.7.2",
+  "sourceZipSha256": "0199bdcd613176a5bca2a9f92dd4e73fdbb5907d13cdd2c1ffb6848ca84a0ba2",
+  "node": {
+    "passed": 114,
+    "total": 114
+  },
+  "chromium": {
+    "gated": 94,
+    "supplementary": 3,
+    "totalObserved": 97
+  },
+  "coverage": {
+    "continuousPartialStage": 6,
+    "collapseTapeRescue": 6,
+    "actors": [
+      "rafi",
+      "shaul"
+    ],
+    "modes": [
+      "manual",
+      "classic",
+      "hybrid"
+    ],
+    "human": "NOT TESTED",
+    "Safari": "NOT TESTED"
+  },
+  "sourceFingerprint": "7b08525a9b4eac89777e168183816f5ff99e5aa3558db34e7f0e88e1a85e4b90",
+  "hashes": {
+    "stages/s01.stage.json": "c43c361e0786650962902518ee2b8dc21c6b7cced3a0885c203312ba912d2c49",
+    "schemas/stage.v1.schema.json": "0a967bd50d901653a7bea1f89558a8722663501eebade6076d060ca9619cd17e",
+    "dist/Rafael_Brothers_M473_GAMEPLAY_CHALLENGE.html": "80b521c63676c3258dcb2109735c70493f363087901bdeb80cb6d75d59820d69",
+    "M473_QA_REPORT.md": "bfca52261835b741df8d3f37bcce4962674df3ffb54c2d1dccf73580b10b210e",
+    "M473_HANDOFF.md": "5e0304378ad3ebe4dbc98bc1f0c4e83180a8331a74231891333d89eb73227f1f",
+    "M473_KNOWN_ISSUES.md": "c8c219e03b1ca4a3d19fb6575b1dd76971afc63ff0a28f593cdf1b3976ad921a",
+    "M473_ARCHITECTURE_DELTA.md": "088a67bcb2809f41493d63c9da0d7968a172f7fe5725e088d9fd0d14ace61eda",
+    "M473_CHALLENGE_DESIGN.md": "3e0a4b9960b97a78620a7dba61f80afd0f777e08f749f5b65228f419e0372c4b",
+    "README_START_HERE_M473.md": "e5b6d11724479ff4d45631116b44f382870cf25e8a8f80ba6dd868eda4811240",
+    "M473_STAGE_MAP_BEFORE.svg": "9054a5f608463db886aa2a5ecb9e5f6196d5284c9f29d2ec5d308cea8477cc5f",
+    "M473_STAGE_MAP_AFTER.svg": "69acb1bade3ca0a88c62d7fdbf8ffca506491171afbbcdf83eb3ea8ea19270b4",
+    "M473_ROUTE_WITNESSES.json": "ceac8e386008877f1a9cd07932dd45561af64afa24111b11ae00a1143ea6ce1c",
+    "docs/CHALLENGE_COMPOSER_CONTRACT_DRAFT.md": "16a39cd5c9e874aa926b689b49eaf3d22eaf4ae536e652a154bd7e3a32c2d952",
+    "M473_REVIEW_NOTES.md": "a0b3cf30ed957891bddc8f31ffc226feaf23c55b857b6a62c5fe786babd1bb40",
+    "evidence/m473-qa-run-manifest.json": "7d30bfc89e3bb14c4f89b1fc84d8598172414fa0d8ec563bf8fe6f9b55cbf135",
+    "evidence/m473-node-run.log": "a9a0119aa1f545e00989b6998c4bd4f3779c1f21a9daf21fea8ee1507e505f7b",
+    "evidence/m473-release-gate.log": "eb1f55b01648f519d9c1cd76b98bdf6b12ce657b25425f9141e79c8c92719583",
+    "evidence/m473-negative-build.json": "1d9f2a778df460e8376ca4835c622a7b1c843b572d0f87dfe90d4897a2a78186",
+    "evidence/m473-visual-witness.json": "d2ea4f3e4dea830bc93a2145ad859d34996eb571dac604e18d0611c67ff75839",
+    "rollback/Rafael_Brothers_M472_ORIGINAL_FULL_SOURCE_QA.zip": "0199bdcd613176a5bca2a9f92dd4e73fdbb5907d13cdd2c1ffb6848ca84a0ba2",
+    "evidence/m473-gameplay.json": "626778ea02f495f28c9108ec89a407b9fa12b3858f39a6dcfbbf7b4eed9024ea",
+    "evidence/m473-hazards.json": "ccede25c84b1c40c37e033a90ebc5e0f2dfe0a4cb5bfde4be8bdcf186a2b3874",
+    "evidence/m473-lifecycle.json": "899e5eda2d15571fa28d27ddec74ff7ad025886b68946a41a1b811e75f3e3ae0",
+    "evidence/m473-rope-crossing-browser.json": "1742e5c5bbf0b05734cf2288d4afaf4d1ae440bf1850c14ed109f1308393d029"
+  },
+  "rollback": "Unzip rollback/Rafael_Brothers_M472_ORIGINAL_FULL_SOURCE_QA.zip in a separate folder; byte-identical to supplied M472 archive"
+}

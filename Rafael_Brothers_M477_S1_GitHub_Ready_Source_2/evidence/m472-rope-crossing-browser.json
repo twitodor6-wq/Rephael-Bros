@@ -1,0 +1,1679 @@
+{
+  "milestone": "M4.7.2",
+  "browser": "chromium",
+  "baselineSha256": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31",
+  "stageSha256": "ffeba806ca61a88db5c6b8bd19c2faa8c8a7d30a5ba9c1f5732c5c8e9d07537b",
+  "htmlSha256": "6ddc3df0b62ca4acfd2ad96d2c07a73bc28dffbe93d8558399461f3619012127",
+  "profiles": [
+    {
+      "id": "rafi",
+      "width": 28,
+      "height": 64
+    },
+    {
+      "id": "shaul",
+      "width": 32,
+      "height": 74
+    }
+  ],
+  "scope": "controlled start, actual keyboard input, real Phaser update",
+  "checks": [
+    {
+      "name": "both gaps discovered from live Phaser colliders",
+      "passed": true,
+      "report": {
+        "contract": "rafael-rope-crossing-safety/v1",
+        "status": "PASS",
+        "issues": [],
+        "crossings": [
+          {
+            "id": "forest-gap-02",
+            "status": "PASS",
+            "anchorId": "stable-root-extension",
+            "leftSurfaceId": "east-bank-root-path",
+            "rightSurfaceId": "last-root-clearing",
+            "gap": {
+              "left": 1190,
+              "right": 1270,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "left",
+                "anchorId": "stable-root-extension",
+                "distance": 279.12183719659055,
+                "sampleCount": 26
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "right",
+                "anchorId": "stable-root-extension",
+                "distance": 279.12183719659055,
+                "sampleCount": 26
+              }
+            ]
+          },
+          {
+            "id": "gap:legacy-ground-0:legacy-ground-1",
+            "status": "PASS",
+            "anchorId": "legacy-tape-0",
+            "leftSurfaceId": "legacy-ground-0",
+            "rightSurfaceId": "legacy-ground-1",
+            "gap": {
+              "left": 370,
+              "right": 706,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "left",
+                "anchorId": "legacy-tape-0",
+                "distance": 279.5442719856731,
+                "sampleCount": 26
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "right",
+                "anchorId": "legacy-tape-0",
+                "distance": 304.6850833237492,
+                "sampleCount": 26
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "PASS": 2,
+          "WARN": 0,
+          "FAIL": 0,
+          "NOT TESTED": 0
+        },
+        "source": "live-phaser-stage01",
+        "limitations": [
+          "Finite static swept-body probes are not Phaser gameplay or exhaustive proof",
+          "Dynamic colliders, release cause, modes and respawns require browser QA"
+        ]
+      }
+    },
+    {
+      "name": "old x1275 is rejected as collision sweep",
+      "passed": true,
+      "report": {
+        "contract": "rafael-rope-crossing-safety/v1",
+        "status": "FAIL",
+        "issues": [],
+        "crossings": [
+          {
+            "id": "forest-gap-02",
+            "status": "FAIL",
+            "anchorId": "stable-root-extension",
+            "leftSurfaceId": "east-bank-root-path",
+            "rightSurfaceId": "last-root-clearing",
+            "gap": {
+              "left": 1190,
+              "right": 1270,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "left",
+                "anchorId": "stable-root-extension",
+                "distance": 286.6775191744201,
+                "sampleCount": 26
+              },
+              {
+                "status": "FAIL",
+                "code": "REEL_SWEEP_BLOCKED",
+                "profile": "rafi",
+                "side": "right",
+                "anchorId": "stable-root-extension",
+                "colliderId": "last-root-clearing",
+                "position": {
+                  "x": 1242.3247444089986,
+                  "y": 487.58605271492036
+                },
+                "distance": 278.71849597757233
+              }
+            ]
+          },
+          {
+            "id": "gap:legacy-ground-0:legacy-ground-1",
+            "status": "PASS",
+            "anchorId": "legacy-tape-0",
+            "leftSurfaceId": "legacy-ground-0",
+            "rightSurfaceId": "legacy-ground-1",
+            "gap": {
+              "left": 370,
+              "right": 706,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "left",
+                "anchorId": "legacy-tape-0",
+                "distance": 279.5442719856731,
+                "sampleCount": 26
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "right",
+                "anchorId": "legacy-tape-0",
+                "distance": 304.6850833237492,
+                "sampleCount": 26
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "PASS": 1,
+          "WARN": 0,
+          "FAIL": 1,
+          "NOT TESTED": 0
+        },
+        "source": "live-phaser-stage01",
+        "limitations": [
+          "Finite static swept-body probes are not Phaser gameplay or exhaustive proof",
+          "Dynamic colliders, release cause, modes and respawns require browser QA"
+        ]
+      }
+    },
+    {
+      "name": "character profile active rafi",
+      "passed": true,
+      "body": {
+        "id": "rafi",
+        "w": 28,
+        "h": 64
+      }
+    },
+    {
+      "name": "live static validation rafi",
+      "passed": true,
+      "report": {
+        "contract": "rafael-rope-crossing-safety/v1",
+        "status": "PASS",
+        "issues": [],
+        "crossings": [
+          {
+            "id": "forest-gap-02",
+            "status": "PASS",
+            "anchorId": "stable-root-extension",
+            "leftSurfaceId": "east-bank-root-path",
+            "rightSurfaceId": "last-root-clearing",
+            "gap": {
+              "left": 1190,
+              "right": 1270,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "left",
+                "anchorId": "stable-root-extension",
+                "distance": 279.12183719659055,
+                "sampleCount": 26
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "right",
+                "anchorId": "stable-root-extension",
+                "distance": 279.12183719659055,
+                "sampleCount": 26
+              }
+            ]
+          },
+          {
+            "id": "gap:legacy-ground-0:legacy-ground-1",
+            "status": "PASS",
+            "anchorId": "legacy-tape-0",
+            "leftSurfaceId": "legacy-ground-0",
+            "rightSurfaceId": "legacy-ground-1",
+            "gap": {
+              "left": 370,
+              "right": 706,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "left",
+                "anchorId": "legacy-tape-0",
+                "distance": 279.5442719856731,
+                "sampleCount": 26
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "right",
+                "anchorId": "legacy-tape-0",
+                "distance": 304.6850833237492,
+                "sampleCount": 26
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "PASS": 2,
+          "WARN": 0,
+          "FAIL": 0,
+          "NOT TESTED": 0
+        },
+        "source": "live-phaser-stage01",
+        "limitations": [
+          "Finite static swept-body probes are not Phaser gameplay or exhaustive proof",
+          "Dynamic colliders, release cause, modes and respawns require browser QA"
+        ]
+      }
+    },
+    {
+      "name": "reel rafi/manual/legacy/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 251.07767722360344,
+        "position": {
+          "x": 387.02046192709236,
+          "y": 506.6014702415267
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 229.42141055693688,
+        "position": {
+          "x": 413.89321022638563,
+          "y": 496.4287147253404
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel rafi/manual/legacy/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 278.625196276288,
+        "position": {
+          "x": 688.8590391934756,
+          "y": 506.9246791223502
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 256.9767296096212,
+        "position": {
+          "x": 657.0651737058329,
+          "y": 503.46989397424693
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel rafi/manual/forest-gap-02/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 247.16795908855178,
+        "position": {
+          "x": 1206.2244264636165,
+          "y": 506.02179192708934
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 229.8380924218852,
+        "position": {
+          "x": 1210.4088891467131,
+          "y": 489.00160939099374
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel rafi/manual/forest-gap-02/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 247.16795908855178,
+        "position": {
+          "x": 1253.775573616032,
+          "y": 506.02179191939206
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 227.6748924218852,
+        "position": {
+          "x": 1248.9524215692686,
+          "y": 486.8846895583255
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel rafi/classic/legacy/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 251.07767722360344,
+        "position": {
+          "x": 387.3019480270326,
+          "y": 506.7662418972457
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 231.57767722360353,
+        "position": {
+          "x": 416.70241646136236,
+          "y": 500.1461415915632
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel rafi/classic/legacy/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 278.625196276288,
+        "position": {
+          "x": 688.8797711064782,
+          "y": 506.9079658697343
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 254.81266294295466,
+        "position": {
+          "x": 650.9042274698596,
+          "y": 504.9109715602271
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel rafi/classic/forest-gap-02/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 247.16795908855178,
+        "position": {
+          "x": 1205.9083320970335,
+          "y": 505.9910395474867
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 229.62185908855187,
+        "position": {
+          "x": 1204.5274015705259,
+          "y": 488.20461191775576
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel rafi/classic/forest-gap-02/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 247.16795908855178,
+        "position": {
+          "x": 1253.6524638360638,
+          "y": 506.0336581740061
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 211.20605908855183,
+        "position": {
+          "x": 1210.0053461728303,
+          "y": 470.25749264663193
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel rafi/hybrid/legacy/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 251.07767722360344,
+        "position": {
+          "x": 389.70795304093133,
+          "y": 508.1547319283372
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 198.9687272236034,
+        "position": {
+          "x": 463.2094505691024,
+          "y": 482.3769074018195
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel rafi/hybrid/legacy/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 278.625196276288,
+        "position": {
+          "x": 687.0217749625677,
+          "y": 508.39291515248976
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 223.74864627628804,
+        "position": {
+          "x": 594.2048401937865,
+          "y": 498.87948755193906
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel rafi/hybrid/forest-gap-02/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 247.16795908855178,
+        "position": {
+          "x": 1206.165463400677,
+          "y": 506.01608659820505
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 199.06610908855174,
+        "position": {
+          "x": 1212.2684825173183,
+          "y": 458.2748321785106
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel rafi/hybrid/forest-gap-02/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 247.16795908855178,
+        "position": {
+          "x": 1253.0609772765756,
+          "y": 506.0898033788667
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 201.22505908855177,
+        "position": {
+          "x": 1234.8232758617592,
+          "y": 461.16724488631974
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "character profile active shaul",
+      "passed": true,
+      "body": {
+        "id": "shaul",
+        "w": 32,
+        "h": 74
+      }
+    },
+    {
+      "name": "live static validation shaul",
+      "passed": true,
+      "report": {
+        "contract": "rafael-rope-crossing-safety/v1",
+        "status": "PASS",
+        "issues": [],
+        "crossings": [
+          {
+            "id": "forest-gap-02",
+            "status": "PASS",
+            "anchorId": "stable-root-extension",
+            "leftSurfaceId": "east-bank-root-path",
+            "rightSurfaceId": "last-root-clearing",
+            "gap": {
+              "left": 1190,
+              "right": 1270,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "shaul",
+                "side": "left",
+                "anchorId": "stable-root-extension",
+                "distance": 286.42494653922864,
+                "sampleCount": 23
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "shaul",
+                "side": "right",
+                "anchorId": "stable-root-extension",
+                "distance": 286.42494653922864,
+                "sampleCount": 23
+              }
+            ]
+          },
+          {
+            "id": "gap:legacy-ground-0:legacy-ground-1",
+            "status": "PASS",
+            "anchorId": "legacy-tape-0",
+            "leftSurfaceId": "legacy-ground-0",
+            "rightSurfaceId": "legacy-ground-1",
+            "gap": {
+              "left": 370,
+              "right": 706,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "shaul",
+                "side": "left",
+                "anchorId": "legacy-tape-0",
+                "distance": 285.3230625098504,
+                "sampleCount": 23
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "shaul",
+                "side": "right",
+                "anchorId": "legacy-tape-0",
+                "distance": 309.685727795131,
+                "sampleCount": 23
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "PASS": 2,
+          "WARN": 0,
+          "FAIL": 0,
+          "NOT TESTED": 0
+        },
+        "source": "live-phaser-stage01",
+        "limitations": [
+          "Finite static swept-body probes are not Phaser gameplay or exhaustive proof",
+          "Dynamic colliders, release cause, modes and respawns require browser QA"
+        ]
+      }
+    },
+    {
+      "name": "reel shaul/manual/legacy/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 252.22658464166702,
+        "position": {
+          "x": 390.50785674155287,
+          "y": 509.9271255517044
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 219.50688464166703,
+        "position": {
+          "x": 442.2397689071431,
+          "y": 497.44575589437807
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel shaul/manual/legacy/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 279.3174717055845,
+        "position": {
+          "x": 684.0341039663396,
+          "y": 511.60021093934915
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 245.3042717055846,
+        "position": {
+          "x": 618.1542265108015,
+          "y": 512.0947608948575
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel shaul/manual/forest-gap-02/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 249.47194231015237,
+        "position": {
+          "x": 1208.7073084207764,
+          "y": 508.56160460801675
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 213.29164231015235,
+        "position": {
+          "x": 1220.2420568783855,
+          "y": 473.0683158646478
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel shaul/manual/forest-gap-02/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 249.47194231015237,
+        "position": {
+          "x": 1251.4931934770066,
+          "y": 508.54434741944937
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 214.15484231015236,
+        "position": {
+          "x": 1241.053280454052,
+          "y": 473.8694028515774
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "manual",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel shaul/classic/legacy/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 252.22658464166702,
+        "position": {
+          "x": 390.1368129486923,
+          "y": 509.71836721924905
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 215.83048464166694,
+        "position": {
+          "x": 429.8721426359973,
+          "y": 488.7594066100994
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel shaul/classic/legacy/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 279.3174717055845,
+        "position": {
+          "x": 683.9284856689807,
+          "y": 511.6812120100552
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 243.1345717055845,
+        "position": {
+          "x": 578.3085007747585,
+          "y": 524.4756633140439
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel shaul/classic/forest-gap-02/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 249.47194231015237,
+        "position": {
+          "x": 1207.8724769754251,
+          "y": 508.4886772567251
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 217.40874231015238,
+        "position": {
+          "x": 1209.1837349678326,
+          "y": 476.40989890250586
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel shaul/classic/forest-gap-02/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 249.47194231015237,
+        "position": {
+          "x": 1251.8808886971099,
+          "y": 508.51051629624186
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 213.93904231015233,
+        "position": {
+          "x": 1253.3617223360368,
+          "y": 472.65969000748373
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "classic",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel shaul/hybrid/legacy/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 252.22658464166702,
+        "position": {
+          "x": 391.3677534182939,
+          "y": 510.40776324422797
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 200.42658464166698,
+        "position": {
+          "x": 462.7126585028609,
+          "y": 483.7535146346489
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel shaul/hybrid/legacy/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 279.3174717055845,
+        "position": {
+          "x": 683.5796721933726,
+          "y": 511.9481578630206
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 227.52117170558446,
+        "position": {
+          "x": 593.9631296534593,
+          "y": 503.0065291729483
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 514,
+          "y": 290
+        }
+      }
+    },
+    {
+      "name": "reel shaul/hybrid/forest-gap-02/left",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 249.47194231015237,
+        "position": {
+          "x": 1208.0928151769454,
+          "y": 508.5081995692064
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 203.83614231015235,
+        "position": {
+          "x": 1208.611664151613,
+          "y": 462.7109074557195
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "reel shaul/hybrid/forest-gap-02/right",
+      "passed": true,
+      "before": {
+        "attached": true,
+        "length": 249.47194231015237,
+        "position": {
+          "x": 1250.6118551128993,
+          "y": 508.61898847192833
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      },
+      "after": {
+        "attached": true,
+        "length": 199.21299231015234,
+        "position": {
+          "x": 1225.9015231980627,
+          "y": 459.1708281678539
+        },
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        },
+        "mode": "hybrid",
+        "anchor": {
+          "x": 1230,
+          "y": 260
+        }
+      }
+    },
+    {
+      "name": "actual old x1275 collision causes safe release in Phaser",
+      "passed": true,
+      "negative": {
+        "attached": false,
+        "diagnostics": [
+          "Tape blocked by roots \u2014 released safely"
+        ],
+        "blocked": {
+          "none": true,
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false
+        }
+      }
+    },
+    {
+      "name": "real keyboard swing steer manual",
+      "passed": true,
+      "swing": {
+        "attached": true,
+        "velocity": {
+          "x": -201.5350372443854,
+          "y": -21.371013803262798
+        },
+        "mode": "manual"
+      }
+    },
+    {
+      "name": "real keyboard swing steer classic",
+      "passed": true,
+      "swing": {
+        "attached": true,
+        "velocity": {
+          "x": -105.33119036115164,
+          "y": -6.201278475065202
+        },
+        "mode": "classic"
+      }
+    },
+    {
+      "name": "real keyboard swing steer hybrid",
+      "passed": true,
+      "swing": {
+        "attached": true,
+        "velocity": {
+          "x": -95.56561012905178,
+          "y": -5.873636894500027
+        },
+        "mode": "hybrid"
+      }
+    },
+    {
+      "name": "keyboard ArrowDown extends tape",
+      "passed": true,
+      "before": 300,
+      "after": 334.8815999999999
+    },
+    {
+      "name": "keyboard E voluntary detach",
+      "passed": true
+    },
+    {
+      "name": "restart cycle 1 retains geometry and anchors",
+      "passed": true,
+      "state": {
+        "surfaces": 4,
+        "report": "PASS",
+        "crossings": 2,
+        "duplicates": []
+      }
+    },
+    {
+      "name": "restart cycle 2 retains geometry and anchors",
+      "passed": true,
+      "state": {
+        "surfaces": 4,
+        "report": "PASS",
+        "crossings": 2,
+        "duplicates": []
+      }
+    },
+    {
+      "name": "restart cycle 3 retains geometry and anchors",
+      "passed": true,
+      "state": {
+        "surfaces": 4,
+        "report": "PASS",
+        "crossings": 2,
+        "duplicates": []
+      }
+    },
+    {
+      "name": "disabled extension collision reports NOT TESTED",
+      "passed": true,
+      "report": {
+        "contract": "rafael-rope-crossing-safety/v1",
+        "status": "NOT TESTED",
+        "issues": [],
+        "crossings": [
+          {
+            "id": "forest-gap-02",
+            "status": "NOT TESTED",
+            "checks": [
+              {
+                "status": "NOT TESTED",
+                "code": "BANK_DISABLED"
+              }
+            ]
+          },
+          {
+            "id": "gap:legacy-ground-0:legacy-ground-1",
+            "status": "PASS",
+            "anchorId": "legacy-tape-0",
+            "leftSurfaceId": "legacy-ground-0",
+            "rightSurfaceId": "legacy-ground-1",
+            "gap": {
+              "left": 370,
+              "right": 706,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "left",
+                "anchorId": "legacy-tape-0",
+                "distance": 279.5442719856731,
+                "sampleCount": 26
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "right",
+                "anchorId": "legacy-tape-0",
+                "distance": 304.6850833237492,
+                "sampleCount": 26
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "PASS": 1,
+          "WARN": 0,
+          "FAIL": 0,
+          "NOT TESTED": 1
+        },
+        "source": "live-phaser-stage01",
+        "limitations": [
+          "Finite static swept-body probes are not Phaser gameplay or exhaustive proof",
+          "Dynamic colliders, release cause, modes and respawns require browser QA"
+        ]
+      }
+    },
+    {
+      "name": "extension reset restores live validator PASS",
+      "passed": true
+    },
+    {
+      "name": "disabled mandatory anchor reports NOT TESTED",
+      "passed": true,
+      "report": {
+        "contract": "rafael-rope-crossing-safety/v1",
+        "status": "NOT TESTED",
+        "issues": [],
+        "crossings": [
+          {
+            "id": "forest-gap-02",
+            "status": "NOT TESTED",
+            "checks": [
+              {
+                "status": "NOT TESTED",
+                "code": "ANCHOR_DISABLED",
+                "anchorId": "stable-root-extension"
+              }
+            ]
+          },
+          {
+            "id": "gap:legacy-ground-0:legacy-ground-1",
+            "status": "PASS",
+            "anchorId": "legacy-tape-0",
+            "leftSurfaceId": "legacy-ground-0",
+            "rightSurfaceId": "legacy-ground-1",
+            "gap": {
+              "left": 370,
+              "right": 706,
+              "top": 490
+            },
+            "checks": [
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "left",
+                "anchorId": "legacy-tape-0",
+                "distance": 279.5442719856731,
+                "sampleCount": 26
+              },
+              {
+                "status": "PASS",
+                "code": "REEL_SWEEP_CLEAR",
+                "profile": "rafi",
+                "side": "right",
+                "anchorId": "legacy-tape-0",
+                "distance": 304.6850833237492,
+                "sampleCount": 26
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "PASS": 1,
+          "WARN": 0,
+          "FAIL": 0,
+          "NOT TESTED": 1
+        },
+        "source": "live-phaser-stage01",
+        "limitations": [
+          "Finite static swept-body probes are not Phaser gameplay or exhaustive proof",
+          "Dynamic colliders, release cause, modes and respawns require browser QA"
+        ]
+      }
+    },
+    {
+      "name": "anchor reset restores live validator PASS",
+      "passed": true
+    },
+    {
+      "name": "no JavaScript page errors",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

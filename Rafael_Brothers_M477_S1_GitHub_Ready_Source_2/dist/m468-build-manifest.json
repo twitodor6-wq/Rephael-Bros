@@ -1,0 +1,19 @@
+{
+  "version": "M4.6.8",
+  "stageSha256": "f51fbb0a323a64e7967faf0d7f434f6b5c4f3cbaf477975e92429b71e3bce5d4",
+  "baselineSha256": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31",
+  "managedSha256": "bcd0d018db50821f04e080acdf77bef6dc80ad86f7bdd1b49c29bfa57346b96b",
+  "composerSha256": "e42a5ccfa01aa449592f1afff5454330fb35790041abce205a1708cc94f5f6ae",
+  "loaderSha256": "5c45bbcceefab714d389f619b98eb885f0b555f9309469258b5cf4939e6e2026",
+  "finalSha256": "3f67d45077df77fa84e583e1c5238d81890ef5916a6e0fa72dc55e0058f1a336",
+  "files": {
+    "stage-modules.mjs": "1fb4e80b24a2a8ca13e2fde3f1c82a6f82ea5dffad9100b67c9938b81a6b45f5",
+    "bridge-polish.mjs": "9daebd6d06e6e9140b2c7f9bf7159170ec2607fa5bc90feaec34a139caa83b55",
+    "stage-dressing.mjs": "3ddb563a71431f408829452ac27eb8ced5858b129a7b222bf93105efb37c9e45",
+    "environmental-anchors.mjs": "427b4688c52e264aaf2d2a9fc91715e8c474415d9112687ec36a56606743f1b9",
+    "rotten-root.mjs": "b0fb98c80f90cb267e45986723ec76e68bec90984690607259a6eef2f49d9ddd",
+    "falling-bridge-tree.mjs": "1dd7399b6cb2e5d0eb260082c2200a941f140923996ea5b62d619bda645d7c7d",
+    "exit-grove.mjs": "d9ed88baec7a1946fa80e1358dde480e70e9852e598f4c40d8d735e5eb7e03f1",
+    "web-response.mjs": "2b2f82a682bb89c6be57e9d4bd50e363e680f81b21039acf40b8038515422f39"
+  }
+}

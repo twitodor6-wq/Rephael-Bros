@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="430" viewBox="0 0 3020 810">
+<rect width="3020" height="810" fill="#0c1e23"/>
+<text x="50" y="48" fill="#faf0c8" font-size="32" font-family="sans-serif">M473 AFTER · Stage 01 · Stage JSON + live legacy ground</text>
+<path d="M0 80V700" stroke="#26404a"/><text x="5" y="100" fill="#87a8ac" font-size="20">0</text>
+<path d="M200 80V700" stroke="#26404a"/><text x="205" y="100" fill="#87a8ac" font-size="20">200</text>
+<path d="M400 80V700" stroke="#26404a"/><text x="405" y="100" fill="#87a8ac" font-size="20">400</text>
+<path d="M600 80V700" stroke="#26404a"/><text x="605" y="100" fill="#87a8ac" font-size="20">600</text>
+<path d="M800 80V700" stroke="#26404a"/><text x="805" y="100" fill="#87a8ac" font-size="20">800</text>
+<path d="M1000 80V700" stroke="#26404a"/><text x="1005" y="100" fill="#87a8ac" font-size="20">1000</text>
+<path d="M1200 80V700" stroke="#26404a"/><text x="1205" y="100" fill="#87a8ac" font-size="20">1200</text>
+<path d="M1400 80V700" stroke="#26404a"/><text x="1405" y="100" fill="#87a8ac" font-size="20">1400</text>
+<path d="M1600 80V700" stroke="#26404a"/><text x="1605" y="100" fill="#87a8ac" font-size="20">1600</text>
+<path d="M1800 80V700" stroke="#26404a"/><text x="1805" y="100" fill="#87a8ac" font-size="20">1800</text>
+<path d="M2000 80V700" stroke="#26404a"/><text x="2005" y="100" fill="#87a8ac" font-size="20">2000</text>
+<path d="M2200 80V700" stroke="#26404a"/><text x="2205" y="100" fill="#87a8ac" font-size="20">2200</text>
+<path d="M2400 80V700" stroke="#26404a"/><text x="2405" y="100" fill="#87a8ac" font-size="20">2400</text>
+<path d="M2600 80V700" stroke="#26404a"/><text x="2605" y="100" fill="#87a8ac" font-size="20">2600</text>
+<path d="M2800 80V700" stroke="#26404a"/><text x="2805" y="100" fill="#87a8ac" font-size="20">2800</text>
+<path d="M3000 80V700" stroke="#26404a"/><text x="3005" y="100" fill="#87a8ac" font-size="20">3000</text>
+<rect x="70" y="490" width="300" height="170" fill="#365f43" stroke="#9aaf76"/>
+<rect x="706" y="490" width="270" height="170" fill="#365f43" stroke="#9aaf76"/>
+<rect x="976" y="490" width="214" height="170" fill="#365f43" stroke="#9aaf76"/>
+<rect x="1270" y="490" width="590" height="170" fill="#365f43" stroke="#9aaf76"/>
+<rect x="1860" y="630" width="480" height="30" fill="#365f43" stroke="#9aaf76"/>
+<rect x="2340" y="490" width="110" height="170" fill="#365f43" stroke="#9aaf76"/>
+<rect x="2790" y="490" width="210" height="170" fill="#365f43" stroke="#9aaf76"/>
+<circle cx="105" cy="250" r="9" fill="#5bdbdf"/>
+<text x="105" y="234" fill="#c59a60" font-size="17" font-family="sans-serif">stable-tree-start</text>
+<circle cx="790" cy="350" r="9" fill="#5bdbdf"/>
+<text x="790" y="334" fill="#c59a60" font-size="17" font-family="sans-serif">stable-root-bridge</text>
+<circle cx="920" cy="330" r="9" fill="#da8172"/>
+<text x="920" y="314" fill="#c59a60" font-size="17" font-family="sans-serif">rotten-root</text>
+<circle cx="300" cy="185" r="9" fill="#da8172"/>
+<text x="300" y="169" fill="#c59a60" font-size="17" font-family="sans-serif">fallen-bridge-tree</text>
+<rect x="718" y="399" width="169" height="15" fill="#7eac75"/>
+<text x="718" y="383" fill="#7eac75" font-size="17" font-family="sans-serif">living-root-shelf</text>
+<rect x="858" y="378" width="88" height="12" fill="#e6a855"/>
+<text x="858" y="362" fill="#e6a855" font-size="17" font-family="sans-serif">rotten-root-ledge</text>
+<rect x="2895" y="355" width="50" height="135" fill="none" stroke="#f1df92" stroke-width="5"/>
+<text x="2920" y="439" fill="#c59a60" font-size="17" font-family="sans-serif">forest-exit-grove</text>
+<circle cx="1230" cy="260" r="9" fill="#5bdbdf"/>
+<text x="1230" y="244" fill="#c59a60" font-size="17" font-family="sans-serif">stable-root-extension</text>
+<circle cx="2620" cy="240" r="9" fill="#5bdbdf"/>
+<text x="2620" y="224" fill="#c59a60" font-size="17" font-family="sans-serif">combine-rescue-anchor</text>
+<rect x="1840" y="490" width="80" height="14" fill="#7eac75"/>
+<text x="1840" y="474" fill="#7eac75" font-size="17" font-family="sans-serif">teach-start</text>
+<rect x="1865" y="560" width="65" height="14" fill="#7eac75"/>
+<text x="1865" y="544" fill="#7eac75" font-size="17" font-family="sans-serif">teach-recovery-step</text>
+<rect x="1970" y="465" width="130" height="14" fill="#e6a855"/>
+<text x="1970" y="449" fill="#e6a855" font-size="17" font-family="sans-serif">teach-log-a</text>
+<rect x="2120" y="440" width="130" height="14" fill="#e6a855"/>
+<text x="2120" y="424" fill="#e6a855" font-size="17" font-family="sans-serif">teach-log-b</text>
+<rect x="2270" y="490" width="80" height="14" fill="#7eac75"/>
+<text x="2270" y="474" fill="#7eac75" font-size="17" font-family="sans-serif">teach-end</text>
+<rect x="2450" y="490" width="110" height="14" fill="#e6a855"/>
+<text x="2450" y="474" fill="#e6a855" font-size="17" font-family="sans-serif">bridge-a</text>
+<rect x="2560" y="490" width="110" height="14" fill="#e6a855"/>
+<text x="2560" y="474" fill="#e6a855" font-size="17" font-family="sans-serif">bridge-b</text>
+<rect x="2670" y="490" width="120" height="14" fill="#e6a855"/>
+<text x="2670" y="474" fill="#e6a855" font-size="17" font-family="sans-serif">bridge-c</text>
+<path d="M1810 690H2390" stroke="#a6c5dd" stroke-width="5"/><text x="1810" y="733" fill="#d1e6f3" font-size="24">log-to-log · teach</text>
+<path d="M2370 690H2840" stroke="#a6c5dd" stroke-width="5"/><text x="2370" y="733" fill="#d1e6f3" font-size="24">crumbling-bridge-rescue · combine</text>
+<text x="50" y="790" fill="#ddd4b1" font-size="22">Green: stable / ground · Amber: collapsing surface · Cyan: stable hook · No invented collision terrain</text></svg>

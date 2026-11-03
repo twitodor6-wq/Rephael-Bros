@@ -1,0 +1,36 @@
+{
+  "name": "rafael-brothers-m477-s1",
+  "version": "0.7.7-s1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build-m477-s1.mjs",
+    "test": "node --test --test-reporter=tap tests/*.test.mjs",
+    "qa:browser": "node tests/m477-browser.cjs",
+    "qa:fixture": "python3 tests/m470-world-fixture-qa.py",
+    "build:m471": "node build-m471.mjs",
+    "qa:crossing": "node tests/m476-stability.cjs",
+    "qa:release": "node scripts/m476-release-gate.mjs",
+    "qa:gameplay": "node scripts/m476-fullrun-matrix.cjs",
+    "qa:hazards": "node tests/m476-compat-hazards.cjs",
+    "qa:lifecycle": "node tests/m476-compat-lifecycle.cjs",
+    "qa:negative": "node --test tests/m476-guidance.test.mjs",
+    "qa:all": "npm test && node tests/m477-browser.cjs && node tests/m477-physics-parity.cjs && node tests/m477-death.cjs",
+    "qa:encounters": "node tests/m476-real-recovery.cjs",
+    "qa:stability": "node tests/m476-stability.cjs",
+    "qa:web": "node tests/m476-web-lifecycle.cjs",
+    "qa:compat": "node scripts/m476-acceptance.cjs",
+    "qa:full": "node scripts/m476-fullrun-matrix.cjs",
+    "qa:acceptance": "node scripts/m476-acceptance.cjs",
+    "qa:m477": "node tests/m477-browser.cjs",
+    "qa:m477:parity": "node tests/m477-physics-parity.cjs",
+    "qa:m477:visual": "node tests/m477-visual.cjs",
+    "qa:m477:smoke": "node tests/m477-smoke.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.0"
+  }
+}

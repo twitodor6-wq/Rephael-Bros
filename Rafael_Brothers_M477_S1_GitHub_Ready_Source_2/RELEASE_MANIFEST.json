@@ -1,0 +1,99 @@
+{
+  "project": "Rafael Brothers",
+  "milestone": "M4.7.1",
+  "release_status": "QUALIFIED_PLAYABLE",
+  "date": "2026-10-29",
+  "baseline": {
+    "version": "M4.7.0",
+    "original_zip_name": "Rafael_Brothers_M470_Source_QA(1).zip",
+    "original_zip_sha256": "8456396a4b691d5819a801339d29b87fbf29217f9113794938b6919883107d34",
+    "original_zip_included": false,
+    "original_stage_snapshot": "stages/s01.m470.rollback.json",
+    "original_stage_sha256": "f51fbb0a323a64e7967faf0d7f434f6b5c4f3cbaf477975e92429b71e3bce5d4",
+    "old_html_source": "baseline/M46_RELEASE.html",
+    "old_html_sha256": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31"
+  },
+  "build": {
+    "command": "npm run build",
+    "status": "PASS",
+    "standalone_html": "dist/Rafael_Brothers_M471_ROOT_FOREST.html",
+    "output_size_bytes": 2369118,
+    "node_version": "v22.16.0"
+  },
+  "tests": {
+    "node": "93/93 PASS",
+    "schema": "PASS",
+    "chromium_browser_smoke": "14/14 PASS",
+    "chromium_json_mutation": "10/10 PASS",
+    "chromium_second_gap_actual_jump": "2/2 PASS",
+    "chromium_lifecycle_15_cycles": "8/8 PASS",
+    "chromium_tape_manual_classic_hybrid_normal": "3/3 PASS",
+    "chromium_tape_manual_classic_hybrid_isolated": "3/3 PASS",
+    "chromium_version": "144.0.7559.96",
+    "historical_hybrid_normal_M468_M469": "FAIL 2/3 previously observed, still retained",
+    "safari": "NOT TESTED",
+    "file_local_navigation": "NOT TESTED",
+    "human_unassisted_full_game": "NOT TESTED",
+    "repeated_recreate_recovery": "NOT CERTIFIED"
+  },
+  "rollback": {
+    "stage_data_only": "Restore stages/s01.m470.rollback.json together with original M470 builder and composer; do not mix M470 Stage and M471 actor",
+    "full": "Use original M470 source ZIP with SHA256 listed above"
+  },
+  "release_sha256": {
+    "baseline/M46_RELEASE.html": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31",
+    "stages/s01.stage.json": "51669fb2552a851c42b3f4578e4847ec74fb22afae88c034805aab8e7bb10eb7",
+    "stages/s01.m470.rollback.json": "f51fbb0a323a64e7967faf0d7f434f6b5c4f3cbaf477975e92429b71e3bce5d4",
+    "schemas/stage.v1.schema.json": "08eeb82d75b31bd62a6d9df42cbaa9c53ffe69197539bc55398637f0213b31e1",
+    "src/stage-loader.mjs": "8cebb277dc392bef98a652316b71ac30ddb221757650f52ab8c775f8a7f5d07c",
+    "src/scene-composer.mjs": "b9aafaab36f6d937de40b468ea5ccca2a5c25a38ec86daeb6327d9a162f99b63",
+    "src/forest-extension.mjs": "993b047031b6cb9ccc75facf4eabc272852c2d14c5cf4d3a44571c247f9b8ae8",
+    "src/falling-bridge-tree.mjs": "566991b6c5ce1302494b1e2969337d7d21f955b3990405e760c4b4e07819eb4f",
+    "src/stage-dressing.mjs": "fc27d20d32801b546701f5a42e2a2eb8c9dc5b8cea8681ba5a7be8e90b749125",
+    "build-m471.mjs": "91ef6c79f765c382ac2bdd57ffc224233ee1cdb319444bbbd80f55ab984012b3",
+    "package.json": "0ffcd9b12f40a99b73cdab0b7d482b014438482361a3fe68574dbf2a815a950b",
+    "dist/Rafael_Brothers_M471_ROOT_FOREST.html": "765b71d234663fff098fd6bd6f5f0ca8c4024aeb0b436236afdd6d39d6658937",
+    "M471_STAGE_MAP.svg": "55e6db5ae96c7d8740cfa707fdbdeac7ecd44dc104aeeeab364501ac275d6b23",
+    "M471_QA_REPORT.md": "901a88d3751a2934ccd772266f70cf0329565921c89e18324873335e98bf01a4",
+    "M471_JSON_MUTATION_REPORT.md": "cc02e5cc85d041887c0a6a93d1713bc5b46bb6b09f67c03472aea663b32b1d2d",
+    "tests/m471-stage.test.mjs": "bfb0b3ec583a7881fc64dc0375e99c16d79ff5d95c6cc65ed9357d9c349441cb",
+    "evidence/m471-browser-smoke.json": "ddae4778f9d08b8990bc353eeeb9a89658f20722934145c166257b1f80d75fd9",
+    "evidence/m471-mutation-browser.json": "0e03a3d4498cb37dcc25f076aa37a5ea8c9d9e00155dfa0423bcb61e9683ec47",
+    "evidence/m471-lifecycle-browser.json": "5475838cc00351d1299211b32c353533350860ce360c96a4697a1a4e99cbfac5",
+    "evidence/m471-new-gap-browser.json": "1f6d85c613f240a0ad42ed161658f1e33c505370d14fe265b301e89bf6dcc0e5",
+    "evidence/m471-rope-rendered.json": "2fbcf9454488b9393226f40f1042a5c3ba665a51d7b6c67a841eda41cfc2a398",
+    "evidence/m471-rope-isolated.json": "6ffefc9173689f2ccc38ee572d154784932470aef3a813ca2d88a74d03b2ce42"
+  },
+  "evidence_files": [
+    "evidence/m471-browser-smoke.json",
+    "evidence/m471-final-build.log",
+    "evidence/m471-final-node-tests.log",
+    "evidence/m471-final-schema.log",
+    "evidence/m471-lifecycle-browser.json",
+    "evidence/m471-mutation-browser.json",
+    "evidence/m471-new-gap-browser.json",
+    "evidence/m471-rope-isolated.json",
+    "evidence/m471-rope-rendered.json",
+    "evidence/m471-second-gap-rope.json",
+    "evidence/m471-variant-a.stage.json",
+    "evidence/m471-variant-b.stage.json"
+  ],
+  "reference_documents": [
+    "README_START_HERE_M471.md",
+    "M471_STAGE_DESIGN.md",
+    "M471_JSON_MUTATION_REPORT.md",
+    "M471_QA_REPORT.md",
+    "QA_REPORT.md",
+    "HANDOFF.md",
+    "KNOWN_ISSUES.md",
+    "CHANGELOG.md",
+    "MIGRATION_ROADMAP.md",
+    "M471_STAGE_MAP.svg"
+  ],
+  "notes": [
+    "Stage01 production uses world.forestExtension, not the isolated world.terrain fixture",
+    "No tape swing physics changes",
+    "Research scripts in evidence/investigations are not release passing tests",
+    "Standalone HTML included and additionally provided as individual download"
+  ]
+}

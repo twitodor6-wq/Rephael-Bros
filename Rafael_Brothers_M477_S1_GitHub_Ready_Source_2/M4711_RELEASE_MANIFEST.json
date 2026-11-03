@@ -1,0 +1,56 @@
+{
+  "release": "M4.7.1.1",
+  "type": "targeted-stage-json-hotfix",
+  "date": "2026-10-29",
+  "baseline": {
+    "m471_original_zip_sha256": "230d93bca1e3568b464d9b1fea0a15f2db8504ea75786e2557f79177ef58a29f",
+    "m471_original_html_sha256": "765b71d234663fff098fd6bd6f5f0ca8c4024aeb0b436236afdd6d39d6658937",
+    "m471_original_stage_sha256": "51669fb2552a851c42b3f4578e4847ec74fb22afae88c034805aab8e7bb10eb7",
+    "m46_legacy_html_sha256": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31"
+  },
+  "fixed": {
+    "stage_json_sha256": "d0a08768a0c992991e0e7ec0137e2c57f5f30c46b5ec932d45991c99834db368",
+    "standalone_html_sha256": "9b25b1c3bf977968256718b6d5c180b8cd386ff5fa3199af1afdfcb69585c6c7",
+    "build_script_sha256": "bc7196ebe05fcf52778a2e1c8c64dccd63adcafafe7d739474268aec5d5e2d34",
+    "test_script_sha256": "5f6c38671c05da137a047e54ebbbd741004d9dab0621e29d172af13972b45369",
+    "node_test_sha256": "c0e3c7d9237eb338de70e94da205a6e396608f142429387ec339508457d1dbb2"
+  },
+  "changes": [
+    {
+      "path": "stages/s01.stage.json",
+      "objectId": "stable-root-extension",
+      "field": "position.x",
+      "from": 1275,
+      "to": 1230
+    },
+    {
+      "path": "build-m471.mjs",
+      "reason": "hotfix build version label"
+    },
+    {
+      "path": "tests/m471-stage.test.mjs",
+      "reason": "update anchor expectation and add pit-safe guard"
+    },
+    {
+      "path": "tests/m471-rope-gap-regression-browser.py",
+      "reason": "true-browser targeted regression"
+    }
+  ],
+  "qa": {
+    "node": "94/94 PASS",
+    "reel_manual_classic_hybrid": "9/9 PASS plus no-page-error assertion; 10/10 total",
+    "new_gap_jump": "2/2 PASS",
+    "browser_smoke": "14/14 PASS",
+    "lifecycle": "8/8 PASS, including 15 restart cycles",
+    "human_full_run": "NOT TESTED",
+    "safari": "NOT TESTED"
+  },
+  "rollback": "Use original Rafael_Brothers_M471_Source_QA.zip or user-provided Rafael_Brothers_M471_ROOT_FOREST.html; M470 stage is also snapshotted in stages/s01.m470.rollback.json",
+  "evidence": [
+    "evidence/m471-rope-gap-regression.json",
+    "evidence/m4711-new-gap-browser.json",
+    "evidence/m4711-browser-smoke.json",
+    "evidence/m4711-lifecycle-browser.json",
+    "M4711_HOTFIX_QA.md"
+  ]
+}

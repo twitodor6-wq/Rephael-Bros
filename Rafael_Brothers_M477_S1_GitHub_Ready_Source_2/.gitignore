@@ -1,0 +1,26 @@
+# Runtime artifacts and local dependencies
+node_modules/
+.DS_Store
+__MACOSX/
+*.zip
+*.mp4
+*.webm
+*.mov
+.env
+.env.*
+
+# Generated build outputs: rebuild from source
+dist/*
+!dist/Rafael_Brothers_M461_FOREST_POLISH_STAGE_MODULES.html
+!dist/Rafael_Brothers_M462_ROTTEN_ROOT_ANCHOR.html
+!dist/Rafael_Brothers_M463_ENVIRONMENTAL_ANCHORS.html
+!dist/Rafael_Brothers_M464_REACHABLE_ROTTEN_TREE.html
+!dist/Rafael_Brothers_M474_ENCOUNTER_LAYOUT.html
+!dist/Rafael_Brothers_M475_CAMERA_STABILITY.html
+!dist/Rafael_Brothers_M476_FULL_RUN_ACCEPTANCE.html
+!dist/m468-build-manifest.json
+
+# Large transient QA outputs
+evidence/*
+!evidence/m472-rope-crossing-browser.json
+qa-input/

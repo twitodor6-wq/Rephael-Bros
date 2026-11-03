@@ -1,0 +1,85 @@
+{
+  "milestone": "M4.7.2",
+  "version": "0.7.2",
+  "date": "2026-10-30",
+  "status": "TARGETED_QA_PASS_NOT_FULL_END_TO_END",
+  "source_baseline": "M4.7.1.1",
+  "source_zip_sha256": "19eb62dd43c4ce5b62fe1e8869dcdaf9c0c80ae198e54e0d15a2343bd91d47eb",
+  "core_preservation": {
+    "baseline/M46_RELEASE.html": {
+      "sha256": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31",
+      "equals_original": true
+    },
+    "build-m471.mjs": {
+      "sha256": "bc7196ebe05fcf52778a2e1c8c64dccd63adcafafe7d739474268aec5d5e2d34",
+      "equals_original": true
+    },
+    "src/bridge-polish.mjs": {
+      "sha256": "9daebd6d06e6e9140b2c7f9bf7159170ec2607fa5bc90feaec34a139caa83b55",
+      "equals_original": true
+    },
+    "src/managed-actor.mjs": {
+      "sha256": "6f4097abd596c45845f998193aa33cc4c9d54ad53674fe9db759185d2e845908",
+      "equals_original": true
+    }
+  },
+  "qa": {
+    "node": {
+      "passed": 104,
+      "total": 104
+    },
+    "chromium_new": {
+      "passed": 44,
+      "total": 44
+    },
+    "chromium_compat": {
+      "reel": {
+        "passed": 10,
+        "total": 10,
+        "file": "m472-compat-m471-rope-gap-regression.json"
+      },
+      "jump": {
+        "passed": 2,
+        "total": 2,
+        "file": "m472-compat-m471-new-gap-browser.json"
+      },
+      "smoke": {
+        "passed": 14,
+        "total": 14,
+        "file": "m472-compat-m471-browser-smoke.json"
+      },
+      "lifecycle": {
+        "passed": 8,
+        "total": 8,
+        "file": "m472-compat-m471-lifecycle-browser.json"
+      }
+    },
+    "negative_build_x1275": {
+      "rejected": true,
+      "restored": "x1230"
+    }
+  },
+  "paths": {
+    "html": "dist/Rafael_Brothers_M472_ROPE_CROSSING_SAFETY.html",
+    "safety_validator": "src/validation/rope-crossing-safety.mjs",
+    "handoff": "M472_HANDOFF.md",
+    "qa_report": "M472_QA_REPORT.md"
+  },
+  "hashes": {
+    "stages/s01.stage.json": "ffeba806ca61a88db5c6b8bd19c2faa8c8a7d30a5ba9c1f5732c5c8e9d07537b",
+    "src/stage-loader.mjs": "d7d4b2e7ce5f7aecd4e4875e08dc132c15431c06cb9ad5fa57779c5c0342f6d8",
+    "src/validation/rope-crossing-safety.mjs": "1075c74ffd459fcd8d3b9d3f81812d50ce69841c4af79372cfa817861141ae72",
+    "build-m472.mjs": "40106eaba0696eb0e96b156a1c7509f8f20f61579742de38e58230e5e72bbc23",
+    "dist/Rafael_Brothers_M472_ROPE_CROSSING_SAFETY.html": "6ddc3df0b62ca4acfd2ad96d2c07a73bc28dffbe93d8558399461f3619012127",
+    "dist/m472-static-safety-report.json": "283ffed5b6557543850c053a25e7b1977ea25db22bde5953c8007028d344a4c8",
+    "evidence/m472-rope-crossing-browser.json": "8c90a88876c980c2f77b06be9ffe7af1cb4d5e177ce212b3921b516d9251f330",
+    "evidence/m472-node-run.log": "6da2d52a831a221861fa3440ae8e6246ab98c4c92fa65dc7490d044655e2b14d",
+    "M472_QA_REPORT.md": "04c873aeb2236c3e48b12756a4e3e5d71a045df1989c74f57fe8d1c2153470a5",
+    "M472_HANDOFF.md": "4b5ce5e3ac7ee4ed6058be626bc60c7a36fc2e0a42ae552265892a8c177933d7",
+    "docs/ROPE_CROSSING_SAFETY_CONTRACT.md": "054dce66a14cea5518a2700aac1e21b46e9e7915b5cd5aa8c6cf580f5c9cb7b6",
+    "M472_KNOWN_ISSUES.md": "cccce6ca0ad668e1b7415840e15b93e181ece7bbd06dba8d67e7fd4a7259da8a",
+    "scripts/m472-release-gate.mjs": "aed7bfa222b1505dd42aa3907fbc854c1c1f387b72476e4f7d36f002169bedbc",
+    "evidence/m472-compat-run-manifest.json": "53db7877a311686043908d7dab82aef68bb368d797540b7026141705c56b12ac"
+  },
+  "limitations": "Playwright set_content verified; sandbox blocks file:// and localhost direct navigation, and human full run/Safari NOT TESTED."
+}
