@@ -37,7 +37,11 @@ const snap=p=>p.evaluate(()=>({eggs:__RBEggSacs.snapshot(),bindings:__RBStageV1.
   }
   check('all five prior groups destroyed and emptied',await p.evaluate(()=>__s4Old.length===5&&__s4Old.every(g=>g.lifecycleSnapshot().state==='destroyed'&&g.lifecycleSnapshot().resources===0&&g.snapshot().instances.every(e=>e.total===0))));
   await p.evaluate(()=>document.getElementById('rb-m45-egg-toggle').click());check('ON restores intact egg', (await snap(p)).eggs.instances[0].enabled);
-  const shutdown=await p.evaluate(()=>{const s=__game.scene.getScene('Game'),g=__RBEggSacs;s.scene.stop();return {life:g.lifecycleSnapshot(),empty:g.snapshot().instances.every(e=>e.total===0),refs:__RBEggSacs===null&&__RBEggSac===null,post:s.events.listenerCount('postupdate'),bound:__RBStageV1.snapshot().instances.some(o=>o.bound)};});
+  // Phaser queues scene.stop until its next scene-manager update. Observe actual
+  // shutdown rather than reading the still-active scene in the requesting call.
+  await p.evaluate(()=>{window.__s4ShutdownGroup=__RBEggSacs;__game.scene.getScene('Game').scene.stop();});
+  await p.waitForFunction(()=>window.__RBEggSacs===null&&!__game.scene.isActive('Game'));
+  const shutdown=await p.evaluate(()=>{const s=__game.scene.getScene('Game'),g=__s4ShutdownGroup;return {life:g.lifecycleSnapshot(),empty:g.snapshot().instances.every(e=>e.total===0),refs:__RBEggSacs===null&&__RBEggSac===null,post:s.events.listenerCount('postupdate'),bound:__RBStageV1.snapshot().instances.some(o=>o.bound)};});
   check('real scene Shutdown releases children, graphics scopes, bindings, refs and listeners',shutdown.life.state==='destroyed'&&shutdown.life.resources===0&&shutdown.empty&&shutdown.refs&&!shutdown.bound&&shutdown.post===0,{shutdown});
  });
  await session(fixture('zero',[]),async p=>{const s=await snap(p);check('zero Stage sacs spawn no default enemy',s.eggs.instances.length===0&&s.bindings.length===0&&await p.evaluate(()=>__RBEggSac.snapshot()===null));});
