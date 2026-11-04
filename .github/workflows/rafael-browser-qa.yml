@@ -1,0 +1,124 @@
+name: Rafael Brothers — Build and Browser QA
+
+on:
+  push:
+    branches:
+      - main
+      - 'dev/**'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rafael-qa-${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    name: Build / Node / Schema / Chromium
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      CI: 'true'
+    steps:
+      - name: Check out source (read-only)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Set up Python for schema QA
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Prepare report folders
+        run: mkdir -p ci-results evidence/m477 evidence/m477-s2
+
+      # No package-lock.json is tracked yet; npm ci is not possible.
+      - name: Install Node dependencies
+        run: npm install --no-audit --no-fund --no-package-lock 2>&1 | tee ci-results/npm-install.log
+
+      - name: Build S2 standalone browser game
+        run: npm run build 2>&1 | tee ci-results/build.log
+
+      - name: Run Node regression tests
+        run: npm test 2>&1 | tee ci-results/node-tests.tap
+
+      - name: Install JSON schema validator
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Validate Stage schemas
+        run: |
+          python tests/m473-schema-check.py 2>&1 | tee ci-results/schema-m473.log
+          python tests/m477-s2-schema-check.py 2>&1 | tee ci-results/schema-s2.log
+
+      - name: Install Playwright Chromium and Linux dependencies
+        run: npx playwright install --with-deps chromium 2>&1 | tee ci-results/chromium-install.log
+
+      - name: Capture initial S2 game screenshot (diagnostic only)
+        continue-on-error: true
+        run: |
+          node <<'NODE'
+          const path = require('path');
+          const { boot, R } = require('./tests/m477-harness.cjs');
+          (async () => {
+            const { browser, page } = await boot();
+            try {
+              await page.screenshot({ path: path.join(R, 'ci-results/s2-initial.png'), fullPage: true });
+              console.log('Captured initial S2 gameplay screenshot');
+            } finally {
+              await browser.close();
+            }
+          })().catch(err => { console.error(err); process.exitCode = 1; });
+          NODE
+
+      - name: Run browser smoke, gameplay, parity and visual regressions
+        shell: bash
+        run: |
+          set +e
+          set -o pipefail
+          failures=0
+          for script in qa:s2 qa:m477 qa:m477:parity qa:m477:smoke qa:m477:visual; do
+            logfile="ci-results/$(echo "$script" | tr ':' '-').log"
+            echo "::group::$script"
+            npm run "$script" 2>&1 | tee "$logfile"
+            result=$?
+            echo "::endgroup::"
+            if [ "$result" -ne 0 ]; then
+              echo "::error::$script failed with exit code $result"
+              failures=$((failures + 1))
+            fi
+          done
+          echo "::group::m477 death / respawn"
+          node tests/m477-death.cjs 2>&1 | tee ci-results/qa-m477-death.log
+          result=$?
+          echo "::endgroup::"
+          if [ "$result" -ne 0 ]; then
+            echo "::error::m477 death / respawn failed with exit code $result"
+            failures=$((failures + 1))
+          fi
+          echo "Browser regression failures: $failures"
+          exit "$((failures > 0))"
+
+      - name: Upload QA reports, game and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rafael-browser-qa-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            ci-results/
+            evidence/m477/
+            evidence/m477-s2/
+            dist/Rafael_Brothers_M477_S2_ENEMY_PREFABS.html
+            dist/m477-s2-build-manifest.json
+            dist/m477-s2-static-safety-report.json

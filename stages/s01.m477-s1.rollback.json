@@ -1,0 +1,724 @@
+{
+  "schemaVersion": "1.0.0",
+  "stageId": "s01",
+  "title": "Stage 01 \u00b7 Forest / Spider Swamp",
+  "world": {
+    "width": 3020,
+    "height": 660,
+    "forestExtension": {
+      "id": "root-trail-extension",
+      "joinX": 976,
+      "surfaces": [
+        {
+          "id": "east-bank-root-path",
+          "x": 976,
+          "y": 490,
+          "w": 214,
+          "h": 170
+        },
+        {
+          "id": "last-root-clearing",
+          "x": 1270,
+          "y": 490,
+          "w": 590,
+          "h": 170
+        },
+        {
+          "id": "learning-recovery",
+          "x": 1860,
+          "y": 630,
+          "w": 480,
+          "h": 30
+        },
+        {
+          "id": "combine-entry-bank",
+          "x": 2340,
+          "y": 490,
+          "w": 110,
+          "h": 170
+        },
+        {
+          "id": "combine-exit-bank",
+          "x": 2790,
+          "y": 490,
+          "w": 210,
+          "h": 170
+        }
+      ]
+    }
+  },
+  "objects": [
+    {
+      "id": "stable-tree-start",
+      "prefab": "environmental-anchor",
+      "position": {
+        "x": 105,
+        "y": 250
+      },
+      "properties": {
+        "label": "Living tree \u00b7 first clearing",
+        "kind": "tree",
+        "strength": "stable",
+        "group": "tree",
+        "enabledFlag": null,
+        "collapseOutcome": "none",
+        "mountY": -16
+      }
+    },
+    {
+      "id": "stable-root-bridge",
+      "prefab": "environmental-anchor",
+      "position": {
+        "x": 790,
+        "y": 350
+      },
+      "properties": {
+        "label": "Living bridge \u00b7 far-bank root shelf",
+        "kind": "bridge",
+        "strength": "stable",
+        "group": "bridge",
+        "enabledFlag": "__RBRootBridgesEnabled",
+        "collapseOutcome": "none"
+      }
+    },
+    {
+      "id": "rotten-root",
+      "prefab": "environmental-anchor",
+      "position": {
+        "x": 920,
+        "y": 330
+      },
+      "properties": {
+        "label": "Hollow tree \u00b7 fragile hook",
+        "kind": "tree",
+        "strength": "fragile",
+        "group": "tree",
+        "enabledFlag": "__RBRottenRootEnabled",
+        "collapseOutcome": "fallen-log"
+      }
+    },
+    {
+      "id": "fallen-bridge-tree",
+      "prefab": "falling-bridge-tree",
+      "position": {
+        "x": 350,
+        "y": 416
+      },
+      "properties": {
+        "anchor": {
+          "label": "Rotten fallen branch \u00b7 partial pit bridge",
+          "kind": "tree",
+          "strength": "fragile",
+          "group": "tree",
+          "enabledFlag": "__RBFallingBridgeEnabled",
+          "collapseOutcome": "bridge-fragment"
+        },
+        "stubOffset": {
+          "x": -30,
+          "y": 69
+        },
+        "stubSize": {
+          "w": 42,
+          "h": 5
+        },
+        "bridgeOffset": {
+          "x": 0,
+          "y": 94
+        },
+        "bridgeSize": {
+          "w": 116,
+          "h": 16
+        },
+        "pitSource": "living-root-shelf",
+        "warningMs": 1100,
+        "standMs": 650,
+        "pullMs": 260,
+        "pullRatio": 0.986,
+        "motion": {
+          "breakMs": 180,
+          "fallMs": 700,
+          "settleMs": 260,
+          "hookDistance": 102,
+          "minRemainingGap": 230
+        },
+        "hammer": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "living-root-shelf",
+      "prefab": "root-bridge",
+      "position": {
+        "x": 718,
+        "y": 399
+      },
+      "properties": {
+        "size": {
+          "w": 169,
+          "h": 15
+        },
+        "brokenLeft": {
+          "x": 355,
+          "y": 501,
+          "w": 125
+        },
+        "brokenRight": {
+          "x": 583,
+          "y": 501,
+          "w": 137
+        },
+        "pit": {
+          "start": 370,
+          "end": 706
+        },
+        "decorativeDrop": 44,
+        "decorativeOnly": true,
+        "legacyHookMount": {
+          "anchorIndex": 0,
+          "canopyY": -16
+        }
+      }
+    },
+    {
+      "id": "rotten-root-ledge",
+      "prefab": "rotten-root",
+      "position": {
+        "x": 858,
+        "y": 378
+      },
+      "properties": {
+        "size": {
+          "w": 88,
+          "h": 12
+        },
+        "anchorId": "rotten-root",
+        "standingWarnMs": 650,
+        "tapeWarnMs": 260,
+        "warningMs": 1800,
+        "tensionRatio": 0.985,
+        "fallY": 484,
+        "safeFloorW": 120,
+        "maxAudioVoices": 4,
+        "cameraShake": 120,
+        "enabled": false,
+        "disabledReason": "Parked: safe ground removes meaningful consequence; retain optional debug encounter and finish reference"
+      }
+    },
+    {
+      "id": "forest-exit-grove",
+      "prefab": "exit-grove",
+      "position": {
+        "x": 2920,
+        "y": 455
+      },
+      "properties": {
+        "endOffsetX": 30,
+        "minFootOffsetY": -15,
+        "requiresRottenLedge": "rotten-root-ledge"
+      }
+    },
+    {
+      "id": "stable-root-extension",
+      "prefab": "environmental-anchor",
+      "position": {
+        "x": 1230,
+        "y": 260
+      },
+      "properties": {
+        "label": "Living root \u00b7 extension gap",
+        "kind": "tree",
+        "strength": "stable",
+        "group": "tree",
+        "enabledFlag": null,
+        "collapseOutcome": "none",
+        "mountY": -16
+      }
+    },
+    {
+      "id": "combine-rescue-anchor",
+      "prefab": "environmental-anchor",
+      "position": {
+        "x": 2620,
+        "y": 240
+      },
+      "properties": {
+        "label": "Living root \u00b7 crumbling bridge rescue",
+        "kind": "tree",
+        "strength": "stable",
+        "group": "tree",
+        "enabledFlag": null,
+        "collapseOutcome": "none",
+        "mountY": -16
+      }
+    },
+    {
+      "id": "teach-start",
+      "prefab": "collapsing-platform",
+      "position": {
+        "x": 1840,
+        "y": 490
+      },
+      "properties": {
+        "size": {
+          "w": 80,
+          "h": 14
+        },
+        "variant": "stable-log",
+        "trigger": "stand",
+        "standingMs": 50,
+        "warningMs": 1500,
+        "outcome": "remove",
+        "anchorRefs": []
+      }
+    },
+    {
+      "id": "teach-recovery-step",
+      "prefab": "collapsing-platform",
+      "position": {
+        "x": 1865,
+        "y": 560
+      },
+      "properties": {
+        "size": {
+          "w": 65,
+          "h": 14
+        },
+        "variant": "stable-log",
+        "trigger": "stand",
+        "standingMs": 50,
+        "warningMs": 1500,
+        "outcome": "remove",
+        "anchorRefs": []
+      }
+    },
+    {
+      "id": "teach-log-a",
+      "prefab": "collapsing-platform",
+      "position": {
+        "x": 1970,
+        "y": 465
+      },
+      "properties": {
+        "size": {
+          "w": 130,
+          "h": 14
+        },
+        "variant": "rotten-log",
+        "trigger": "stand",
+        "standingMs": 50,
+        "warningMs": 1400,
+        "outcome": "remove",
+        "anchorRefs": []
+      }
+    },
+    {
+      "id": "teach-log-b",
+      "prefab": "collapsing-platform",
+      "position": {
+        "x": 2120,
+        "y": 440
+      },
+      "properties": {
+        "size": {
+          "w": 130,
+          "h": 14
+        },
+        "variant": "rotten-log",
+        "trigger": "stand",
+        "standingMs": 50,
+        "warningMs": 1050,
+        "outcome": "remove",
+        "anchorRefs": []
+      }
+    },
+    {
+      "id": "teach-end",
+      "prefab": "collapsing-platform",
+      "position": {
+        "x": 2270,
+        "y": 490
+      },
+      "properties": {
+        "size": {
+          "w": 80,
+          "h": 14
+        },
+        "variant": "stable-log",
+        "trigger": "stand",
+        "standingMs": 50,
+        "warningMs": 1500,
+        "outcome": "remove",
+        "anchorRefs": []
+      }
+    },
+    {
+      "id": "bridge-a",
+      "prefab": "collapsing-platform",
+      "position": {
+        "x": 2450,
+        "y": 490
+      },
+      "properties": {
+        "size": {
+          "w": 110,
+          "h": 14
+        },
+        "variant": "crumbling-bridge",
+        "trigger": "stand",
+        "standingMs": 50,
+        "warningMs": 900,
+        "outcome": "remove",
+        "anchorRefs": [
+          "combine-rescue-anchor"
+        ]
+      }
+    },
+    {
+      "id": "bridge-b",
+      "prefab": "collapsing-platform",
+      "position": {
+        "x": 2560,
+        "y": 490
+      },
+      "properties": {
+        "size": {
+          "w": 110,
+          "h": 14
+        },
+        "variant": "crumbling-bridge",
+        "trigger": "stand",
+        "standingMs": 50,
+        "warningMs": 700,
+        "outcome": "remove",
+        "anchorRefs": [
+          "combine-rescue-anchor"
+        ]
+      }
+    },
+    {
+      "id": "bridge-c",
+      "prefab": "collapsing-platform",
+      "position": {
+        "x": 2670,
+        "y": 490
+      },
+      "properties": {
+        "size": {
+          "w": 120,
+          "h": 14
+        },
+        "variant": "crumbling-bridge",
+        "trigger": "stand",
+        "standingMs": 50,
+        "warningMs": 550,
+        "outcome": "remove",
+        "anchorRefs": [
+          "combine-rescue-anchor"
+        ]
+      }
+    }
+  ],
+  "modules": [
+    {
+      "id": "swamp-art",
+      "category": "art",
+      "label": "Spider Swamp artwork",
+      "element": "rb-m42-art-toggle",
+      "flag": "__RBArtEnabled",
+      "state": "active"
+    },
+    {
+      "id": "parallax",
+      "category": "art",
+      "label": "Parallax depth",
+      "element": "rb-m46-parallax-toggle",
+      "flag": "__RBForestParallaxEnabled",
+      "state": "active"
+    },
+    {
+      "id": "ambience",
+      "category": "art",
+      "label": "Forest atmosphere",
+      "element": "rb-m46-ambience-toggle",
+      "flag": "__RBForestAmbienceEnabled",
+      "state": "active"
+    },
+    {
+      "id": "web-response",
+      "category": "art",
+      "label": "Web sway (localized and subtle)",
+      "element": "rb-m464-web-response-toggle",
+      "flag": "__RBWebResponseEnabled",
+      "state": "active"
+    },
+    {
+      "id": "stage-dressing",
+      "category": "art",
+      "label": "Organic platforms & exit",
+      "element": "rb-m461-dressing-toggle",
+      "flag": "__RBStageDressingEnabled",
+      "state": "active"
+    },
+    {
+      "id": "bridges",
+      "category": "terrain",
+      "label": "Root bridges",
+      "element": "rb-m46-bridges-toggle",
+      "flag": "__RBRootBridgesEnabled",
+      "state": "active"
+    },
+    {
+      "id": "sticky-web",
+      "category": "hazards",
+      "label": "Sticky web",
+      "element": "rb-m44-web-toggle",
+      "flag": "__RBStickyWebEnabled",
+      "state": "active"
+    },
+    {
+      "id": "egg-sac",
+      "category": "hazards",
+      "label": "Spiderling egg sac",
+      "element": "rb-m45-egg-toggle",
+      "flag": "__RBEggSacEnabled",
+      "state": "active"
+    },
+    {
+      "id": "ceiling-spider",
+      "category": "hazards",
+      "label": "Ceiling spider",
+      "element": "rb-m473-spider-toggle",
+      "flag": "__RBCeilingSpiderEnabled",
+      "state": "active",
+      "reason": "Existing spider runtime safely gated; visuals and AI/contact/hammer off"
+    },
+    {
+      "id": "rotten-root",
+      "category": "hazards",
+      "label": "Legacy hollow ledge \u00b7 parked (optional)",
+      "element": "rb-m462-rotten-toggle",
+      "flag": "__RBRottenRootEnabled",
+      "state": "active",
+      "spec": "docs/ROTTEN_TREE_CHALLENGE_DESIGN.md",
+      "reason": "Default OFF pending meaningful safe layout; no finish dependency on active state",
+      "defaultOn": false
+    },
+    {
+      "id": "falling-bridge-tree",
+      "category": "hazards",
+      "label": "Rotten branch \u2192 partial bridge",
+      "element": "rb-m463-falling-toggle",
+      "flag": "__RBFallingBridgeEnabled",
+      "state": "active",
+      "defaultOn": true,
+      "reason": "Enabled by default: visible, reachable encounter before the main pit"
+    },
+    {
+      "id": "collapsing-platforms",
+      "category": "hazards",
+      "label": "Rotten logs & crumbling bridge",
+      "element": "rb-m473-collapse-toggle",
+      "flag": "__RBCollapsingPlatformsEnabled",
+      "state": "active",
+      "defaultOn": true
+    },
+    {
+      "id": "rafi-run-prototype",
+      "category": "art",
+      "label": "Rafi RUN \u00b7 PROTOTYPE (visual only)",
+      "element": "rb-m477-rafi-run-toggle",
+      "flag": "__RBRafiRunPrototypeEnabled",
+      "state": "active"
+    }
+  ],
+  "backgrounds": {
+    "layers": [
+      {
+        "id": "far",
+        "assetId": "s01/bg_far.png",
+        "parallax": 0.04
+      },
+      {
+        "id": "mid",
+        "assetId": "s01/bg_mid.png",
+        "parallax": 0.09
+      },
+      {
+        "id": "near",
+        "assetId": "s01/bg_near.png",
+        "parallax": 0.16
+      }
+    ],
+    "motionSource": "camera",
+    "smoothing": "none",
+    "webResponse": {
+      "anchor": {
+        "x": 514,
+        "y": 290
+      },
+      "maxDeflection": 3.5,
+      "responseHz": 12,
+      "role": "anchor-local cosmetic strands; gameplay sticky web unchanged"
+    }
+  },
+  "atmosphere": {
+    "implementation": "legacy-forest-ambience"
+  },
+  "challenges": [
+    {
+      "challengeId": "log-to-log",
+      "schemaVersion": "1.0.0",
+      "learningRole": "teach",
+      "difficulty": 1,
+      "entry": {
+        "x": 1810,
+        "y": 490
+      },
+      "exit": {
+        "x": 2390,
+        "y": 490
+      },
+      "instances": [
+        "teach-start",
+        "teach-recovery-step",
+        "teach-log-a",
+        "teach-log-b",
+        "teach-end"
+      ],
+      "requiredSkills": [
+        "run",
+        "timed-jump"
+      ],
+      "solutions": [
+        "jump from stable log to warning log; continue before collapse"
+      ],
+      "recovery": {
+        "kind": "visible-lower-floor",
+        "surfaceId": "learning-recovery",
+        "returnVia": [
+          "teach-recovery-step",
+          "teach-start"
+        ],
+        "rearmOnReturn": true
+      },
+      "warningTiming": {
+        "source": "instances.properties.warningMs"
+      },
+      "dynamicStateAssumptions": [
+        "fresh after respawn or restart",
+        "clocks continue after player leaves a triggered surface"
+      ],
+      "qaEvidence": {
+        "status": "NOT TESTED",
+        "path": "evidence/m473-gameplay.json"
+      },
+      "label": "1 \u00b7 Hollow roots: JUMP before they crack"
+    },
+    {
+      "challengeId": "crumbling-bridge-rescue",
+      "schemaVersion": "1.0.0",
+      "learningRole": "combine",
+      "difficulty": 3,
+      "entry": {
+        "x": 2370,
+        "y": 490
+      },
+      "exit": {
+        "x": 2840,
+        "y": 490
+      },
+      "instances": [
+        "bridge-a",
+        "bridge-b",
+        "bridge-c",
+        "combine-rescue-anchor"
+      ],
+      "requiredSkills": [
+        "run",
+        "timed-jump",
+        "tape-attach",
+        "tape-release"
+      ],
+      "solutions": [
+        "run across triggered bridge",
+        "jump between segments",
+        "E stable hook \u2192 reel up \u2192 swing right \u2192 E release"
+      ],
+      "recovery": {
+        "kind": "tape-or-respawn",
+        "anchorId": "combine-rescue-anchor"
+      },
+      "warningTiming": {
+        "source": "instances.properties.warningMs"
+      },
+      "dynamicStateAssumptions": [
+        "fresh after respawn or restart",
+        "clocks continue after player leaves a triggered surface"
+      ],
+      "qaEvidence": {
+        "status": "NOT TESTED",
+        "path": "evidence/m473-gameplay.json"
+      },
+      "label": "2 \u00b7 Crumbling bridge: RUN / JUMP / E"
+    }
+  ],
+  "triggers": [],
+  "animations": [],
+  "audio": [],
+  "difficulty": {
+    "status": "legacy-unprofiled"
+  },
+  "stageModules": {
+    "title": "Stage 01 \u00b7 Modules",
+    "description": "Visuals, world geometry and stage encounters are independent switches."
+  },
+  "ropeCrossings": [
+    {
+      "id": "forest-gap-02",
+      "kind": "tape-crossing",
+      "leftSurfaceId": "east-bank-root-path",
+      "rightSurfaceId": "last-root-clearing",
+      "anchorId": "stable-root-extension"
+    },
+    {
+      "id": "crumbling-gap",
+      "kind": "tape-crossing",
+      "leftSurfaceId": "combine-entry-bank",
+      "rightSurfaceId": "combine-exit-bank",
+      "anchorId": "combine-rescue-anchor"
+    }
+  ],
+  "guidance": {
+    "name": "Root Forest \u00b7 First Crossing",
+    "hints": [
+      {
+        "id": "forest-controls",
+        "x": 125,
+        "text": "ROOT FOREST \u00b7 A/D move \u00b7 Space jump \u00b7 Tab switch"
+      },
+      {
+        "id": "hollow-trunk",
+        "x": 310,
+        "text": "J: break hollow trunk. E: grip marked roots; E again releases."
+      },
+      {
+        "id": "drill-below-shelf",
+        "x": 790,
+        "text": "The drill is below: drop right, then return under the shelf."
+      },
+      {
+        "id": "second-crossing",
+        "x": 1100,
+        "text": "Second gap: jump, then E to grip the marked root."
+      }
+    ],
+    "areas": [
+      {
+        "x": 70,
+        "name": "ROOT FOREST",
+        "subtitle": "Tools \u00b7 roots \u00b7 two rope crossings"
+      }
+    ]
+  }
+}

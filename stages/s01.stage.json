@@ -417,6 +417,39 @@
           "combine-rescue-anchor"
         ]
       }
+    },
+    {
+      "id": "ceiling-drop-spider",
+      "prefab": "ceiling-spider",
+      "position": {
+        "x": 270,
+        "y": 108
+      },
+      "properties": {
+        "attackOffsetY": 340,
+        "triggerOffset": {
+          "x": -93,
+          "y": 272,
+          "w": 138,
+          "h": 145
+        },
+        "warnSeconds": 0.5,
+        "descendSpeed": 640,
+        "ascendSpeed": 460,
+        "attackWindow": 0.48,
+        "stunSeconds": 0.4,
+        "rearmSeconds": 0.75,
+        "body": {
+          "w": 52,
+          "h": 44
+        },
+        "knock": {
+          "x": 280,
+          "y": -240
+        },
+        "invulnSeconds": 1.15,
+        "platformOffsetY": 382
+      }
     }
   ],
   "modules": [

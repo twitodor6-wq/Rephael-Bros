@@ -187,13 +187,15 @@ function burst(scene, x, y, tint) {
 
 export function installCeilingSpider(win = globalThis) {
   if (!win || win.__RBCeilingSpiderInstalled) return win.__RBSpider || null;
-  const cfg = SPIDER_PLACEMENT;
+
   if(typeof win.__RBCeilingSpiderEnabled!=='boolean')win.__RBCeilingSpiderEnabled=true;
   const button=win.document.createElement('button');button.id='rb-m473-spider-toggle';button.type='button';
   const label=()=>{button.textContent='Ceiling spider: '+(win.__RBCeilingSpiderEnabled?'ON':'OFF');button.setAttribute('aria-pressed',String(win.__RBCeilingSpiderEnabled));};label();
   button.onclick=()=>{win.__RBCeilingSpiderEnabled=!win.__RBCeilingSpiderEnabled;win.__RBSpider?.setEnabled?.(win.__RBCeilingSpiderEnabled);label();button.blur();};win.document.body.append(button);
 
   function draw(view, sim, time) {
+    const cfg = sim.cfg;
+    const silkTop = cfg.ceilingY - 100;
     const { silk, body, eyes } = view;
     silk.clear();
     body.clear();
@@ -208,28 +210,28 @@ export function installCeilingSpider(win = globalThis) {
       const amp = warn ? 4.5 : hidden ? 1.1 : 1.6;
       silk.lineStyle(4, 0x140e0a, hidden ? 0.35 : 0.85);
       silk.beginPath();
-      silk.moveTo(cfg.x, 8);
+      silk.moveTo(cfg.x, silkTop);
       const steps = 10;
       for (let i = 1; i <= steps; i++) {
         const t = i / steps;
-        const yy = 8 + (y - 8) * t;
+        const yy = silkTop + (y - silkTop) * t;
         const wob = Math.sin(t * 10 + time * (warn ? 14 : 5)) * amp * (1 - t * 0.35);
         silk.lineTo(cfg.x + wob, yy);
       }
       silk.strokePath();
       silk.lineStyle(1.5, warn ? 0xf2d48a : 0xd9c7a2, hidden ? 0.28 : 0.95);
       silk.beginPath();
-      silk.moveTo(cfg.x, 8);
+      silk.moveTo(cfg.x, silkTop);
       for (let i = 1; i <= steps; i++) {
         const t = i / steps;
-        const yy = 8 + (y - 8) * t;
+        const yy = silkTop + (y - silkTop) * t;
         const wob = Math.sin(t * 10 + time * (warn ? 14 : 5)) * amp * (1 - t * 0.35);
         silk.lineTo(cfg.x + wob, yy);
       }
       silk.strokePath();
     } else {
       silk.lineStyle(2, 0xd9c7a2, 0.35);
-      silk.lineBetween(cfg.x, 8, cfg.x + 6, 42);
+      silk.lineBetween(cfg.x, silkTop, cfg.x + 6, silkTop + 34);
     }
     const alpha = hidden ? 0.72 : 1;
     const spread = sim.state === "attack_window" ? 1.05 : sim.state === "descending" ? 0.42 : dead ? 0.15 : 0.78;
@@ -270,11 +272,11 @@ export function installCeilingSpider(win = globalThis) {
     }
   }
 
-  function makeView(scene) {
+  function makeView(scene, cfg) {
     const silk = scene.add.graphics().setDepth(16);
     const body = scene.add.graphics().setDepth(22);
     const eyes = scene.add.graphics().setDepth(24);
-    const cover = scene.add.graphics().setDepth(23);
+    const cover = scene.add.graphics().setDepth(23).setPosition(0, cfg.ceilingY - 108);
     const hint = scene.add.graphics().setDepth(8);
     cover.fillStyle(0x10241c, 0.92);
     cover.fillTriangle(cfg.x - 54, -20, cfg.x + 18, -20, cfg.x - 6, 168);
@@ -300,14 +302,15 @@ export function installCeilingSpider(win = globalThis) {
     };
   }
 
-  function attach(scene) {
-    if (scene.__rbSpider) scene.__rbSpider.destroy();
+  function attachOne(scene, cfg, id, context) {
+    let destroyed = false;
     const sim = createSpider(cfg);
-    const view = makeView(scene);
+    const view = makeView(scene, cfg);
     const runtime = {
-      version: "M4.7.3", view, enabled:win.__RBCeilingSpiderEnabled,
+      version: "M4.7.7-S2", view, enabled:win.__RBCeilingSpiderEnabled,
       setEnabled(on) {
-        runtime.enabled=!!on;win.__RBCeilingSpiderEnabled=!!on;
+        if (destroyed) return false;
+        runtime.enabled=!!on;
         runtime.reset();for(const o of [view.silk,view.body,view.eyes,view.cover,view.hint])o.setVisible(!!on);
       },
       sim,
@@ -317,8 +320,10 @@ export function installCeilingSpider(win = globalThis) {
       counts: emptyCounts(),
       time: 0,
       destroy() {
+        if (destroyed) return false;
+        destroyed = true; runtime.enabled = false;
         view.destroy();
-        if (scene.__rbSpider === runtime) scene.__rbSpider = null;
+        return true;
       },
       snapshot() {
         return {
@@ -336,8 +341,10 @@ export function installCeilingSpider(win = globalThis) {
         };
       },
       reset() {
+        if (destroyed) return false;
         resetSpider(sim);
         runtime.invuln = 0;
+        context.invuln = 0;
         runtime.damageCount = 0;
         runtime.log.length = 0;
         runtime.counts = emptyCounts();
@@ -366,6 +373,7 @@ export function installCeilingSpider(win = globalThis) {
         if (!body || !body.center) return;
         runtime.time += dt;
         if (runtime.invuln > 0) runtime.invuln = Math.max(0, runtime.invuln - dt);
+        runtime.invuln = Math.max(runtime.invuln, context.invuln);
         const playerRect = { x: body.x, y: body.y, w: body.width, h: body.height };
         const result = advanceSpider(sim, dt, {
           playerCenter: { x: body.center.x, y: body.center.y },
@@ -386,6 +394,7 @@ export function installCeilingSpider(win = globalThis) {
         if (result.damaged) {
           runtime.damageCount += 1;
           runtime.invuln = cfg.invulnSeconds;
+          context.invuln = cfg.invulnSeconds;
           if (!player.tethered) {
             const dir = body.center.x >= sim.x ? 1 : -1;
             player.jumping = false;
@@ -413,38 +422,41 @@ export function installCeilingSpider(win = globalThis) {
       },
     };
     runtime.setEnabled(win.__RBCeilingSpiderEnabled);
-    scene.__rbSpider = runtime;
-    win.__RBSpider = runtime;
-    const world = scene.world;
-    if (world && !world.__rbSpiderHammer) {
-      const origHit = world.hammerHit.bind(world);
-      world.hammerHit = (rect) => {
-        const worldHit = origHit(rect);
-        const spiderHit = scene.__rbSpider ? scene.__rbSpider.hammer(rect) : false;
-        return !!(worldHit || spiderHit);
-      };
-      world.__rbSpiderHammer = true;
-    }
-    const player = scene.player;
-    if (player && !player.__rbSpiderRespawn) {
-      const origRespawn = player.respawn.bind(player);
-      player.respawn = (x, y) => {
-        const out = origRespawn(x, y);
-        if (scene.__rbSpider) scene.__rbSpider.reset();
-        return out;
-      };
-      player.__rbSpiderRespawn = true;
-    }
-    const onPost = (_time, delta) => {
-      const live = scene.__rbSpider;
-      if (live) live.postUpdate(Math.min(delta, 50) / 1000);
-    };
-    scene.events.on("postupdate", onPost);
-    scene.events.once("shutdown", () => {
-      scene.events.off("postupdate", onPost);
-      runtime.destroy();
-    });
-    if (!win.__RBSpiderIntro) {
+    return runtime;
+  }
+
+  function attach(scene) {
+    scene.__rbEnemies?.destroy();
+    const group = mountRBEnemyPrefabs(scene,win.__RBStageV1,{'ceiling-spider':attachOne});
+    const first = group.entries[0]?.actor;
+    // Existing diagnostics remain a first-spider view. Dispatch always reaches every instance.
+    const facade = {setEnabled(on){win.__RBCeilingSpiderEnabled=!!on;group.setEnabled(on);label();},
+      reset:group.reset,hammer:group.hammer,postUpdate:group.postUpdate,
+      snapshot:()=>first?.snapshot()??null,sim:first?.sim,view:first?.view};
+    const world=scene.world,player=scene.player;
+    const previousHit=world.hammerHit,previousRespawn=player.respawn;
+    const hit=function(rect){const worldHit=previousHit.call(this,rect);const enemyHit=group.hammer(rect);return !!(worldHit||enemyHit);};
+    const respawn=function(...args){const out=previousRespawn.apply(this,args);group.reset();return out;};
+    world.hammerHit=hit;player.respawn=respawn;
+    const onPost=(_time,delta)=>group.postUpdate(Math.min(delta,50)/1000);
+    scene.events.on('postupdate',onPost);
+    let destroyed=false;
+    const runtime={...group,destroy(){if(destroyed)return false;destroyed=true;
+      scene.events.off('postupdate',onPost);scene.events.off('shutdown',runtime.destroy);scene.events.off('destroy',runtime.destroy);
+      if(world.hammerHit===hit)world.hammerHit=previousHit;
+      if(player.respawn===respawn)player.respawn=previousRespawn;
+      group.destroy();
+      if(scene.__rbEnemies===runtime)scene.__rbEnemies=null;
+      if(scene.__rbSpider===facade)scene.__rbSpider=null;
+      if(win.__RBSpider===facade)win.__RBSpider=null;
+      if(win.__RBEnemies===runtime)win.__RBEnemies=null;
+      return true;
+    }};
+    facade.destroy=runtime.destroy;
+    scene.__rbEnemies=runtime;win.__RBEnemies=runtime;
+    scene.__rbSpider=facade;win.__RBSpider=facade;
+    scene.events.once('shutdown',runtime.destroy);scene.events.once('destroy',runtime.destroy);
+    if (group.entries.length && !win.__RBSpiderIntro) {
       win.__RBSpiderIntro = true;
       scene.time.delayedCall(700, () => {
         if (scene.scene.isActive()) scene.game.events.emit("hud:toast", "A drop-spider hides in the roots on the left ledge.");
@@ -452,34 +464,6 @@ export function installCeilingSpider(win = globalThis) {
     }
     return runtime;
   }
-
-  function patch() {
-    const game = win.__game;
-    const scene = game && game.scene && game.scene.getScene && game.scene.getScene("Game");
-    if (!scene) return false;
-    const proto = Object.getPrototypeOf(scene);
-    if (!proto.__rbSpiderPatched) {
-      const origCreate = proto.create;
-      proto.create = function rbM43Create() {
-        const result = origCreate.apply(this, arguments);
-        attach(this);
-        return result;
-      };
-      proto.__rbSpiderPatched = true;
-    }
-    if (scene.sys && scene.sys.isActive && scene.sys.isActive() && scene.player && !scene.__rbSpider) attach(scene);
-    win.__RBCeilingSpiderInstalled = true;
-    if (!win.__RBSpider) {
-      win.__RBSpider = {
-        version: "M4.3",
-        states: SPIDER_STATES,
-        placement: cfg,
-        snapshot: () => null,
-      };
-    }
-    return true;
-  }
-
   if (!win.document) return null;
   if (!document.getElementById("rb-m43-caption")) {
     const cap = document.createElement("div");
@@ -488,11 +472,7 @@ export function installCeilingSpider(win = globalThis) {
     cap.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:10061;color:#f3ead4;font:600 12px Georgia,serif;background:#071c21ee;border:1px solid #8d7048;border-radius:8px;padding:8px 10px;pointer-events:none;max-width:min(420px,calc(100vw - 150px))";
     document.body.append(cap);
   }
-  if (!patch()) {
-    const timer = setInterval(() => {
-      if (patch()) clearInterval(timer);
-    }, 40);
-    setTimeout(() => clearInterval(timer), 8000);
-  }
+  win.__RBSceneComposerV1.register('enemy-prefabs',attach);
+  win.__RBCeilingSpiderInstalled = true;
   return win.__RBSpider;
 }

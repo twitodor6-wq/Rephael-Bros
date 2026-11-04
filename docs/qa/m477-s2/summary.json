@@ -1,0 +1,43 @@
+{
+  "milestone": "M4.7.7-S2",
+  "baseline": "497b4a8",
+  "node": {
+    "passed": 153,
+    "failed": 0
+  },
+  "browser": {
+    "status": "BLOCKED",
+    "reason": "Chromium absent; install returned invalid ZIP"
+  },
+  "frozenSources": {
+    "src/forest-parallax.mjs": {
+      "sha256": "9e774b7e36e77992e656cb1d050f5e9806d058e2e82dadfab505ad4f01a94175",
+      "equalsBaseline": true
+    },
+    "src/web-response.mjs": {
+      "sha256": "d6cd71e1e3e861673e3fc07a8d39320c69417636c0401f7d7ba7d3d329707ce1",
+      "equalsBaseline": true
+    },
+    "src/forest-extension.mjs": {
+      "sha256": "a6d9b8a382c9814de238345df251adb0e4307fbdb9037d1efe5c93406c855dfa",
+      "equalsBaseline": true
+    },
+    "src/falling-bridge-tree.mjs": {
+      "sha256": "b61f1aa9011de05f0912ad11dac529a73a8a1b02bedf920ca0aae058a3e66919",
+      "equalsBaseline": true
+    },
+    "src/collapsing-platform.mjs": {
+      "sha256": "f3cbd992eb7f77974698f8e4999848883b0adf50b8690b2e199a6825c030d300",
+      "equalsBaseline": true
+    },
+    "src/rafi-run-sprite.mjs": {
+      "sha256": "a322b138eb43a9098980dcda46c1abaed8a5bf66af37ef52a4828c8e7c229388",
+      "equalsBaseline": true
+    },
+    "src/managed-actor.mjs": {
+      "sha256": "6f4097abd596c45845f998193aa33cc4c9d54ad53674fe9db759185d2e845908",
+      "equalsBaseline": true
+    }
+  },
+  "htmlSha256": "054b71ff8941a170b9dd0ef88377fd11abe39416f67160cf6434957074ac3fab"
+}

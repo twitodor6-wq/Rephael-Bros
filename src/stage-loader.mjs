@@ -3,7 +3,7 @@
  * Runtime owns only metadata; existing actors own colliders/timers/lifecycle.
  */
 const RB_STAGE_SCHEMA='1.0.0';
-const RB_STAGE_PREFABS=['environmental-anchor','root-bridge','rotten-root','falling-bridge-tree','exit-grove','collapsing-platform'];
+const RB_STAGE_PREFABS=['environmental-anchor','root-bridge','rotten-root','falling-bridge-tree','exit-grove','collapsing-platform','ceiling-spider'];
 function validateStageStructure(s){
  const errors=[], ids=new Set();
  const fail=(msg)=>errors.push(msg);
@@ -93,6 +93,15 @@ function validateStageV1(s){
  const errors=[],fail=msg=>errors.push(msg),anchors=new Set(s.objects.filter(o=>['environmental-anchor','falling-bridge-tree'].includes(o.prefab)).map(o=>o.id));
  for(const o of s.objects)if(!RB_STAGE_PREFABS.includes(o.prefab))fail('unknown prefab '+o.id);
  const object=(type)=>s.objects.filter(o=>o.prefab===type);
+ // Enemy coordinates are local offsets from the authored ceiling origin.
+ for(const o of object('ceiling-spider')){
+  const p=o.properties,keys=['attackOffsetY','triggerOffset','warnSeconds','descendSpeed','ascendSpeed','attackWindow','stunSeconds','rearmSeconds','body','knock','invulnSeconds','platformOffsetY'];
+  const exact=(v,ks)=>v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).length===ks.length&&ks.every(k=>Number.isFinite(v[k]));
+  if(!p||Object.keys(p).length!==keys.length||keys.some(k=>!(k in p))||keys.filter(k=>!['triggerOffset','body','knock'].includes(k)).some(k=>!Number.isFinite(p[k])||p[k]<=0)||!exact(p.triggerOffset,['x','y','w','h'])||!exact(p.body,['w','h'])||!exact(p.knock,['x','y'])){fail('invalid ceiling spider properties '+o.id);continue;}
+  const t=p.triggerOffset,b=p.body,x=o.position.x,y=o.position.y;
+  if(t.w<=0||t.h<=0||b.w<=0||b.h<=0||p.knock.x<0||p.knock.y>0||x-b.w/2<0||x+b.w/2>s.world.width||y-b.h/2<0||y+p.attackOffsetY+b.h/2>s.world.height||x+t.x<0||x+t.x+t.w>s.world.width||y+t.y<0||y+t.y+t.h>s.world.height||y+p.platformOffsetY>s.world.height||p.platformOffsetY<p.attackOffsetY+b.h/2)fail('ceiling spider outside world or platform '+o.id);
+ }
+
 
  if(object('root-bridge').length!==1||object('rotten-root').length!==1||object('falling-bridge-tree').length!==1||object('exit-grove').length!==1||anchors.size<1)fail('stage requires single root bridge, rotten root, falling tree, exit and anchors');
  for(const o of object('rotten-root'))if(!anchors.has(o.properties?.anchorId))fail('rotten root anchorId unresolved');
@@ -151,6 +160,7 @@ function validateStageV1(s){
 function makePrefabRegistry(){
  const factories=new Map();
  const register=(name,fn)=>{if(factories.has(name)||!RB_STAGE_PREFABS.includes(name))throw Error('Invalid or duplicate prefab factory '+name);factories.set(name,fn);};
+ register('ceiling-spider',o=>{const p=o.properties;return {id:o.id,name:'Ceiling Drop Spider',x:o.position.x,ceilingY:o.position.y,attackY:o.position.y+p.attackOffsetY,trigger:{x:o.position.x+p.triggerOffset.x,y:o.position.y+p.triggerOffset.y,w:p.triggerOffset.w,h:p.triggerOffset.h},warnSeconds:p.warnSeconds,descendSpeed:p.descendSpeed,ascendSpeed:p.ascendSpeed,attackWindow:p.attackWindow,stunSeconds:p.stunSeconds,rearmSeconds:p.rearmSeconds,body:{...p.body},knock:{...p.knock},invulnSeconds:p.invulnSeconds,platformTop:o.position.y+p.platformOffsetY};});
  register('environmental-anchor',o=>({...o.properties,id:o.id,x:o.position.x,y:o.position.y}));
  register('root-bridge',(o,stage)=>({shelf:{x:o.position.x,y:o.position.y,w:o.properties.size.w,h:o.properties.size.h},brokenLeft:{...o.properties.brokenLeft},brokenRight:{...o.properties.brokenRight},pit:{...o.properties.pit},worldEnd:stage.world.width,decorativeDrop:o.properties.decorativeDrop,decorativeOnly:o.properties.decorativeOnly,legacyHookMount:o.properties.legacyHookMount}));
  register('falling-bridge-tree',(o,stage,index)=>{

@@ -1,0 +1,31 @@
+{
+  "version": "M4.7.7-S2",
+  "enemyRuntimeSha256": "b8824b5572cf4acba5de8f2101ac3f968dd1dd9f2d31a07997b593c297e19868",
+  "visualAssetSha256": "bb937be331a50a2f11617f0f88fee065a93d74f6d192da6e83d885540edb8424",
+  "visualManifestSha256": "36082364f24acc11d4b9f602891e5a7edac03f26ad782ea2bb95a374097a3f16",
+  "safetyValidatorSha256": "8285910817de9890c835547ff0e7392b4bb174fd2c77b15100a94fb0d292c6f7",
+  "staticSafetyStatus": "PASS",
+  "staticProfilesVerified": true,
+  "stageSha256": "134815797fa7a4f269762c424885f704f7ec24ad1b402f43ab370a437575a1e2",
+  "baselineSha256": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31",
+  "transitionSha256": "0efd393a562dc8512bb3ca2316bfb4d243757dcd22b7780274de5c0a0e92d8d2",
+  "managedSha256": "6f4097abd596c45845f998193aa33cc4c9d54ad53674fe9db759185d2e845908",
+  "composerSha256": "78b47a3530816b127d358ea22900126f3eeab2bb36a3a35f6a19842c1cfe2315",
+  "loaderSha256": "b723a9e1878f0152ba6a46742bf15fbbc4bf325f8556e1ecf38cf06fedfd47af",
+  "finalSha256": "054b71ff8941a170b9dd0ef88377fd11abe39416f67160cf6434957074ac3fab",
+  "forestSha256": "9e774b7e36e77992e656cb1d050f5e9806d058e2e82dadfab505ad4f01a94175",
+  "files": {
+    "forest-extension.mjs": "a6d9b8a382c9814de238345df251adb0e4307fbdb9037d1efe5c93406c855dfa",
+    "stage-modules.mjs": "dd7a84160f88175186a477a1660f93bdcc2d4cc8b86eae8b9f4f7b6aaa5d7d69",
+    "bridge-polish.mjs": "0d325318cfc26bae4a234683a3a061af24ffab23b95ca5df4664679d59fb1edc",
+    "stage-dressing.mjs": "fc27d20d32801b546701f5a42e2a2eb8c9dc5b8cea8681ba5a7be8e90b749125",
+    "environmental-anchors.mjs": "eeb1f093ed573c285ab3515a317091cedf065c6ffe4d2375b065706e10a4a6ac",
+    "rotten-root.mjs": "901b45c593d8c3402435f345fe96e6d82573d57ccd61927937823164d1afccc8",
+    "falling-bridge-tree.mjs": "b61f1aa9011de05f0912ad11dac529a73a8a1b02bedf920ca0aae058a3e66919",
+    "exit-grove.mjs": "d9ed88baec7a1946fa80e1358dde480e70e9852e598f4c40d8d735e5eb7e03f1",
+    "web-response.mjs": "d6cd71e1e3e861673e3fc07a8d39320c69417636c0401f7d7ba7d3d329707ce1",
+    "collapsing-platform.mjs": "f3cbd992eb7f77974698f8e4999848883b0adf50b8690b2e199a6825c030d300",
+    "rafi-run-sprite.mjs": "a322b138eb43a9098980dcda46c1abaed8a5bf66af37ef52a4828c8e7c229388",
+    "ceiling-spider.mjs": "a7c208c0f63376112a58085628fad78f28341bbffbac618f4968117f1b595714"
+  }
+}

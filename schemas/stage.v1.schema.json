@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Rafael Brothers Stage Schema v1.0.0 \u2014 M4.7.3 additive",
-  "description": "Six executable prefab families. Additive Challenge and ropeCrossings declarations. Cross-object safety and reference checks in src/stage-loader.mjs; historical Stage v1 remains supported.",
+  "description": "Stage v1 prefab configurations, including optional ceiling-spider enemies. Cross-object and world-bound checks in src/stage-loader.mjs; historical stages remain supported.",
   "type": "object",
   "required": [
     "schemaVersion",
@@ -225,7 +225,8 @@
               "rotten-root",
               "falling-bridge-tree",
               "exit-grove",
-              "collapsing-platform"
+              "collapsing-platform",
+              "ceiling-spider"
             ]
           },
           "position": {
@@ -483,6 +484,140 @@
                       "items": {
                         "type": "string"
                       }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "ceiling-spider"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "type": "object",
+                  "required": [
+                    "attackOffsetY",
+                    "warnSeconds",
+                    "descendSpeed",
+                    "ascendSpeed",
+                    "attackWindow",
+                    "stunSeconds",
+                    "rearmSeconds",
+                    "invulnSeconds",
+                    "platformOffsetY",
+                    "triggerOffset",
+                    "body",
+                    "knock"
+                  ],
+                  "properties": {
+                    "attackOffsetY": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "warnSeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "descendSpeed": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "ascendSpeed": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "attackWindow": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "stunSeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "rearmSeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "invulnSeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "platformOffsetY": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "triggerOffset": {
+                      "type": "object",
+                      "required": [
+                        "x",
+                        "y",
+                        "w",
+                        "h"
+                      ],
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        },
+                        "w": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "h": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "body": {
+                      "type": "object",
+                      "required": [
+                        "w",
+                        "h"
+                      ],
+                      "properties": {
+                        "w": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "h": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "knock": {
+                      "type": "object",
+                      "required": [
+                        "x",
+                        "y"
+                      ],
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "y": {
+                          "type": "number",
+                          "maximum": 0
+                        }
+                      },
+                      "additionalProperties": false
                     }
                   },
                   "additionalProperties": false
