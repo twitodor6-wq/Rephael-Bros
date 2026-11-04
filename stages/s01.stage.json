@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "stageId": "s01",
-  "title": "Stage 01 \u00b7 Forest / Spider Swamp",
+  "title": "Stage 01 · Forest / Spider Swamp",
   "world": {
     "width": 3020,
     "height": 660,
@@ -56,7 +56,7 @@
         "y": 250
       },
       "properties": {
-        "label": "Living tree \u00b7 first clearing",
+        "label": "Living tree · first clearing",
         "kind": "tree",
         "strength": "stable",
         "group": "tree",
@@ -73,7 +73,7 @@
         "y": 350
       },
       "properties": {
-        "label": "Living bridge \u00b7 far-bank root shelf",
+        "label": "Living bridge · far-bank root shelf",
         "kind": "bridge",
         "strength": "stable",
         "group": "bridge",
@@ -89,7 +89,7 @@
         "y": 330
       },
       "properties": {
-        "label": "Hollow tree \u00b7 fragile hook",
+        "label": "Hollow tree · fragile hook",
         "kind": "tree",
         "strength": "fragile",
         "group": "tree",
@@ -106,7 +106,7 @@
       },
       "properties": {
         "anchor": {
-          "label": "Rotten fallen branch \u00b7 partial pit bridge",
+          "label": "Rotten fallen branch · partial pit bridge",
           "kind": "tree",
           "strength": "fragile",
           "group": "tree",
@@ -226,7 +226,7 @@
         "y": 260
       },
       "properties": {
-        "label": "Living root \u00b7 extension gap",
+        "label": "Living root · extension gap",
         "kind": "tree",
         "strength": "stable",
         "group": "tree",
@@ -243,7 +243,7 @@
         "y": 240
       },
       "properties": {
-        "label": "Living root \u00b7 crumbling bridge rescue",
+        "label": "Living root · crumbling bridge rescue",
         "kind": "tree",
         "strength": "stable",
         "group": "tree",
@@ -450,6 +450,27 @@
         "invulnSeconds": 1.15,
         "platformOffsetY": 382
       }
+    },
+    {
+      "id": "sticky-web-launch-left",
+      "prefab": "sticky-web",
+      "position": {
+        "x": 86,
+        "y": 402
+      },
+      "properties": {
+        "size": {
+          "w": 38,
+          "h": 86
+        },
+        "speedCap": 81,
+        "holdToTrapSeconds": 0.7,
+        "directionalEscapeSeconds": 0.62,
+        "maxTrapSeconds": 2.1,
+        "recoverySeconds": 1.55,
+        "cutRecoverySeconds": 3,
+        "swingDragPerSecond": 1.45
+      }
     }
   ],
   "modules": [
@@ -529,7 +550,7 @@
     {
       "id": "rotten-root",
       "category": "hazards",
-      "label": "Legacy hollow ledge \u00b7 parked (optional)",
+      "label": "Legacy hollow ledge · parked (optional)",
       "element": "rb-m462-rotten-toggle",
       "flag": "__RBRottenRootEnabled",
       "state": "active",
@@ -540,7 +561,7 @@
     {
       "id": "falling-bridge-tree",
       "category": "hazards",
-      "label": "Rotten branch \u2192 partial bridge",
+      "label": "Rotten branch → partial bridge",
       "element": "rb-m463-falling-toggle",
       "flag": "__RBFallingBridgeEnabled",
       "state": "active",
@@ -559,7 +580,7 @@
     {
       "id": "rafi-run-prototype",
       "category": "art",
-      "label": "Rafi RUN \u00b7 PROTOTYPE (visual only)",
+      "label": "Rafi RUN · PROTOTYPE (visual only)",
       "element": "rb-m477-rafi-run-toggle",
       "flag": "__RBRafiRunPrototypeEnabled",
       "state": "active"
@@ -646,7 +667,7 @@
         "status": "NOT TESTED",
         "path": "evidence/m473-gameplay.json"
       },
-      "label": "1 \u00b7 Hollow roots: JUMP before they crack"
+      "label": "1 · Hollow roots: JUMP before they crack"
     },
     {
       "challengeId": "crumbling-bridge-rescue",
@@ -676,7 +697,7 @@
       "solutions": [
         "run across triggered bridge",
         "jump between segments",
-        "E stable hook \u2192 reel up \u2192 swing right \u2192 E release"
+        "E stable hook → reel up → swing right → E release"
       ],
       "recovery": {
         "kind": "tape-or-respawn",
@@ -693,7 +714,7 @@
         "status": "NOT TESTED",
         "path": "evidence/m473-gameplay.json"
       },
-      "label": "2 \u00b7 Crumbling bridge: RUN / JUMP / E"
+      "label": "2 · Crumbling bridge: RUN / JUMP / E"
     }
   ],
   "triggers": [],
@@ -703,7 +724,7 @@
     "status": "legacy-unprofiled"
   },
   "stageModules": {
-    "title": "Stage 01 \u00b7 Modules",
+    "title": "Stage 01 · Modules",
     "description": "Visuals, world geometry and stage encounters are independent switches."
   },
   "ropeCrossings": [
@@ -723,12 +744,12 @@
     }
   ],
   "guidance": {
-    "name": "Root Forest \u00b7 First Crossing",
+    "name": "Root Forest · First Crossing",
     "hints": [
       {
         "id": "forest-controls",
         "x": 125,
-        "text": "ROOT FOREST \u00b7 A/D move \u00b7 Space jump \u00b7 Tab switch"
+        "text": "ROOT FOREST · A/D move · Space jump · Tab switch"
       },
       {
         "id": "hollow-trunk",
@@ -750,7 +771,7 @@
       {
         "x": 70,
         "name": "ROOT FOREST",
-        "subtitle": "Tools \u00b7 roots \u00b7 two rope crossings"
+        "subtitle": "Tools · roots · two rope crossings"
       }
     ]
   }

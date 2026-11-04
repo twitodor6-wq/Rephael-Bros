@@ -3,7 +3,7 @@
  * Runtime owns only metadata; existing actors own colliders/timers/lifecycle.
  */
 const RB_STAGE_SCHEMA='1.0.0';
-const RB_STAGE_PREFABS=['environmental-anchor','root-bridge','rotten-root','falling-bridge-tree','exit-grove','collapsing-platform','ceiling-spider'];
+const RB_STAGE_PREFABS=['environmental-anchor','root-bridge','rotten-root','falling-bridge-tree','exit-grove','collapsing-platform','ceiling-spider','sticky-web'];
 function validateStageStructure(s){
  const errors=[], ids=new Set();
  const fail=(msg)=>errors.push(msg);
@@ -94,6 +94,12 @@ function validateStageV1(s){
  for(const o of s.objects)if(!RB_STAGE_PREFABS.includes(o.prefab))fail('unknown prefab '+o.id);
  const object=(type)=>s.objects.filter(o=>o.prefab===type);
  // Enemy coordinates are local offsets from the authored ceiling origin.
+ for(const o of object('sticky-web')){
+  const p=o.properties,k=['size','speedCap','holdToTrapSeconds','directionalEscapeSeconds','maxTrapSeconds','recoverySeconds','cutRecoverySeconds','swingDragPerSecond'];
+  if(!p||Object.keys(p).length!==k.length||k.some(v=>!(v in p))||!p.size||typeof p.size!=='object'||Array.isArray(p.size)||Object.keys(p.size).length!==2||!Number.isFinite(p.size.w)||!Number.isFinite(p.size.h)||p.size.w<=0||p.size.h<=0||k.filter(v=>v!=='size').some(v=>!Number.isFinite(p[v])||p[v]<=0)){fail('invalid sticky web properties '+o.id);continue;}
+  const x=o.position.x,y=o.position.y;
+  if(x+p.size.w>s.world.width||y+p.size.h>s.world.height||p.speedCap>230||p.swingDragPerSecond>10||p.maxTrapSeconds>30||p.cutRecoverySeconds>60||p.recoverySeconds>60)fail('sticky web outside world or unsafe tuning '+o.id);
+ }
  for(const o of object('ceiling-spider')){
   const p=o.properties,keys=['attackOffsetY','triggerOffset','warnSeconds','descendSpeed','ascendSpeed','attackWindow','stunSeconds','rearmSeconds','body','knock','invulnSeconds','platformOffsetY'];
   const exact=(v,ks)=>v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).length===ks.length&&ks.every(k=>Number.isFinite(v[k]));
@@ -160,6 +166,7 @@ function validateStageV1(s){
 function makePrefabRegistry(){
  const factories=new Map();
  const register=(name,fn)=>{if(factories.has(name)||!RB_STAGE_PREFABS.includes(name))throw Error('Invalid or duplicate prefab factory '+name);factories.set(name,fn);};
+ register('sticky-web',o=>({id:o.id,x:o.position.x,y:o.position.y,w:o.properties.size.w,h:o.properties.size.h,speedCap:o.properties.speedCap,holdToTrapSeconds:o.properties.holdToTrapSeconds,directionalEscapeSeconds:o.properties.directionalEscapeSeconds,maxTrapSeconds:o.properties.maxTrapSeconds,recoverySeconds:o.properties.recoverySeconds,cutRecoverySeconds:o.properties.cutRecoverySeconds,swingDragPerSecond:o.properties.swingDragPerSecond}));
  register('ceiling-spider',o=>{const p=o.properties;return {id:o.id,name:'Ceiling Drop Spider',x:o.position.x,ceilingY:o.position.y,attackY:o.position.y+p.attackOffsetY,trigger:{x:o.position.x+p.triggerOffset.x,y:o.position.y+p.triggerOffset.y,w:p.triggerOffset.w,h:p.triggerOffset.h},warnSeconds:p.warnSeconds,descendSpeed:p.descendSpeed,ascendSpeed:p.ascendSpeed,attackWindow:p.attackWindow,stunSeconds:p.stunSeconds,rearmSeconds:p.rearmSeconds,body:{...p.body},knock:{...p.knock},invulnSeconds:p.invulnSeconds,platformTop:o.position.y+p.platformOffsetY};});
  register('environmental-anchor',o=>({...o.properties,id:o.id,x:o.position.x,y:o.position.y}));
  register('root-bridge',(o,stage)=>({shelf:{x:o.position.x,y:o.position.y,w:o.properties.size.w,h:o.properties.size.h},brokenLeft:{...o.properties.brokenLeft},brokenRight:{...o.properties.brokenRight},pit:{...o.properties.pit},worldEnd:stage.world.width,decorativeDrop:o.properties.decorativeDrop,decorativeOnly:o.properties.decorativeOnly,legacyHookMount:o.properties.legacyHookMount}));

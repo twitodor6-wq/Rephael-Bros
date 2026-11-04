@@ -11,7 +11,7 @@ const clone=()=>structuredClone(stage), valid=x=>box.api.validateStageV1(x).ok;
 
 test('M466 stage compiles five prefab families with linked single-source branch hook',()=>{
  const s=box.api.compileStageV1(stage);
- assert.equal(s.types.length,7);
+ assert.equal(s.types.length,8);
  const tree=s.config('falling-bridge-tree','fallen-bridge-tree');
  const meta=s.anchors.anchors.find(a=>a.id==='fallen-bridge-tree');
  assert.equal(tree.anchor.x,meta.x);assert.equal(tree.anchor.y,meta.y);

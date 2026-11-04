@@ -59,11 +59,12 @@ jobs:
         run: |
           python tests/m473-schema-check.py 2>&1 | tee ci-results/schema-m473.log
           python tests/m477-s2-schema-check.py 2>&1 | tee ci-results/schema-s2.log
+          python tests/m477-s3-schema-check.py 2>&1 | tee ci-results/schema-s3.log
 
       - name: Install Playwright Chromium and Linux dependencies
         run: npx playwright install --with-deps chromium 2>&1 | tee ci-results/chromium-install.log
 
-      - name: Capture initial S2 game screenshot (diagnostic only)
+      - name: Capture initial S3 game screenshot (diagnostic only)
         continue-on-error: true
         run: |
           node <<'NODE'
@@ -72,8 +73,8 @@ jobs:
           (async () => {
             const { browser, page } = await boot();
             try {
-              await page.screenshot({ path: path.join(R, 'ci-results/s2-initial.png'), fullPage: true });
-              console.log('Captured initial S2 gameplay screenshot');
+              await page.screenshot({ path: path.join(R, 'ci-results/s3-initial.png'), fullPage: true });
+              console.log('Captured initial S3 gameplay screenshot');
             } finally {
               await browser.close();
             }

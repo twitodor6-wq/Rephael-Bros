@@ -1,10 +1,10 @@
 {
-  "name": "rafael-brothers-m477-s2",
-  "version": "0.7.7-s2",
+  "name": "rafael-brothers-m477-s3",
+  "version": "0.7.7-s3",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build-m477-s2.mjs",
+    "build": "node build-m477-s3.mjs",
     "test": "node --test --test-reporter=tap tests/*.test.mjs",
     "qa:browser": "node tests/m477-browser.cjs",
     "qa:fixture": "python3 tests/m470-world-fixture-qa.py",
@@ -26,7 +26,8 @@
     "qa:m477:parity": "node tests/m477-physics-parity.cjs",
     "qa:m477:visual": "node tests/m477-visual.cjs",
     "qa:m477:smoke": "node tests/m477-smoke.cjs",
-    "qa:s2": "node tests/m477-s2-browser.cjs"
+    "qa:s2": "node tests/m477-s2-browser.cjs",
+    "qa:s3": "node tests/m477-s3-browser.cjs"
   },
   "engines": {
     "node": ">=20"
