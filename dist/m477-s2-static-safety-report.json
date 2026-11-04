@@ -1,0 +1,118 @@
+{
+  "contract": "rafael-rope-crossing-safety/v1",
+  "status": "PASS",
+  "issues": [],
+  "crossings": [
+    {
+      "id": "forest-gap-02",
+      "status": "PASS",
+      "anchorId": "stable-root-extension",
+      "leftSurfaceId": "east-bank-root-path",
+      "rightSurfaceId": "last-root-clearing",
+      "gap": {
+        "left": 1190,
+        "right": 1270,
+        "top": 490
+      },
+      "checks": [
+        {
+          "status": "PASS",
+          "code": "REEL_SWEEP_CLEAR",
+          "profile": "rafi",
+          "side": "left",
+          "anchorId": "stable-root-extension",
+          "distance": 279.12183719659055,
+          "sampleCount": 26
+        },
+        {
+          "status": "PASS",
+          "code": "REEL_SWEEP_CLEAR",
+          "profile": "rafi",
+          "side": "right",
+          "anchorId": "stable-root-extension",
+          "distance": 279.12183719659055,
+          "sampleCount": 26
+        },
+        {
+          "status": "PASS",
+          "code": "REEL_SWEEP_CLEAR",
+          "profile": "shaul",
+          "side": "left",
+          "anchorId": "stable-root-extension",
+          "distance": 286.42494653922864,
+          "sampleCount": 23
+        },
+        {
+          "status": "PASS",
+          "code": "REEL_SWEEP_CLEAR",
+          "profile": "shaul",
+          "side": "right",
+          "anchorId": "stable-root-extension",
+          "distance": 286.42494653922864,
+          "sampleCount": 23
+        }
+      ]
+    },
+    {
+      "id": "crumbling-gap",
+      "status": "PASS",
+      "anchorId": "combine-rescue-anchor",
+      "leftSurfaceId": "combine-entry-bank",
+      "rightSurfaceId": "combine-exit-bank",
+      "gap": {
+        "left": 2450,
+        "right": 2790,
+        "top": 490
+      },
+      "checks": [
+        {
+          "status": "PASS",
+          "code": "REEL_SWEEP_CLEAR",
+          "profile": "rafi",
+          "side": "left",
+          "anchorId": "combine-rescue-anchor",
+          "distance": 335.9002828221495,
+          "sampleCount": 26
+        },
+        {
+          "status": "PASS",
+          "code": "REEL_SWEEP_CLEAR",
+          "profile": "rafi",
+          "side": "right",
+          "anchorId": "combine-rescue-anchor",
+          "distance": 335.9002828221495,
+          "sampleCount": 26
+        },
+        {
+          "status": "PASS",
+          "code": "REEL_SWEEP_CLEAR",
+          "profile": "shaul",
+          "side": "left",
+          "anchorId": "combine-rescue-anchor",
+          "distance": 341.6712601317237,
+          "sampleCount": 23
+        },
+        {
+          "status": "PASS",
+          "code": "REEL_SWEEP_CLEAR",
+          "profile": "shaul",
+          "side": "right",
+          "anchorId": "combine-rescue-anchor",
+          "distance": 341.6712601317237,
+          "sampleCount": 23
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "PASS": 2,
+    "WARN": 0,
+    "FAIL": 0,
+    "NOT TESTED": 0
+  },
+  "source": "stage-json-only",
+  "limitations": [
+    "Finite static swept-body probes are not Phaser gameplay or exhaustive proof",
+    "Dynamic colliders, release cause, modes and respawns require browser QA"
+  ]
+}

@@ -4,7 +4,7 @@
  */
 const RB_SCENE_COMPOSER_ORDER=Object.freeze([
  'forest-extension','bridge-polish','stage-dressing','environmental-anchors','rotten-root',
- 'falling-bridge-tree','exit-grove','web-response','collapsing-platforms','rafi-run-prototype'
+ 'falling-bridge-tree','exit-grove','web-response','collapsing-platforms','rafi-run-prototype','enemy-prefabs'
 ]);
 function createRBSceneComposer(win=globalThis){
  if(win.__RBSceneComposerV1)return win.__RBSceneComposerV1;
@@ -39,7 +39,7 @@ function createRBSceneComposer(win=globalThis){
    // The actor managers own rollback. Snapshot per-actor runtime references before calling destroy.
    const props={'forest-extension':'__rbForestExtension','bridge-polish':'__rbBridgePolish','stage-dressing':'__rbStageDressing',
     'environmental-anchors':'__rbStageAnchors','rotten-root':'__rbRottenRoot',
-    'falling-bridge-tree':'__rbFallingBridge','exit-grove':'__rbExitGrove','web-response':'__rbWebResponse','collapsing-platforms':'__rbCollapsingPlatforms','rafi-run-prototype':'__rbRafiRunPrototype'};
+    'falling-bridge-tree':'__rbFallingBridge','exit-grove':'__rbExitGrove','web-response':'__rbWebResponse','collapsing-platforms':'__rbCollapsingPlatforms','rafi-run-prototype':'__rbRafiRunPrototype','enemy-prefabs':'__rbEnemies'};
    for(const id of active.reverse())try{scene[props[id]]?.destroy?.();}catch{}
    throw e;
   }

@@ -7,7 +7,9 @@ import vm from 'node:vm';
 import {validateRopeCrossingSafety,assertRopeCrossingGate} from './src/validation/rope-crossing-safety.mjs';
 const root=dirname(fileURLToPath(import.meta.url));
 const sha=v=>createHash('sha256').update(v).digest('hex');
-const get=p=>readFileSync(resolve(root,p),'utf8');
+// Historical S1 build must use its frozen inputs after S2 changes runtime contracts.
+const frozen={'src/ceiling-spider.mjs':'baseline/ceiling-spider.M476.mjs','src/stage-loader.mjs':'baseline/stage-loader.M476.mjs','src/scene-composer.mjs':'baseline/scene-composer.M477-S1.mjs','stages/s01.stage.json':'stages/s01.m477-s1.rollback.json'};
+const get=p=>readFileSync(resolve(root,frozen[p]||p),'utf8');
 const baseline=get('baseline/M46_RELEASE.html');
 const banner='M4.6 — Forest Art & Bridges · experimental';
 if(baseline.split(banner).length!==2)throw Error('Unexpected baseline banner');

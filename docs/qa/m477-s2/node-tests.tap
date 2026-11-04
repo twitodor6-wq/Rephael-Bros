@@ -1,0 +1,933 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> rafael-brothers-m477-s2@0.7.7-s2 test
+> node --test --test-reporter=tap tests/*.test.mjs
+
+TAP version 13
+# Subtest: script syntax stage-modules.mjs
+ok 1 - script syntax stage-modules.mjs
+  ---
+  duration_ms: 2.21669
+  type: 'test'
+  ...
+# Subtest: script syntax bridge-polish.mjs
+ok 2 - script syntax bridge-polish.mjs
+  ---
+  duration_ms: 0.509144
+  type: 'test'
+  ...
+# Subtest: script syntax stage-dressing.mjs
+ok 3 - script syntax stage-dressing.mjs
+  ---
+  duration_ms: 0.406725
+  type: 'test'
+  ...
+# Subtest: stage panel references original toggles and future tree spec
+ok 4 - stage panel references original toggles and future tree spec
+  ---
+  duration_ms: 0.455285
+  type: 'test'
+  ...
+# Subtest: bridge geometry always leaves pit empty
+ok 5 - bridge geometry always leaves pit empty
+  ---
+  duration_ms: 1.445973
+  type: 'test'
+  ...
+# Subtest: M4.6 immutable prefix (except banner)
+ok 6 - M4.6 immutable prefix (except banner)
+  ---
+  duration_ms: 48.555037
+  type: 'test'
+  ...
+# Subtest: script syntax stage-modules.mjs
+ok 7 - script syntax stage-modules.mjs
+  ---
+  duration_ms: 1.399776
+  type: 'test'
+  ...
+# Subtest: script syntax bridge-polish.mjs
+ok 8 - script syntax bridge-polish.mjs
+  ---
+  duration_ms: 0.699683
+  type: 'test'
+  ...
+# Subtest: script syntax stage-dressing.mjs
+ok 9 - script syntax stage-dressing.mjs
+  ---
+  duration_ms: 0.562452
+  type: 'test'
+  ...
+# Subtest: script syntax rotten-root.mjs
+ok 10 - script syntax rotten-root.mjs
+  ---
+  duration_ms: 0.650471
+  type: 'test'
+  ...
+# Subtest: stage panel now includes active rotten root toggle
+ok 11 - stage panel now includes active rotten root toggle
+  ---
+  duration_ms: 0.354138
+  type: 'test'
+  ...
+# Subtest: rotten helpers behave deterministically
+ok 12 - rotten helpers behave deterministically
+  ---
+  duration_ms: 2.480836
+  type: 'test'
+  ...
+# Subtest: build output includes rotten root sidecar ids
+ok 13 - build output includes rotten root sidecar ids
+  ---
+  duration_ms: 8.715048
+  type: 'test'
+  ...
+# Subtest: three authored environmental anchors with distinct profiles
+ok 14 - three authored environmental anchors with distinct profiles
+  ---
+  duration_ms: 6.363121
+  type: 'test'
+  ...
+# Subtest: valid registry passes and invalid duplicate ID fails
+ok 15 - valid registry passes and invalid duplicate ID fails
+  ---
+  duration_ms: 4.753378
+  type: 'test'
+  ...
+# Subtest: registry rejects duplicate coordinates and invalid world bounds
+ok 16 - registry rejects duplicate coordinates and invalid world bounds
+  ---
+  duration_ms: 1.122261
+  type: 'test'
+  ...
+# Subtest: registry only accepts stable strength with none outcome
+ok 17 - registry only accepts stable strength with none outcome
+  ---
+  duration_ms: 0.993752
+  type: 'test'
+  ...
+# Subtest: strength and outcome enums refuse unknown values
+ok 18 - strength and outcome enums refuse unknown values
+  ---
+  duration_ms: 0.924962
+  type: 'test'
+  ...
+# Subtest: stable tree independent of other feature flags
+ok 19 - stable tree independent of other feature flags
+  ---
+  duration_ms: 0.876261
+  type: 'test'
+  ...
+# Subtest: stable bridge follows original bridge feature toggle
+ok 20 - stable bridge follows original bridge feature toggle
+  ---
+  duration_ms: 1.721456
+  type: 'test'
+  ...
+# Subtest: fragile root follows existing hazard toggle
+ok 21 - fragile root follows existing hazard toggle
+  ---
+  duration_ms: 0.815212
+  type: 'test'
+  ...
+# Subtest: registries stay in same Stage 01
+ok 22 - registries stay in same Stage 01
+  ---
+  duration_ms: 4.277663
+  type: 'test'
+  ...
+# Subtest: M4.6 baseline, inherited features, new bundle preserved
+ok 23 - M4.6 baseline, inherited features, new bundle preserved
+  ---
+  duration_ms: 12.580068
+  type: 'test'
+  ...
+# Subtest: optional falling tree cannot bypass full tape gap
+ok 24 - optional falling tree cannot bypass full tape gap
+  ---
+  duration_ms: 15.913831
+  type: 'test'
+  ...
+# Subtest: falling branch defaults ON for playability and keeps authored anchor
+ok 25 - falling branch defaults ON for playability and keeps authored anchor
+  ---
+  duration_ms: 0.221053
+  type: 'test'
+  ...
+# Subtest: new script parses exit-grove.mjs
+ok 26 - new script parses exit-grove.mjs
+  ---
+  duration_ms: 1.700245
+  type: 'test'
+  ...
+# Subtest: new script parses web-response.mjs
+ok 27 - new script parses web-response.mjs
+  ---
+  duration_ms: 0.446293
+  type: 'test'
+  ...
+# Subtest: finish corridor extends beyond fragile tree
+ok 28 - finish corridor extends beyond fragile tree
+  ---
+  duration_ms: 10.125841
+  type: 'test'
+  ...
+# Subtest: local web response limited to loaded original anchor
+ok 29 - local web response limited to loaded original anchor
+  ---
+  duration_ms: 3.378829
+  type: 'test'
+  ...
+# Subtest: M464 stage manifest exposes new web control and default falling tree
+ok 30 - M464 stage manifest exposes new web control and default falling tree
+  ---
+  duration_ms: 0.733332
+  type: 'test'
+  ...
+# Subtest: M464 build preserves original module markers
+ok 31 - M464 build preserves original module markers
+  ---
+  duration_ms: 10.577481
+  type: 'test'
+  ...
+# Subtest: unified Stage 01 JSON validated and three prefab factories present
+ok 32 - unified Stage 01 JSON validated and three prefab factories present
+  ---
+  duration_ms: 4.754289
+  type: 'test'
+  ...
+# Subtest: schema rejects duplicate stable object ids, missing actors and reference errors
+ok 33 - schema rejects duplicate stable object ids, missing actors and reference errors
+  ---
+  duration_ms: 1.619147
+  type: 'test'
+  ...
+# Subtest: schema rejects unsafe moved root bridge and unbounded prefabs
+ok 34 - schema rejects unsafe moved root bridge and unbounded prefabs
+  ---
+  duration_ms: 0.614769
+  type: 'test'
+  ...
+# Subtest: compiled changes propagate through anchor registry and two actor configurations
+ok 35 - compiled changes propagate through anchor registry and two actor configurations
+  ---
+  duration_ms: 1.232912
+  type: 'test'
+  ...
+# Subtest: runtime prefab binding registers types, preserves single reference per id
+ok 36 - runtime prefab binding registers types, preserves single reference per id
+  ---
+  duration_ms: 1.019891
+  type: 'test'
+  ...
+# Subtest: M466 stage compiles five prefab families with linked single-source branch hook
+ok 37 - M466 stage compiles five prefab families with linked single-source branch hook
+  ---
+  duration_ms: 5.782061
+  type: 'test'
+  ...
+# Subtest: shifting branch prefab moves hook, branch and collision with one position edit
+ok 38 - shifting branch prefab moves hook, branch and collision with one position edit
+  ---
+  duration_ms: 1.709809
+  type: 'test'
+  ...
+# Subtest: reject branch that would bypass tape gap or lose pit source
+ok 39 - reject branch that would bypass tape gap or lose pit source
+  ---
+  duration_ms: 1.028643
+  type: 'test'
+  ...
+# Subtest: reject exit before rotten ledge, outside world, or missing referenced ledge
+ok 40 - reject exit before rotten ledge, outside world, or missing referenced ledge
+  ---
+  duration_ms: 1.127087
+  type: 'test'
+  ...
+# Subtest: runtime can conditionally unbind a destroyed prefab without clearing others
+ok 41 - runtime can conditionally unbind a destroyed prefab without clearing others
+  ---
+  duration_ms: 1.514634
+  type: 'test'
+  ...
+# Subtest: composer requires every named actor before start
+ok 42 - composer requires every named actor before start
+  ---
+  duration_ms: 7.526231
+  type: 'test'
+  ...
+# Subtest: one ordered composition root, idempotent on active Game scene, reattaches after shutdown
+ok 43 - one ordered composition root, idempotent on active Game scene, reattaches after shutdown
+  ---
+  duration_ms: 5.673634
+  type: 'test'
+  ...
+# Subtest: composer rejects unnamed registration and preserves deliberate registration order
+ok 44 - composer rejects unnamed registration and preserves deliberate registration order
+  ---
+  duration_ms: 1.362421
+  type: 'test'
+  ...
+# Subtest: composer owns reverse managed disposal once on shutdown or scene destruction
+ok 45 - composer owns reverse managed disposal once on shutdown or scene destruction
+  ---
+  duration_ms: 6.423008
+  type: 'test'
+  ...
+# Subtest: diagnostics combine original telemetry with bounded stage-tagged lifecycle and module flags
+ok 46 - diagnostics combine original telemetry with bounded stage-tagged lifecycle and module flags
+  ---
+  duration_ms: 3.743462
+  type: 'test'
+  ...
+# Subtest: scope releases in reverse order once and continues after cleanup errors
+ok 47 - scope releases in reverse order once and continues after cleanup errors
+  ---
+  duration_ms: 5.48023
+  type: 'test'
+  ...
+# Subtest: scope disables and resets graphics, collider, body, events and timers
+ok 48 - scope disables and resets graphics, collider, body, events and timers
+  ---
+  duration_ms: 2.321914
+  type: 'test'
+  ...
+# Subtest: scope anchors and refs use identity and release stage bindings
+ok 49 - scope anchors and refs use identity and release stage bindings
+  ---
+  duration_ms: 2.350005
+  type: 'test'
+  ...
+# Subtest: managed actor create/update/disable/reset/destroy is idempotent and terminal
+ok 50 - managed actor create/update/disable/reset/destroy is idempotent and terminal
+  ---
+  duration_ms: 1.792219
+  type: 'test'
+  ...
+# Subtest: failed managed create releases partial resources
+ok 51 - failed managed create releases partial resources
+  ---
+  duration_ms: 1.086418
+  type: 'test'
+  ...
+# Subtest: diagnostics exceptions cannot prevent resource disposal or later scene shutdown listeners
+ok 52 - diagnostics exceptions cannot prevent resource disposal or later scene shutdown listeners
+  ---
+  duration_ms: 4.395184
+  type: 'test'
+  ...
+# Subtest: anchor is removed even when tape release callback throws
+ok 53 - anchor is removed even when tape release callback throws
+  ---
+  duration_ms: 3.580954
+  type: 'test'
+  ...
+# Subtest: composer-owned actors can omit their own shutdown observers
+ok 54 - composer-owned actors can omit their own shutdown observers
+  ---
+  duration_ms: 3.885564
+  type: 'test'
+  ...
+# Subtest: M470 retains legacy immutable base, Stage01 data and untouched panel, exit, web actors
+ok 55 - M470 retains legacy immutable base, Stage01 data and untouched panel, exit, web actors
+  ---
+  duration_ms: 13.521434
+  type: 'test'
+  ...
+# Subtest: registry is managed, owns authored references only and reset preserves identity/order
+ok 56 - registry is managed, owns authored references only and reset preserves identity/order
+  ---
+  duration_ms: 17.349079
+  type: 'test'
+  ...
+# Subtest: failed release detaches once and cannot leave a dangling hook or bypass later cleanup
+ok 57 - failed release detaches once and cannot leave a dangling hook or bypass later cleanup
+  ---
+  duration_ms: 7.865988
+  type: 'test'
+  ...
+# Subtest: 15 create/destroy cycles keep original hook, bounded listeners and no duplicate refs
+ok 58 - 15 create/destroy cycles keep original hook, bounded listeners and no duplicate refs
+  ---
+  duration_ms: 18.888739
+  type: 'test'
+  ...
+# Subtest: duplicate registration identities normalize without changing authored hook priority
+ok 59 - duplicate registration identities normalize without changing authored hook priority
+  ---
+  duration_ms: 6.769124
+  type: 'test'
+  ...
+# Subtest: reset synchronously reconciles module flags without a postupdate
+ok 60 - reset synchronously reconciles module flags without a postupdate
+  ---
+  duration_ms: 7.830686
+  type: 'test'
+  ...
+# Subtest: partially failing release that clears anchor also clears attached state
+ok 61 - partially failing release that clears anchor also clears attached state
+  ---
+  duration_ms: 1.924643
+  type: 'test'
+  ...
+# Subtest: generic shape validation does not require Stage01 encounter inventory
+ok 62 - generic shape validation does not require Stage01 encounter inventory
+  ---
+  duration_ms: 4.79572
+  type: 'test'
+  ...
+# Subtest: camera bounds are opt-in and validated against world
+ok 63 - camera bounds are opt-in and validated against world
+  ---
+  duration_ms: 3.878449
+  type: 'test'
+  ...
+# Subtest: malformed objects/modules/properties return invalid instead of throwing
+ok 64 - malformed objects/modules/properties return invalid instead of throwing
+  ---
+  duration_ms: 2.092058
+  type: 'test'
+  ...
+# Subtest: structural validation rejects missing title and unsupported camera fields consistently with schema
+ok 65 - structural validation rejects missing title and unsupported camera fields consistently with schema
+  ---
+  duration_ms: 3.6089
+  type: 'test'
+  ...
+# Subtest: M470 core baseline and intentionally untouched actor files match M468 manifest
+ok 66 - M470 core baseline and intentionally untouched actor files match M468 manifest
+  ---
+  duration_ms: 4.799736
+  type: 'test'
+  ...
+# Subtest: validation precedes asset preparation; rejects malformed, duplicate and impure data
+ok 67 - validation precedes asset preparation; rejects malformed, duplicate and impure data
+  ---
+  duration_ms: 6.293479
+  type: 'test'
+  ...
+# Subtest: frozen copies and >=15 cycles dispose each old handle exactly once; bounded events
+ok 68 - frozen copies and >=15 cycles dispose each old handle exactly once; bounded events
+  ---
+  duration_ms: 11.989434
+  type: 'test'
+  ...
+# Subtest: failure disposes partial and reconstructs previous from data with fresh handle
+ok 69 - failure disposes partial and reconstructs previous from data with fresh handle
+  ---
+  duration_ms: 1.797667
+  type: 'test'
+  ...
+# Subtest: rollback failure is explicit
+ok 70 - rollback failure is explicit
+  ---
+  duration_ms: 1.476008
+  type: 'test'
+  ...
+# Subtest: busy preparation and transition overlap rejected
+ok 71 - busy preparation and transition overlap rejected
+  ---
+  duration_ms: 13.721948
+  type: 'test'
+  ...
+# Subtest: tape failure blocks unload; unload failure attempts fresh reconstruction
+ok 72 - tape failure blocks unload; unload failure attempts fresh reconstruction
+  ---
+  duration_ms: 1.014473
+  type: 'test'
+  ...
+# Subtest: unload failure cleans old handle and reconstructs fresh scene
+ok 73 - unload failure cleans old handle and reconstructs fresh scene
+  ---
+  duration_ms: 1.01237
+  type: 'test'
+  ...
+# Subtest: partial disposal failure is reported and rollback reconstructs; preparation failure preserves live scene
+ok 74 - partial disposal failure is reported and rollback reconstructs; preparation failure preserves live scene
+  ---
+  duration_ms: 0.990248
+  type: 'test'
+  ...
+# Subtest: session rejects runtime refs, accessors, sparse arrays and unknown progress keys
+ok 75 - session rejects runtime refs, accessors, sparse arrays and unknown progress keys
+  ---
+  duration_ms: 1.66265
+  type: 'test'
+  ...
+# Subtest: examples validate and distinct authored IDs survive preparation
+ok 76 - examples validate and distinct authored IDs survive preparation
+  ---
+  duration_ms: 1.165704
+  type: 'test'
+  ...
+# Subtest: nullable camera, array subclasses and foreign tokens reject
+ok 77 - nullable camera, array subclasses and foreign tokens reject
+  ---
+  duration_ms: 0.869451
+  type: 'test'
+  ...
+# Subtest: resolved successful transition snapshot releases busy gate
+ok 78 - resolved successful transition snapshot releases busy gate
+  ---
+  duration_ms: 0.442176
+  type: 'test'
+  ...
+# Subtest: unchanged baseline Phaser core, authored Stage01 and transition experiment
+ok 79 - unchanged baseline Phaser core, authored Stage01 and transition experiment
+  ---
+  duration_ms: 9.806845
+  type: 'test'
+  ...
+# Subtest: world-fixture JSON is isolated from unchanged production Stage01
+ok 80 - world-fixture JSON is isolated from unchanged production Stage01
+  ---
+  duration_ms: 1.174427
+  type: 'test'
+  ...
+# Subtest: fixture compiles spawn, finish, pits, collision surfaces and camera from one JSON file
+ok 81 - fixture compiles spawn, finish, pits, collision surfaces and camera from one JSON file
+  ---
+  duration_ms: 2.273123
+  type: 'test'
+  ...
+# Subtest: mutation of surface, exit and camera changes runtime compiler output
+ok 82 - mutation of surface, exit and camera changes runtime compiler output
+  ---
+  duration_ms: 1.311267
+  type: 'test'
+  ...
+# Subtest: reject overlapping pit, duplicate ID, out-of-world geometry, incomplete start/end
+ok 83 - reject overlapping pit, duplicate ID, out-of-world geometry, incomplete start/end
+  ---
+  duration_ms: 0.913516
+  type: 'test'
+  ...
+# Subtest: Stage01 maintains original schema and no terrain override
+ok 84 - Stage01 maintains original schema and no terrain override
+  ---
+  duration_ms: 1.104365
+  type: 'test'
+  ...
+# Subtest: isolated fixture and Stage v1 share one terrain property contract
+ok 85 - isolated fixture and Stage v1 share one terrain property contract
+  ---
+  duration_ms: 1.994035
+  type: 'test'
+  ...
+# Subtest: M471 original Stage01 and tape baseline are byte-preserved with immutable rollback
+ok 86 - M471 original Stage01 and tape baseline are byte-preserved with immutable rollback
+  ---
+  duration_ms: 8.014985
+  type: 'test'
+  ...
+# Subtest: forest grows eastward with only extension colliders joining legacy ground
+ok 87 - forest grows eastward with only extension colliders joining legacy ground
+  ---
+  duration_ms: 0.832397
+  type: 'test'
+  ...
+# Subtest: Stage v1 compiler exposes world extension and authored finish without mutating Game core
+ok 88 - Stage v1 compiler exposes world extension and authored finish without mutating Game core
+  ---
+  duration_ms: 1.899907
+  type: 'test'
+  ...
+# Subtest: branch fully aligns with pit but cannot bridge all of it
+ok 89 - branch fully aligns with pit but cannot bridge all of it
+  ---
+  duration_ms: 0.687145
+  type: 'test'
+  ...
+# Subtest: mutating authored branch x moves anchor, platform and stub together
+ok 90 - mutating authored branch x moves anchor, platform and stub together
+  ---
+  duration_ms: 0.836823
+  type: 'test'
+  ...
+# Subtest: two independent JSON mutations move portal and extension stable hook
+ok 91 - two independent JSON mutations move portal and extension stable hook
+  ---
+  duration_ms: 2.481607
+  type: 'test'
+  ...
+# Subtest: extension rejects overlap, out-of-bounds and invalid join
+ok 92 - extension rejects overlap, out-of-bounds and invalid join
+  ---
+  duration_ms: 0.541792
+  type: 'test'
+  ...
+# Subtest: branch safety rejects complete overpit bypass, missing source and unsafe bank
+ok 93 - branch safety rejects complete overpit bypass, missing source and unsafe bank
+  ---
+  duration_ms: 0.431621
+  type: 'test'
+  ...
+# Subtest: M4711 second gap is validated through Stage JSON semantic surface refs
+ok 94 - M4711 second gap is validated through Stage JSON semantic surface refs
+  ---
+  duration_ms: 2.561313
+  type: 'test'
+  ...
+# Subtest: both real pit geometries and both profiles statically safe
+ok 95 - both real pit geometries and both profiles statically safe
+  ---
+  duration_ms: 9.224157
+  type: 'test'
+  ...
+# Subtest: M471 original 1275 fails swept geometry; M4711 1230 passes
+ok 96 - M471 original 1275 fails swept geometry; M4711 1230 passes
+  ---
+  duration_ms: 3.656214
+  type: 'test'
+  ...
+# Subtest: stage reference schema rejects mismatched, duplicate and missing links
+ok 97 - stage reference schema rejects mismatched, duplicate and missing links
+  ---
+  duration_ms: 1.373377
+  type: 'test'
+  ...
+# Subtest: mutation of stage anchor x changes findings without changing JS
+ok 98 - mutation of stage anchor x changes findings without changing JS
+  ---
+  duration_ms: 2.481557
+  type: 'test'
+  ...
+# Subtest: two additional JSON gap layouts validate with the same code
+ok 99 - two additional JSON gap layouts validate with the same code
+  ---
+  duration_ms: 0.891033
+  type: 'test'
+  ...
+# Subtest: above-bank anchor can be safe on an elevated traversable approach
+ok 100 - above-bank anchor can be safe on an elevated traversable approach
+  ---
+  duration_ms: 1.921078
+  type: 'test'
+  ...
+# Subtest: no ground and missing hitbox never claim PASS
+ok 101 - no ground and missing hitbox never claim PASS
+  ---
+  duration_ms: 0.503947
+  type: 'test'
+  ...
+# Subtest: fragile anchor produces a warning, disabled anchor is not tested
+ok 102 - fragile anchor produces a warning, disabled anchor is not tested
+  ---
+  duration_ms: 0.524717
+  type: 'test'
+  ...
+# Subtest: dynamic collider inserted into reel trajectory triggers failure
+ok 103 - dynamic collider inserted into reel trajectory triggers failure
+  ---
+  duration_ms: 0.822001
+  type: 'test'
+  ...
+# Subtest: profile width changes clearance and safety result
+ok 104 - profile width changes clearance and safety result
+  ---
+  duration_ms: 0.470528
+  type: 'test'
+  ...
+# Subtest: additive reusable platforms compile independent configurations; M472 still accepted
+ok 105 - additive reusable platforms compile independent configurations; M472 still accepted
+  ---
+  duration_ms: 4.089027
+  type: 'test'
+  ...
+# Subtest: bad timers, footprint, outcome, trigger, anchor refs and duplicate IDs rejected
+ok 106 - bad timers, footprint, outcome, trigger, anchor refs and duplicate IDs rejected
+  ---
+  duration_ms: 2.423082
+  type: 'test'
+  ...
+# Subtest: challenge unresolved instances and missing required fields rejected
+ok 107 - challenge unresolved instances and missing required fields rejected
+  ---
+  duration_ms: 0.391622
+  type: 'test'
+  ...
+# Subtest: stage challenges require bounded entry/exit and string skills
+ok 108 - stage challenges require bounded entry/exit and string skills
+  ---
+  duration_ms: 3.11303
+  type: 'test'
+  ...
+# Subtest: recovery cannot reference missing floor/return steps or nonstable entry
+ok 109 - recovery cannot reference missing floor/return steps or nonstable entry
+  ---
+  duration_ms: 1.886838
+  type: 'test'
+  ...
+# Subtest: panel change is only removal of historical always-on note; legacy physics byte-preserved
+ok 110 - panel change is only removal of historical always-on note; legacy physics byte-preserved
+  ---
+  duration_ms: 4.552635
+  type: 'test'
+  ...
+# Subtest: one-way top does not block upward reel but identical full solid still blocks
+ok 111 - one-way top does not block upward reel but identical full solid still blocks
+  ---
+  duration_ms: 2.96933
+  type: 'test'
+  ...
+# Subtest: standing warns then removes collision, reset restores; independent instances
+ok 112 - standing warns then removes collision, reset restores; independent instances
+  ---
+  duration_ms: 0.967044
+  type: 'test'
+  ...
+# Subtest: off midwarning cancels countdown, reset starts intact, stable logs never collapse
+ok 113 - off midwarning cancels countdown, reset starts intact, stable logs never collapse
+  ---
+  duration_ms: 0.178832
+  type: 'test'
+  ...
+# Subtest: live spider source gates damage and hammer and exposes owned view
+ok 114 - live spider source gates damage and hammer and exposes owned view
+  ---
+  duration_ms: 0.3424
+  type: 'test'
+  ...
+# Subtest: new near-bank support is safe but cannot bridge all or permit normal jump bypass
+ok 115 - new near-bank support is safe but cannot bridge all or permit normal jump bypass
+  ---
+  duration_ms: 0.993933
+  type: 'test'
+  ...
+# Subtest: one log stays attached to same pivot and ends exactly at authored collider footprint
+ok 116 - one log stays attached to same pivot and ends exactly at authored collider footprint
+  ---
+  duration_ms: 0.243616
+  type: 'test'
+  ...
+# Subtest: warning breaking falling settling precede collision activation; reset and disable safe
+ok 117 - warning breaking falling settling precede collision activation; reset and disable safe
+  ---
+  duration_ms: 0.709567
+  type: 'test'
+  ...
+# Subtest: Stage authored pivot/hook/footprint resolve from one position, with backward M473 compatibility
+ok 118 - Stage authored pivot/hook/footprint resolve from one position, with backward M473 compatibility
+  ---
+  duration_ms: 3.516139
+  type: 'test'
+  ...
+# Subtest: invalid falling pose timing/hook/outcome and bypass deck rejected
+ok 119 - invalid falling pose timing/hook/outcome and bypass deck rejected
+  ---
+  duration_ms: 3.28424
+  type: 'test'
+  ...
+# Subtest: eastern M473 terrain, challenges and collapsing actors remain byte-equivalent as data
+ok 120 - eastern M473 terrain, challenges and collapsing actors remain byte-equivalent as data
+  ---
+  duration_ms: 1.150482
+  type: 'test'
+  ...
+# Subtest: parked root retains references and cannot require active encounter to finish
+ok 121 - parked root retains references and cannot require active encounter to finish
+  ---
+  duration_ms: 0.884803
+  type: 'test'
+  ...
+# Subtest: conservative ordinary-jump budget includes full coyote time and body-width edge allowances
+ok 122 - conservative ordinary-jump budget includes full coyote time and body-width edge allowances
+  ---
+  duration_ms: 1.421748
+  type: 'test'
+  ...
+# Subtest: stationary camera ignores all actor movement
+ok 123 - stationary camera ignores all actor movement
+  ---
+  duration_ms: 2.433316
+  type: 'test'
+  ...
+# Subtest: camera origin has no source or offset jump
+ok 124 - camera origin has no source or offset jump
+  ---
+  duration_ms: 0.304626
+  type: 'test'
+  ...
+# Subtest: stable ordered depths with bounded motion and unchanged opacity
+ok 125 - stable ordered depths with bounded motion and unchanged opacity
+  ---
+  duration_ms: 0.202346
+  type: 'test'
+  ...
+# Subtest: web response never owns decorative sprite transforms
+ok 126 - web response never owns decorative sprite transforms
+  ---
+  duration_ms: 0.427414
+  type: 'test'
+  ...
+# Subtest: Stage rejects mixed sources, invalid factors and uncovered far-east art
+ok 127 - Stage rejects mixed sources, invalid factors and uncovered far-east art
+  ---
+  duration_ms: 5.848729
+  type: 'test'
+  ...
+# Subtest: only product caption changes in bundled Game Core; camera and all gameplay formulas identical
+ok 128 - only product caption changes in bundled Game Core; camera and all gameplay formulas identical
+  ---
+  duration_ms: 19.969459
+  type: 'test'
+  ...
+# Subtest: all encounter, module, camera and challenge data preserved from M474
+ok 129 - all encounter, module, camera and challenge data preserved from M474
+  ---
+  duration_ms: 1.224901
+  type: 'test'
+  ...
+# Subtest: malformed visual config returns rejection rather than throwing
+ok 130 - malformed visual config returns rejection rather than throwing
+  ---
+  duration_ms: 1.971953
+  type: 'test'
+  ...
+# Subtest: authored guidance replaces misleading sandbox copy and explains drill return beneath shelf
+ok 131 - authored guidance replaces misleading sandbox copy and explains drill return beneath shelf
+  ---
+  duration_ms: 3.271793
+  type: 'test'
+  ...
+# Subtest: malformed or out-of-world guidance is rejected before runtime
+ok 132 - malformed or out-of-world guidance is rejected before runtime
+  ---
+  duration_ms: 1.348471
+  type: 'test'
+  ...
+# Subtest: M476 complete bundled Game Core is M475 except product caption
+ok 133 - M476 complete bundled Game Core is M475 except product caption
+  ---
+  duration_ms: 16.902636
+  type: 'test'
+  ...
+# Subtest: M476 camera/background actors and all encounter data remain exact M475
+ok 134 - M476 camera/background actors and all encounter data remain exact M475
+  ---
+  duration_ms: 1.987154
+  type: 'test'
+  ...
+# Subtest: full route driver cannot call hidden physics, camera, mode or finish setters
+ok 135 - full route driver cannot call hidden physics, camera, mode or finish setters
+  ---
+  duration_ms: 0.375049
+  type: 'test'
+  ...
+# Subtest: adapter anchors body bottom and restores original renderer, without physics writes
+ok 136 - adapter anchors body bottom and restores original renderer, without physics writes
+  ---
+  duration_ms: 4.822409
+  type: 'test'
+  ...
+# Subtest: visual manifest rejects invalid state, unsafe path, grid, timing and pivots
+ok 137 - visual manifest rejects invalid state, unsafe path, grid, timing and pivots
+  ---
+  duration_ms: 2.64707
+  type: 'test'
+  ...
+# Subtest: exact supplied PNG bytes and12 frame manifest are retained
+ok 138 - exact supplied PNG bytes and12 frame manifest are retained
+  ---
+  duration_ms: 1.856013
+  type: 'test'
+  ...
+# Subtest: complete bundled Game Core and every gameplay/background source remain M476
+ok 139 - complete bundled Game Core and every gameplay/background source remain M476
+  ---
+  duration_ms: 25.974812
+  type: 'test'
+  ...
+# Subtest: Stage changes only add one visible prototype module; adapter has no physics mutation API
+ok 140 - Stage changes only add one visible prototype module; adapter has no physics mutation API
+  ---
+  duration_ms: 3.244728
+  type: 'test'
+  ...
+# Subtest: enemy collection dispatches every instance and destroys bindings once
+ok 141 - enemy collection dispatches every instance and destroys bindings once
+  ---
+  duration_ms: 2.918526
+  type: 'test'
+  ...
+# Subtest: failed second enemy mount rolls back first binding
+ok 142 - failed second enemy mount rolls back first binding
+  ---
+  duration_ms: 1.162409
+  type: 'test'
+  ...
+# Subtest: empty enemy list produces empty collection without spawning default
+ok 143 - empty enemy list produces empty collection without spawning default
+  ---
+  duration_ms: 0.703358
+  type: 'test'
+  ...
+# Subtest: JSON spider config exactly preserves legacy simulation and moves all geometry
+ok 144 - JSON spider config exactly preserves legacy simulation and moves all geometry
+  ---
+  duration_ms: 12.423479
+  type: 'test'
+  ...
+# Subtest: JSON supports multiple stable enemy ids and zero enemies for old stages
+ok 145 - JSON supports multiple stable enemy ids and zero enemies for old stages
+  ---
+  duration_ms: 2.568003
+  type: 'test'
+  ...
+# Subtest: invalid enemy properties and unsafe geometry fail before mounting
+ok 146 - invalid enemy properties and unsafe geometry fail before mounting
+  ---
+  duration_ms: 5.450737
+  type: 'test'
+  ...
+# Subtest: spider state machine and attack rules remain byte-identical to pre-migration source
+ok 147 - spider state machine and attack rules remain byte-identical to pre-migration source
+  ---
+  duration_ms: 0.626636
+  type: 'test'
+  ...
+# Subtest: historical S1 artifact keeps frozen installer/composer contract
+ok 148 - historical S1 artifact keeps frozen installer/composer contract
+  ---
+  duration_ms: 310.68328
+  type: 'test'
+  ...
+# Subtest: real spider adapter moves art with JSON origin, chains hammer/respawn and cleans restart
+ok 149 - real spider adapter moves art with JSON origin, chains hammer/respawn and cleans restart
+  ---
+  duration_ms: 7.229938
+  type: 'test'
+  ...
+# Subtest: zero authored spiders create no graphics or legacy fallback enemy
+ok 150 - zero authored spiders create no graphics or legacy fallback enemy
+  ---
+  duration_ms: 1.254574
+  type: 'test'
+  ...
+# Subtest: overlapping spiders respect a single player immunity window
+ok 151 - overlapping spiders respect a single player immunity window
+  ---
+  duration_ms: 13.989098
+  type: 'test'
+  ...
+# Subtest: only ready grounded moving Rafi can use RUN; unsupported states fall back
+ok 152 - only ready grounded moving Rafi can use RUN; unsupported states fall back
+  ---
+  duration_ms: 1.228526
+  type: 'test'
+  ...
+# Subtest: all12 pivots align visible feet without altering body coordinates or stretching
+ok 153 - all12 pivots align visible feet without altering body coordinates or stretching
+  ---
+  duration_ms: 0.624032
+  type: 'test'
+  ...
+1..153
+# tests 153
+# suites 0
+# pass 153
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1146.759326
