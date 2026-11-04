@@ -3,7 +3,7 @@
  * Runtime owns only metadata; existing actors own colliders/timers/lifecycle.
  */
 const RB_STAGE_SCHEMA='1.0.0';
-const RB_STAGE_PREFABS=['environmental-anchor','root-bridge','rotten-root','falling-bridge-tree','exit-grove','collapsing-platform','ceiling-spider','sticky-web'];
+const RB_STAGE_PREFABS=['environmental-anchor','root-bridge','rotten-root','falling-bridge-tree','exit-grove','collapsing-platform','ceiling-spider','sticky-web','egg-sac'];
 function validateStageStructure(s){
  const errors=[], ids=new Set();
  const fail=(msg)=>errors.push(msg);
@@ -94,6 +94,13 @@ function validateStageV1(s){
  for(const o of s.objects)if(!RB_STAGE_PREFABS.includes(o.prefab))fail('unknown prefab '+o.id);
  const object=(type)=>s.objects.filter(o=>o.prefab===type);
  // Enemy coordinates are local offsets from the authored ceiling origin.
+ for(const o of object('egg-sac')){
+  const p=o.properties,limits={radiusX:[1,100],radiusY:[1,100],silkTopOffsetY:[-2000,-1],groundOffsetY:[1,2000],hatchSeconds:[.01,10],count:[1,32],gravity:[1,2000],spiderlingLifeSeconds:[.1,30],spiderlingSpeed:[1,300],damageCooldown:[.1,10],bumpX:[0,500],bumpY:[-500,0]};
+  const keys=[...Object.keys(limits),'roamOffset'],r=p?.roamOffset;
+  if(!p||Object.keys(p).length!==keys.length||keys.some(k=>!(k in p))||Object.entries(limits).some(([k,[lo,hi]])=>!Number.isFinite(p[k])||p[k]<lo||p[k]>hi)||!Number.isInteger(p.count)||!r||Array.isArray(r)||Object.keys(r).length!==2||![r.minX,r.maxX].every(Number.isFinite)){fail('invalid egg sac properties '+o.id);continue;}
+  const {x,y}=o.position;
+  if(x-p.radiusX<0||x+p.radiusX>s.world.width||y-p.radiusY<0||y+p.radiusY>s.world.height||y+p.silkTopOffsetY<0||p.silkTopOffsetY>-p.radiusY||p.groundOffsetY<p.radiusY+6||y+p.groundOffsetY>s.world.height||r.minX>=r.maxX||x+r.minX<8||x+r.maxX>s.world.width-8||x-(p.count-1)*2<8||x+(p.count-1)*2>s.world.width-8)fail('egg sac outside world or invalid ground/roam '+o.id);
+ }
  for(const o of object('sticky-web')){
   const p=o.properties,k=['size','speedCap','holdToTrapSeconds','directionalEscapeSeconds','maxTrapSeconds','recoverySeconds','cutRecoverySeconds','swingDragPerSecond'];
   if(!p||Object.keys(p).length!==k.length||k.some(v=>!(v in p))||!p.size||typeof p.size!=='object'||Array.isArray(p.size)||Object.keys(p.size).length!==2||!Number.isFinite(p.size.w)||!Number.isFinite(p.size.h)||p.size.w<=0||p.size.h<=0||k.filter(v=>v!=='size').some(v=>!Number.isFinite(p[v])||p[v]<=0)){fail('invalid sticky web properties '+o.id);continue;}
@@ -166,6 +173,7 @@ function validateStageV1(s){
 function makePrefabRegistry(){
  const factories=new Map();
  const register=(name,fn)=>{if(factories.has(name)||!RB_STAGE_PREFABS.includes(name))throw Error('Invalid or duplicate prefab factory '+name);factories.set(name,fn);};
+ register('egg-sac',o=>{const p=o.properties;return {id:o.id,x:o.position.x,y:o.position.y,radiusX:p.radiusX,radiusY:p.radiusY,silkTopY:o.position.y+p.silkTopOffsetY,groundY:o.position.y+p.groundOffsetY,hatchSeconds:p.hatchSeconds,count:p.count,gravity:p.gravity,spiderlingLifeSeconds:p.spiderlingLifeSeconds,spiderlingSpeed:p.spiderlingSpeed,spiderlingMinX:o.position.x+p.roamOffset.minX,spiderlingMaxX:o.position.x+p.roamOffset.maxX,damageCooldown:p.damageCooldown,bumpX:p.bumpX,bumpY:p.bumpY};});
  register('sticky-web',o=>({id:o.id,x:o.position.x,y:o.position.y,w:o.properties.size.w,h:o.properties.size.h,speedCap:o.properties.speedCap,holdToTrapSeconds:o.properties.holdToTrapSeconds,directionalEscapeSeconds:o.properties.directionalEscapeSeconds,maxTrapSeconds:o.properties.maxTrapSeconds,recoverySeconds:o.properties.recoverySeconds,cutRecoverySeconds:o.properties.cutRecoverySeconds,swingDragPerSecond:o.properties.swingDragPerSecond}));
  register('ceiling-spider',o=>{const p=o.properties;return {id:o.id,name:'Ceiling Drop Spider',x:o.position.x,ceilingY:o.position.y,attackY:o.position.y+p.attackOffsetY,trigger:{x:o.position.x+p.triggerOffset.x,y:o.position.y+p.triggerOffset.y,w:p.triggerOffset.w,h:p.triggerOffset.h},warnSeconds:p.warnSeconds,descendSpeed:p.descendSpeed,ascendSpeed:p.ascendSpeed,attackWindow:p.attackWindow,stunSeconds:p.stunSeconds,rearmSeconds:p.rearmSeconds,body:{...p.body},knock:{...p.knock},invulnSeconds:p.invulnSeconds,platformTop:o.position.y+p.platformOffsetY};});
  register('environmental-anchor',o=>({...o.properties,id:o.id,x:o.position.x,y:o.position.y}));
