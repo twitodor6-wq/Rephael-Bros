@@ -1,0 +1,29 @@
+{
+  "version": "M4.7.7-S1",
+  "visualAssetSha256": "bb937be331a50a2f11617f0f88fee065a93d74f6d192da6e83d885540edb8424",
+  "visualManifestSha256": "36082364f24acc11d4b9f602891e5a7edac03f26ad782ea2bb95a374097a3f16",
+  "safetyValidatorSha256": "8285910817de9890c835547ff0e7392b4bb174fd2c77b15100a94fb0d292c6f7",
+  "staticSafetyStatus": "PASS",
+  "staticProfilesVerified": true,
+  "stageSha256": "36edadb604661021e940bb5fd214ef209b66b0cd2cb26ef6ad07269f5eb4d1b9",
+  "baselineSha256": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31",
+  "transitionSha256": "0efd393a562dc8512bb3ca2316bfb4d243757dcd22b7780274de5c0a0e92d8d2",
+  "managedSha256": "6f4097abd596c45845f998193aa33cc4c9d54ad53674fe9db759185d2e845908",
+  "composerSha256": "ebfd835596e5ecb65eec01a6d250e8833f2a2aa07aa062b0f454e1875aa775bf",
+  "loaderSha256": "4d9a3553b80736c084327c50034a003b91399946178c6bf8becb2090f2292ad3",
+  "finalSha256": "450bb1c04d616a7ae78fa337b754f033443be53d1e21065235bdd03b12b73bb4",
+  "forestSha256": "9e774b7e36e77992e656cb1d050f5e9806d058e2e82dadfab505ad4f01a94175",
+  "files": {
+    "forest-extension.mjs": "a6d9b8a382c9814de238345df251adb0e4307fbdb9037d1efe5c93406c855dfa",
+    "stage-modules.mjs": "dd7a84160f88175186a477a1660f93bdcc2d4cc8b86eae8b9f4f7b6aaa5d7d69",
+    "bridge-polish.mjs": "0d325318cfc26bae4a234683a3a061af24ffab23b95ca5df4664679d59fb1edc",
+    "stage-dressing.mjs": "fc27d20d32801b546701f5a42e2a2eb8c9dc5b8cea8681ba5a7be8e90b749125",
+    "environmental-anchors.mjs": "eeb1f093ed573c285ab3515a317091cedf065c6ffe4d2375b065706e10a4a6ac",
+    "rotten-root.mjs": "901b45c593d8c3402435f345fe96e6d82573d57ccd61927937823164d1afccc8",
+    "falling-bridge-tree.mjs": "b61f1aa9011de05f0912ad11dac529a73a8a1b02bedf920ca0aae058a3e66919",
+    "exit-grove.mjs": "d9ed88baec7a1946fa80e1358dde480e70e9852e598f4c40d8d735e5eb7e03f1",
+    "web-response.mjs": "d6cd71e1e3e861673e3fc07a8d39320c69417636c0401f7d7ba7d3d329707ce1",
+    "collapsing-platform.mjs": "f3cbd992eb7f77974698f8e4999848883b0adf50b8690b2e199a6825c030d300",
+    "rafi-run-sprite.mjs": "a322b138eb43a9098980dcda46c1abaed8a5bf66af37ef52a4828c8e7c229388"
+  }
+}
