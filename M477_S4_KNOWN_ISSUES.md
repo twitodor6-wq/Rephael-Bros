@@ -1,6 +1,6 @@
 # M477-S4 Known Issues / acceptance limits
 
-- Actual S4 GitHub Actions and Chromium results must be recorded before claiming automated acceptance. Initial local Node/schema success alone is insufficient.
+- Automated acceptance passed on actual Actions run `41772640558` (`09972c0a`); see QA report for scope. This does not replace human gameplay acceptance.
 - Human gameplay acceptance, unaided full-stage runs, Safari/mobile and full WebGL gameplay are separate scopes.
 - Custom ground/roam geometry is bounded but is not inferred from actual terrain. Leftward egg knockback matches Stage 01 and must be considered for custom layouts.
 - Egg batches share egg bite immunity; the ceiling spider's existing immunity remains separate. Cross-family combat balancing is not changed.
