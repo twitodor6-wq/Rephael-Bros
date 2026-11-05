@@ -1,0 +1,13 @@
+{
+  "src/ceiling-spider.mjs": "a7c208c0f63376112a58085628fad78f28341bbffbac618f4968117f1b595714",
+  "src/sticky-web.mjs": "cbaa7c7db7c5a8e96002bbe368e0fafdf5e9c2a3b4bbf90cdf1cd2f3310843bf",
+  "src/enemy-prefabs.mjs": "b8824b5572cf4acba5de8f2101ac3f968dd1dd9f2d31a07997b593c297e19868",
+  "src/managed-actor.mjs": "6f4097abd596c45845f998193aa33cc4c9d54ad53674fe9db759185d2e845908",
+  "src/rafi-run-sprite.mjs": "a322b138eb43a9098980dcda46c1abaed8a5bf66af37ef52a4828c8e7c229388",
+  "src/forest-parallax.mjs": "9e774b7e36e77992e656cb1d050f5e9806d058e2e82dadfab505ad4f01a94175",
+  "src/web-response.mjs": "d6cd71e1e3e861673e3fc07a8d39320c69417636c0401f7d7ba7d3d329707ce1",
+  "src/falling-bridge-tree.mjs": "b61f1aa9011de05f0912ad11dac529a73a8a1b02bedf920ca0aae058a3e66919",
+  "src/collapsing-platform.mjs": "f3cbd992eb7f77974698f8e4999848883b0adf50b8690b2e199a6825c030d300",
+  "src/forest-extension.mjs": "a6d9b8a382c9814de238345df251adb0e4307fbdb9037d1efe5c93406c855dfa",
+  "baseline/M46_RELEASE.html": "6255d2343a0d59bb9827d6ca7c3740b7f23b0e40969adeb45127d435ca724e31"
+}

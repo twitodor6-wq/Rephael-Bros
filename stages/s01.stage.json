@@ -471,6 +471,32 @@
         "cutRecoverySeconds": 3,
         "swingDragPerSecond": 1.45
       }
+    },
+    {
+      "id": "egg-sac-launch-right",
+      "prefab": "egg-sac",
+      "position": {
+        "x": 332,
+        "y": 355
+      },
+      "properties": {
+        "radiusX": 23,
+        "radiusY": 29,
+        "silkTopOffsetY": -280,
+        "groundOffsetY": 135,
+        "hatchSeconds": 0.24,
+        "count": 7,
+        "gravity": 640,
+        "spiderlingLifeSeconds": 8.5,
+        "spiderlingSpeed": 64,
+        "roamOffset": {
+          "minX": -154,
+          "maxX": 24
+        },
+        "damageCooldown": 1.15,
+        "bumpX": 125,
+        "bumpY": -165
+      }
     }
   ],
   "modules": [

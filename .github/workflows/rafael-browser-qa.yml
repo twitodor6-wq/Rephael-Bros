@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main
+      - 'dev/**'
 
 permissions:
   contents: read
@@ -46,7 +47,7 @@ jobs:
       - name: Install Node dependencies
         run: npm install --no-audit --no-fund --no-package-lock 2>&1 | tee ci-results/npm-install.log
 
-      - name: Build S3 standalone browser game
+      - name: Build S4 standalone browser game
         run: npm run build 2>&1 | tee ci-results/build.log
 
       - name: Run Node regression tests
@@ -60,11 +61,12 @@ jobs:
           python tests/m473-schema-check.py 2>&1 | tee ci-results/schema-m473.log
           python tests/m477-s2-schema-check.py 2>&1 | tee ci-results/schema-s2.log
           python tests/m477-s3-schema-check.py 2>&1 | tee ci-results/schema-s3.log
+          python tests/m477-s4-schema-check.py 2>&1 | tee ci-results/schema-s4.log
 
       - name: Install Playwright Chromium and Linux dependencies
         run: npx playwright install --with-deps chromium 2>&1 | tee ci-results/chromium-install.log
 
-      - name: Capture initial S3 game screenshot (diagnostic only)
+      - name: Capture initial S4 game screenshot (diagnostic only)
         continue-on-error: true
         run: |
           node <<'NODE'
@@ -73,8 +75,8 @@ jobs:
           (async () => {
             const { browser, page } = await boot();
             try {
-              await page.screenshot({ path: path.join(R, 'ci-results/s3-initial.png'), fullPage: true });
-              console.log('Captured initial S3 gameplay screenshot');
+              await page.screenshot({ path: path.join(R, 'ci-results/s4-initial.png'), fullPage: true });
+              console.log('Captured initial S4 gameplay screenshot');
             } finally {
               await browser.close();
             }
@@ -87,7 +89,7 @@ jobs:
           set +e
           set -o pipefail
           failures=0
-          for script in qa:s3 qa:s2 qa:m477 qa:m477:parity qa:m477:smoke qa:m477:visual; do
+          for script in qa:s4 qa:s3 qa:s2 qa:m477 qa:m477:parity qa:m477:smoke qa:m477:visual; do
             logfile="ci-results/$(echo "$script" | tr ':' '-').log"
             echo "::group::$script"
             npm run "$script" 2>&1 | tee "$logfile"
@@ -109,6 +111,10 @@ jobs:
           echo "Browser regression failures: $failures"
           exit "$((failures > 0))"
 
+      - name: Package S4 full source and QA
+        if: always()
+        run: python scripts/package-m477-s4.py
+
       - name: Upload QA reports, game and screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -120,6 +126,9 @@ jobs:
             ci-results/
             evidence/m477/
             evidence/m477-s2/
-            dist/Rafael_Brothers_M477_S3_STICKY_WEB_PREFABS.html
-            dist/m477-s2-build-manifest.json
-            dist/m477-s2-static-safety-report.json
+            evidence/m477-s3/
+            evidence/m477-s4/
+            dist/Rafael_Brothers_M477_S4_EGG_SAC_PREFABS.html
+            Rafael_Brothers_M477_S4_FULL_SOURCE_QA.zip
+            dist/m477-s4-build-manifest.json
+            dist/m477-s4-static-safety-report.json

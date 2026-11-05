@@ -1,0 +1,14 @@
+{
+  "baseline": "5c3cf7566f876a67aaae81491bc0eef34d057f6b",
+  "testedCommit": "09972c0a068866ec9e083666980c54756b13f9df",
+  "runId": 41772640558,
+  "jobId": 126386148668,
+  "conclusion": "success",
+  "nodePassed": 180,
+  "nodeFailed": 0,
+  "browserRegressionFailures": 0,
+  "artifactId": 13296335395,
+  "scope": "Controlled Phaser fixtures and retained regressions; no unaided full-stage/human/Safari/mobile acceptance",
+  "priorFailedRun": 41771952899,
+  "fix": "Await queued Phaser scene shutdown before assertions; production code unchanged"
+}

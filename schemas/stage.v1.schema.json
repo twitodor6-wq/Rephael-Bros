@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Rafael Brothers Stage Schema v1.0.0 — M4.7.3 additive",
+  "title": "Rafael Brothers Stage Schema v1.0.0 \u2014 M4.7.3 additive",
   "description": "Stage v1 prefab configurations including ceiling-spider and sticky-web hazards. Cross-object/world-bound checks in src/stage-loader.mjs.",
   "type": "object",
   "required": [
@@ -227,7 +227,8 @@
               "exit-grove",
               "collapsing-platform",
               "ceiling-spider",
-              "sticky-web"
+              "sticky-web",
+              "egg-sac"
             ]
           },
           "position": {
@@ -689,6 +690,119 @@
                       "maximum": 10
                     }
                   },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "egg-sac"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "radiusX": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 100
+                    },
+                    "radiusY": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 100
+                    },
+                    "silkTopOffsetY": {
+                      "type": "number",
+                      "minimum": -2000,
+                      "maximum": -1
+                    },
+                    "groundOffsetY": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 2000
+                    },
+                    "hatchSeconds": {
+                      "type": "number",
+                      "minimum": 0.01,
+                      "maximum": 10
+                    },
+                    "count": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 32
+                    },
+                    "gravity": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 2000
+                    },
+                    "spiderlingLifeSeconds": {
+                      "type": "number",
+                      "minimum": 0.1,
+                      "maximum": 30
+                    },
+                    "spiderlingSpeed": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 300
+                    },
+                    "damageCooldown": {
+                      "type": "number",
+                      "minimum": 0.1,
+                      "maximum": 10
+                    },
+                    "bumpX": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 500
+                    },
+                    "bumpY": {
+                      "type": "number",
+                      "minimum": -500,
+                      "maximum": 0
+                    },
+                    "roamOffset": {
+                      "type": "object",
+                      "required": [
+                        "minX",
+                        "maxX"
+                      ],
+                      "properties": {
+                        "minX": {
+                          "type": "number"
+                        },
+                        "maxX": {
+                          "type": "number"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "radiusX",
+                    "radiusY",
+                    "silkTopOffsetY",
+                    "groundOffsetY",
+                    "hatchSeconds",
+                    "count",
+                    "gravity",
+                    "spiderlingLifeSeconds",
+                    "spiderlingSpeed",
+                    "damageCooldown",
+                    "bumpX",
+                    "bumpY",
+                    "roamOffset"
+                  ],
                   "additionalProperties": false
                 }
               }

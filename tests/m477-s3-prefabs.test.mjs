@@ -75,7 +75,7 @@ test('invalid sizing, timings, properties, bounds and duplicate IDs are rejected
 });
 
 test('current build contains one Stage-driven web module, without legacy installer',()=>{
- const html=read('dist/Rafael_Brothers_M477_S3_STICKY_WEB_PREFABS.html');
+ const html=read('dist/Rafael_Brothers_M477_S4_EGG_SAC_PREFABS.html');
  const match=html.match(/<script id="rb-m44-sticky-web">([\s\S]*?)<\/script>/);
  assert.ok(match);
  assert.match(match[1],/Stage-owned sticky web/);
