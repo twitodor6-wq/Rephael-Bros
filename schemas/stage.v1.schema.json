@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Rafael Brothers Stage Schema v1.0.0 \u2014 M4.7.3 additive",
-  "description": "Stage v1 prefab configurations, including optional ceiling-spider enemies. Cross-object and world-bound checks in src/stage-loader.mjs; historical stages remain supported.",
+  "title": "Rafael Brothers Stage Schema v1.0.0 — M4.7.3 additive",
+  "description": "Stage v1 prefab configurations including ceiling-spider and sticky-web hazards. Cross-object/world-bound checks in src/stage-loader.mjs.",
   "type": "object",
   "required": [
     "schemaVersion",
@@ -226,7 +226,8 @@
               "falling-bridge-tree",
               "exit-grove",
               "collapsing-platform",
-              "ceiling-spider"
+              "ceiling-spider",
+              "sticky-web"
             ]
           },
           "position": {
@@ -618,6 +619,74 @@
                         }
                       },
                       "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "prefab": {
+                  "const": "sticky-web"
+                }
+              },
+              "required": [
+                "prefab"
+              ]
+            },
+            "then": {
+              "properties": {
+                "properties": {
+                  "type": "object",
+                  "required": [
+                    "size",
+                    "speedCap",
+                    "holdToTrapSeconds",
+                    "directionalEscapeSeconds",
+                    "maxTrapSeconds",
+                    "recoverySeconds",
+                    "cutRecoverySeconds",
+                    "swingDragPerSecond"
+                  ],
+                  "properties": {
+                    "size": {
+                      "$ref": "#/$defs/size"
+                    },
+                    "speedCap": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 230
+                    },
+                    "holdToTrapSeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "directionalEscapeSeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "maxTrapSeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 30
+                    },
+                    "recoverySeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 60
+                    },
+                    "cutRecoverySeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 60
+                    },
+                    "swingDragPerSecond": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 10
                     }
                   },
                   "additionalProperties": false

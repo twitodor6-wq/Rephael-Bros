@@ -12,7 +12,7 @@ const copy=()=>structuredClone(stage);
 test('unified Stage 01 JSON validated and three prefab factories present',()=>{
  assert.equal(run(stage).ok,true,run(stage).errors?.join('; '));
  const c=ctx.api.compileStageV1(stage);
- assert.deepEqual([...c.types].sort(),['ceiling-spider','collapsing-platform','environmental-anchor','exit-grove','falling-bridge-tree','root-bridge','rotten-root']);
+ assert.deepEqual([...c.types].sort(),['ceiling-spider','collapsing-platform','environmental-anchor','exit-grove','falling-bridge-tree','root-bridge','rotten-root','sticky-web']);
  assert.equal(c.anchors.anchors.length,5);
  assert.equal(c.modules.modules.length,stage.modules.length);
  assert.equal(c.config('rotten-root','rotten-root-ledge').anchor.x,920);

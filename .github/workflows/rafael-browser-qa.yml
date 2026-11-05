@@ -46,7 +46,7 @@ jobs:
       - name: Install Node dependencies
         run: npm install --no-audit --no-fund --no-package-lock 2>&1 | tee ci-results/npm-install.log
 
-      - name: Build S2 standalone browser game
+      - name: Build S3 standalone browser game
         run: npm run build 2>&1 | tee ci-results/build.log
 
       - name: Run Node regression tests
@@ -59,11 +59,12 @@ jobs:
         run: |
           python tests/m473-schema-check.py 2>&1 | tee ci-results/schema-m473.log
           python tests/m477-s2-schema-check.py 2>&1 | tee ci-results/schema-s2.log
+          python tests/m477-s3-schema-check.py 2>&1 | tee ci-results/schema-s3.log
 
       - name: Install Playwright Chromium and Linux dependencies
         run: npx playwright install --with-deps chromium 2>&1 | tee ci-results/chromium-install.log
 
-      - name: Capture initial S2 game screenshot (diagnostic only)
+      - name: Capture initial S3 game screenshot (diagnostic only)
         continue-on-error: true
         run: |
           node <<'NODE'
@@ -72,8 +73,8 @@ jobs:
           (async () => {
             const { browser, page } = await boot();
             try {
-              await page.screenshot({ path: path.join(R, 'ci-results/s2-initial.png'), fullPage: true });
-              console.log('Captured initial S2 gameplay screenshot');
+              await page.screenshot({ path: path.join(R, 'ci-results/s3-initial.png'), fullPage: true });
+              console.log('Captured initial S3 gameplay screenshot');
             } finally {
               await browser.close();
             }
@@ -86,7 +87,7 @@ jobs:
           set +e
           set -o pipefail
           failures=0
-          for script in qa:s2 qa:m477 qa:m477:parity qa:m477:smoke qa:m477:visual; do
+          for script in qa:s3 qa:s2 qa:m477 qa:m477:parity qa:m477:smoke qa:m477:visual; do
             logfile="ci-results/$(echo "$script" | tr ':' '-').log"
             echo "::group::$script"
             npm run "$script" 2>&1 | tee "$logfile"
@@ -119,6 +120,6 @@ jobs:
             ci-results/
             evidence/m477/
             evidence/m477-s2/
-            dist/Rafael_Brothers_M477_S2_ENEMY_PREFABS.html
+            dist/Rafael_Brothers_M477_S3_STICKY_WEB_PREFABS.html
             dist/m477-s2-build-manifest.json
             dist/m477-s2-static-safety-report.json
